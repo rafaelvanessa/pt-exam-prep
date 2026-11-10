@@ -689,27 +689,25 @@ function updateStats(){
  "Você ainda não concluiu nenhum simulado. Que tal começar agora?";
 }
 
+
 function showReview(button){
- hidePanels();setActive(button);
+ hidePanels();
+ setActive(button);
  const box=document.getElementById("reviewContent");
- if(!mistakes.length)box.textContent="Ainda não há questões erradas para revisar. Conclua um simulado para começar sua revisão.";
- else box.innerHTML=mistakes.slice().reverse().map((m,i)=>
- "<p><strong>"+(i+1)+". "+m.question.q[lang]+"</strong><br>Resposta correta: "+
- m.question.o[lang][m.question.a]+"</p><p>"+m.question.why[lang]+"</p><hr>"
- ).join("");
+
+ if(!mistakes.length){
+  box.textContent=translations[lang].noMistakes;
+ }else{
+  box.innerHTML=mistakes.slice().reverse().map((m,i)=>
+   "<p><strong>"+(i+1)+". "+m.question.q[lang]+"</strong><br>"+
+   (lang==="pt"?"Resposta correta: ":lang==="es"?"Respuesta correcta: ":"Correct answer: ")+
+   m.question.o[lang][m.question.a]+"</p><p>"+
+   m.question.why[lang]+"</p><hr>"
+  ).join("");
+ }
+
  document.getElementById("review").classList.remove("hidden");
  document.getElementById("review").scrollIntoView({behavior:"smooth"});
-}
-
-function showPerformance(button){
- hidePanels();setActive(button);
- document.getElementById("performanceContent").textContent=
- "Simulados concluídos: "+sessions+
- " | Questões respondidas: "+total+
- " | Acertos: "+hits+
- " | Aproveitamento geral: "+(total?Math.round(hits/total*100):0)+"%.";
- document.getElementById("performance").classList.remove("hidden");
- document.getElementById("performance").scrollIntoView({behavior:"smooth"});
 }
 
 updateStats();
