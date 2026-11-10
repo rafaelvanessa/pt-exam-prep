@@ -710,7 +710,19 @@ function showReview(button){
  document.getElementById("review").scrollIntoView({behavior:"smooth"});
 }
 
+function showPerformance(button){
+ hidePanels();
+ setActive(button);
+ const t=translations[lang];
+
+ document.getElementById("performanceContent").textContent=
+ t.completed+": "+sessions+
+ " | "+t.questions+": "+total+
+ " | "+t.hits+": "+hits+
+ " | "+t.overall+": "+(total?Math.round(hits/total*100):0)+"%.";
+
+ document.getElementById("performance").classList.remove("hidden");
+ document.getElementById("performance").scrollIntoView({behavior:"smooth"});
+}
+
 updateStats();
-</script>
-</body>
-</html>
