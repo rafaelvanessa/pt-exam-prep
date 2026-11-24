@@ -1,728 +1,1431 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PT Exam Prep | Florida</title>
+<title>PT Exam Prep Academy | Florida Licensure</title>
 <style>
-:root {
-  --navy:#102e59;
-  --blue:#2675d8;
-  --light:#f3f7fd;
-  --text:#142b50;
-  --muted:#718096;
-  --green:#16ad88;
-  --border:#dce5f2;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;background:var(--light);color:var(--text);
-  font-family:Arial,sans-serif;
-}
-button,select{font:inherit}
-button{cursor:pointer}
+:root{--navy:#102e59;--navy2:#173f73;--blue:#2675d8;--pale:#eaf2ff;--bg:#f4f7fd;--purple:#493184;--ink:#142b50;--muted:#6c7d98;--line:#dce5f2;--green:#16ad88;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}
+button,select{font:inherit}button{cursor:pointer}
 .app{display:flex;min-height:100vh}
-.sidebar{
-  width:245px;flex-shrink:0;background:linear-gradient(180deg,#102e59,#0c2850);
-  color:white;padding:25px 14px;display:flex;flex-direction:column;
+.sidebar{width:252px;flex-shrink:0;background:linear-gradient(180deg,#102e59,#0b2548);color:white;padding:22px 14px;display:flex;flex-direction:column}
+.brand{text-align:center;padding:8px 6px 28px}.brand-mark{font-size:36px}.brand h1{font-size:23px;margin:5px 0 2px}.brand p{font-size:12px;color:#c7d7ed;margin:0}
+.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#eaf2ff;text-align:left;padding:12px 13px;border-radius:12px;font-size:14px;transition:.18s}
+.nav button:hover,.nav button.active{background:#2b75d1;color:white}.nav .ico{display:inline-block;width:29px;font-size:17px}
+.sidebar-bottom{margin-top:auto;padding:18px 10px 8px;text-align:center;color:#c8d8ee}.sidebar-bottom strong{display:block;font-style:italic;font-size:18px;margin-bottom:6px}
+.side-language{margin-top:22px;border:1px solid #ffffff45;border-radius:14px;padding:12px}.side-language label{display:block;font-size:11px;color:#d5e3f5;margin:8px 0 5px}.side-language select{width:100%;padding:9px;border-radius:9px;border:1px solid #ffffff50;background:#173d6b;color:white;font-size:12px}
+main{flex:1;min-width:0;padding:20px 25px 30px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:17px}.topbar .eyebrow{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em}.topbar h2{font-size:27px;margin:4px 0;color:var(--navy)}.topbar p{margin:0;color:#536783;font-size:14px}
+.profile{display:flex;align-items:center;gap:10px;color:var(--navy);font-weight:700;white-space:nowrap}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#dceaff;font-size:20px}
+.profile-wrap {
+  position: relative;
 }
-.brand{text-align:center;margin-bottom:35px}
-.brand-mark{font-size:43px}
-.brand h1{font-size:25px;margin:4px 0}
-.brand small{color:#f4ca45;font-style:italic;font-size:20px}
-.nav{display:grid;gap:8px}
-.nav button{
-  border:0;background:transparent;color:white;text-align:left;
-  padding:13px 12px;border-radius:12px;font-size:14px;
+
+.profile {
+  cursor: pointer;
+  user-select: none;
 }
-.nav button:hover,.nav button.active{background:#2878d8}
-.nav .ico{display:inline-block;width:29px;font-size:18px}
-.sidebar-bottom{margin-top:auto;text-align:center;padding-top:35px}
-.sidebar-bottom p{font-size:22px;font-style:italic}
-.sidebar-bottom small{color:#b7c9e4}
-.content{flex:1;min-width:0;padding:24px 27px}
-.topbar{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:15px;margin-bottom:20px;flex-wrap:wrap;
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 230px;
+  padding: 16px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.12);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.topbar h2{font-size:30px;margin:0 0 7px;color:#102e59}
-.topbar p{margin:0;font-size:16px;color:#243f69}
-select{
-  background:white;border:1px solid #cbd8e9;border-radius:12px;
-  padding:12px 16px;color:var(--text);
+
+.profile-menu[hidden] {
+  display: none;
 }
-.banner{
-  min-height:145px;border-radius:18px;padding:28px 30px;margin-bottom:23px;
-  display:flex;align-items:center;gap:20px;overflow:hidden;
-  background:linear-gradient(105deg,#d9e7ff,#b8d7fb 60%,#dceeff);
+
+.profile-menu strong {
+  color: var(--navy);
 }
-.banner-icon{font-size:48px}
-.banner h3{font-size:23px;margin:0 0 7px;color:#102e59}
-.banner p{margin:0;line-height:1.5}
-.section-title{font-size:19px;margin:24px 0 13px;color:#102e59}
-.study-grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;
+
+.profile-menu small {
+  color: var(--muted);
+  overflow-wrap: anywhere;
 }
-.study-card{
-  min-height:205px;border-radius:17px;padding:23px;color:white;
-  display:flex;flex-direction:column;align-items:flex-start;
-  justify-content:space-between;overflow:hidden;
+
+.profile-menu button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fff0f0;
+  color: #b42318;
+  font-weight: 700;
+  cursor: pointer;
 }
-.study-card h3{font-size:25px;margin:0 0 10px}
-.study-card p{line-height:1.5;margin:0;max-width:290px}
-.study-card .symbol{font-size:35px;opacity:.9}
-.npte{background:linear-gradient(130deg,#073b80,#0879bd)}
-.laws{background:linear-gradient(130deg,#4c288d,#8650bb)}
-.ebp{background:linear-gradient(130deg,#087f80,#19aaa1)}
-.white-btn{
-  background:white;color:#102e59;border:0;border-radius:30px;
-  padding:11px 17px;font-weight:bold;margin-top:16px;
-}
-.white-btn:hover{background:#e8f1ff}
-.panel-grid{
-  display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:15px;margin-top:19px;
-}
-.panel{
-  background:white;border:1px solid var(--border);border-radius:16px;
-  padding:19px;box-shadow:0 3px 12px #18365c08;min-width:0;
-}
-.panel h3{margin:0 0 16px;font-size:18px}
-.progress-layout{display:flex;align-items:center;gap:20px}
-.ring{
-  width:125px;height:125px;border-radius:50%;
-  background:conic-gradient(var(--green) 0deg,#dce5ef 0deg);
-  display:grid;place-items:center;flex-shrink:0;position:relative;
-}
-.ring:before{
-  content:"";position:absolute;width:94px;height:94px;
-  border-radius:50%;background:white;
-}
-.ring strong{position:relative;font-size:27px}
-.ring small{display:block;font-size:12px;text-align:center}
-.legend{display:grid;gap:13px;font-size:13px}
-.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
-.blue{background:#2675d8}.yellow{background:#ffb72c}.green{background:#16ad88}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
-.stat{padding:8px;border-right:1px solid var(--border)}
-.stat:last-child{border:0}
-.stat span{display:block;color:var(--muted);font-size:12px;min-height:31px}
-.stat strong{font-size:27px;display:block;margin-top:8px}
-.green-text{color:var(--green)}
-.activity p{font-size:13px;line-height:1.6;color:#425675}
-.activity strong{color:var(--text)}
-.lower-grid{
-  display:grid;grid-template-columns:1fr .9fr 1.4fr;gap:16px;margin-top:18px;
-}
-.quick button{
-  display:block;width:100%;text-align:left;border:0;border-radius:10px;
-  background:#edf3fc;color:#173b6c;padding:12px;margin:8px 0;
-}
-.tip{background:#e9e1ff;text-align:center}
-.tip .bulb{font-size:35px}
-.tip p{font-style:italic;line-height:1.6}
-.topic-row{display:grid;grid-template-columns:125px 1fr 35px;gap:10px;align-items:center;margin:13px 0;font-size:13px}
-.bar{height:12px;border-radius:20px;background:#e1e8f1;overflow:hidden}
-.bar span{height:100%;display:block;background:#2878d8;border-radius:20px}
-#quiz{margin-top:22px}
-.hidden{display:none!important}
-.quiz-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-#question{font-size:17px;line-height:1.6;margin:20px 0}
-.option{
-  display:block;width:100%;text-align:left;background:#f3f7fd;color:var(--text);
-  margin:9px 0;border:1px solid var(--border);border-radius:10px;padding:14px;
-}
-.option.selected{background:#dceaff;border:2px solid var(--blue)}
-.primary{
-  background:var(--blue);color:white;border:0;border-radius:10px;
-  padding:12px 20px;font-weight:bold;
-}
-#feedback{white-space:pre-line;line-height:1.6;margin-top:18px}
-footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}
-@media(max-width:1050px){
-  .panel-grid{grid-template-columns:1fr 1fr}
-  .lower-grid{grid-template-columns:1fr 1fr}
-  .lower-grid .topics-panel{grid-column:span 2}
-}
-@media(max-width:760px){
-  .app{display:block}
-  .sidebar{width:100%;padding:12px}
-  .brand{margin:0 0 12px}
-  .brand-mark{font-size:27px}
-  .brand h1{font-size:19px;display:inline}
-  .brand small{font-size:15px}
-  .nav{display:flex;overflow-x:auto;gap:5px}
-  .nav button{white-space:nowrap;padding:10px;font-size:12px}
-  .nav .ico{width:auto;margin-right:5px}
-  .sidebar-bottom{display:none}
-  .content{padding:18px 13px}
-  .topbar h2{font-size:23px}
-  .banner{padding:20px;min-height:120px}
-  .banner-icon{font-size:35px}
-  .banner h3{font-size:18px}
-  .study-grid{grid-template-columns:1fr}
-  .study-card{min-height:170px}
-  .panel-grid,.lower-grid{grid-template-columns:1fr}
-  .lower-grid .topics-panel{grid-column:auto}
-}
+.hero{display:grid;grid-template-columns:1.7fr 1fr;gap:15px;margin-bottom:16px}
+.welcome{border-radius:18px;min-height:190px;padding:27px 30px;background:linear-gradient(105deg,#dceaff,#c5dcfb 65%,#e8f2ff);position:relative;overflow:hidden;display:flex;align-items:center}
+.welcome:after{content:"⚕";position:absolute;right:8%;bottom:-35px;font-size:175px;color:#ffffff80;transform:rotate(-12deg)}
+.welcome h3{font-size:29px;color:var(--navy);margin:0 0 9px;position:relative;z-index:1}.welcome p{max-width:470px;line-height:1.55;margin:0;color:#29496f;position:relative;z-index:1}
+.progress-card,.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 4px 15px #17365c08}
+.progress-card h3,.panel h3{font-size:17px;margin:0 0 14px;color:var(--navy)}
+.progress-flex{display:flex;align-items:center;gap:18px}.ring{width:112px;height:112px;border-radius:50%;background:conic-gradient(var(--green) 0deg,#e2eaf4 0deg);display:grid;place-items:center;flex-shrink:0;position:relative}.ring:before{content:"";position:absolute;width:84px;height:84px;background:white;border-radius:50%}.ring span{position:relative;text-align:center;font-size:25px;font-weight:800;color:var(--navy)}.ring small{display:block;font-size:11px;font-weight:500}
+.metrics{display:grid;gap:9px;font-size:12px;color:#536783}.metrics strong{display:block;color:var(--navy);font-size:18px}
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:15px 0}
+.study-card{min-height:190px;border-radius:17px;padding:22px 24px;color:white;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.study-card.npte{background:linear-gradient(120deg,#153e79,#0879bd)}.study-card.laws{background:linear-gradient(120deg,#402777,#7950b3)}
+.study-card .symbol{font-size:34px}.study-card h3{font-size:25px;margin:5px 0}.study-card p{margin:0;line-height:1.45;max-width:340px;color:#f0f5ff;font-size:14px}
+.pill{border:0;border-radius:30px;padding:11px 19px;background:white;color:var(--navy);font-weight:750;align-self:flex-start;margin-top:16px}
+.pill:hover{background:#eaf2ff}.lower{display:grid;grid-template-columns:1.2fr 1fr .9fr;gap:15px;margin-top:15px}
+.panel{min-width:0}.quick button{display:flex;align-items:center;gap:10px;width:100%;border:0;border-radius:10px;background:#eef4fd;color:#173b6c;padding:12px;margin:8px 0;text-align:left}
+.quick button:hover{background:#dceaff}.recent-row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #edf1f7;font-size:13px}.recent-row:last-child{border:0}.recent-row strong{color:var(--green);white-space:nowrap}
+.topic{display:grid;grid-template-columns:110px 1fr 34px;align-items:center;gap:8px;margin:13px 0;font-size:12px}.bar{height:10px;border-radius:20px;background:#e4eaf3;overflow:hidden}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#2675d8,#16ad88);border-radius:20px}
+.translation button{width:100%;padding:9px;border-radius:24px;border:1px solid #cbd8e9;background:white;color:var(--navy);margin:5px 0}.translation button.active{background:var(--navy);color:white}
+.goal{margin-top:15px;padding:17px 20px;border:1px solid #9bbbea;border-radius:16px;background:linear-gradient(100deg,#dceaff,#edf3ff);display:flex;align-items:center;justify-content:space-between;gap:12px}.goal strong{color:var(--navy)}.goal p{margin:4px 0 0;font-size:13px;color:#526987}.goal button,.primary{background:var(--blue);color:white;border:0;border-radius:10px;padding:11px 17px;font-weight:750}
+#quiz{margin-top:18px}.hidden{display:none!important}.quiz-panel{background:white;border:1px solid var(--line);border-radius:17px;padding:22px}.quiz-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.quiz-head h3{margin:0;color:var(--navy)}#question{font-size:17px;line-height:1.6;margin:20px 0}.option{display:block;width:100%;text-align:left;background:#f3f7fd;color:var(--ink);margin:9px 0;border:1px solid var(--line);border-radius:10px;padding:13px}.option.selected{background:#dceaff;border:2px solid var(--blue)}#feedback{white-space:pre-line;line-height:1.6;margin-top:18px}
+footer{text-align:center;color:var(--muted);padding:22px;font-size:11px}
+@media(max-width:1100px){.lower{grid-template-columns:1fr 1fr}.lower .translation{grid-column:span 2}.hero{grid-template-columns:1.4fr 1fr}}
+@media(max-width:760px){.app{display:block}.sidebar{width:100%;padding:10px}.brand{padding:3px 0 12px}.brand-mark{font-size:25px}.brand h1{display:inline;font-size:19px}.brand p{display:none}.nav{display:flex;overflow-x:auto;gap:4px}.nav button{white-space:nowrap;padding:10px;font-size:12px}.nav .ico{width:auto;margin-right:5px}.side-language,.sidebar-bottom{display:none}main{padding:15px 12px}.topbar h2{font-size:22px}.hero{grid-template-columns:1fr}.welcome{min-height:145px;padding:20px}.welcome h3{font-size:23px}.welcome:after{font-size:110px;right:3%}.study-grid{grid-template-columns:1fr}.study-card{min-height:165px}.lower{grid-template-columns:1fr}.lower .translation{grid-column:auto}.goal{align-items:flex-start;flex-direction:column}}
 </style>
+
+<style>
+#authGate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#102e59,#173f73 58%,#493184);display:flex;align-items:center;justify-content:center;padding:22px;font-family:Inter,Arial,sans-serif}
+#authGate[hidden]{display:none!important}
+.auth-card{width:min(100%,460px);background:#fff;border-radius:22px;padding:30px;box-shadow:0 24px 70px #071b3780;color:#142b50}
+.auth-brand{text-align:center;margin-bottom:22px}.auth-brand .mark{font-size:38px}.auth-brand h1{margin:4px 0;font-size:27px;color:#102e59}.auth-brand p{margin:0;color:#6c7d98;font-size:13px}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#edf3fc;padding:5px;border-radius:12px;margin:22px 0}
+.auth-tabs button{border:0;border-radius:9px;padding:11px;background:transparent;color:#29496f;font-weight:700}
+.auth-tabs button.active{background:#fff;box-shadow:0 2px 8px #17365c18;color:#102e59}
+.auth-field{display:block;margin:13px 0;font-size:13px;font-weight:700;color:#29496f}
+.auth-field input{display:block;width:100%;margin-top:6px;padding:13px 12px;border:1px solid #dce5f2;border-radius:10px;font:inherit;font-weight:400;color:#142b50;outline:none}
+.auth-field input:focus{border-color:#2675d8;box-shadow:0 0 0 3px #2675d81c}
+.auth-submit{width:100%;border:0;border-radius:11px;padding:14px;background:#2675d8;color:#fff;font-weight:700;font-size:15px;margin-top:10px}
+.auth-submit:disabled{opacity:.6;cursor:wait}
+#authMessage{min-height:38px;margin-top:14px;padding:9px 11px;border-radius:9px;background:#f4f7fd;color:#536783;font-size:13px;line-height:1.4}
+#authMessage.error{background:#fff0f0;color:#a52b2b}#authMessage.success{background:#eaf8f2;color:#176b4d}
+.auth-note{margin:14px 0 0;color:#71819a;font-size:11px;line-height:1.45;text-align:center}
+@media(max-width:520px){.auth-card{padding:23px 19px}}
+.forgot-password {
+  display: block;
+  margin: -4px 0 12px auto;
+  padding: 4px 0;
+  border: none;
+  background: transparent;
+  color: #2675d8;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+/* DASHBOARD DO ALUNO */
+#studentDashboard {
+  display: block;
+  width: 100%;
+}
+
+#studentDashboard > .panel {
+  background: #ffffff;
+  border: 1px solid #dce5f2;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 18px rgba(16, 42, 79, 0.05);
+}
+
+#studentDashboard h2 {
+  color: var(--navy);
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+#studentDashboard h3,
+#studentDashboard h4 {
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+#studentDashboard p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#studentDashboard > .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+#studentDashboard > .dashboard-grid > .panel {
+  margin: 0;
+  min-width: 0;
+}
+
+#studentDashboard > .panel .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+#studentDashboard #dashSubjectPerformance,
+#studentDashboard #dashExamHistory {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  #studentDashboard > .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #studentDashboard > .dashboard-grid,
+  #studentDashboard > .panel .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* LANDING PAGE PUBLICA - PT EXAM PREP ACADEMY */
+#publicLanding{min-height:100vh;background:#f7f9fd;color:#142b50;font-family:Inter,Arial,sans-serif}
+#publicLanding[hidden]{display:none!important}
+.landing-nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(20px,6vw,88px);background:#0b2142;color:#fff}
+.landing-brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.3px}
+.landing-brand-mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#3c91ed,#7655c7);font-size:23px}
+.landing-brand small{display:block;color:#b9cbe4;font-size:10px;font-weight:500;letter-spacing:1.6px;margin-top:3px}
+.landing-nav-actions{display:flex;align-items:center;gap:12px}
+.landing-language{border:1px solid #ffffff50;background:transparent;color:#fff;border-radius:9px;padding:9px 11px}
+.landing-language option{color:#142b50}
+.landing-login,.landing-start{border-radius:10px;padding:11px 19px;font-weight:750;cursor:pointer}
+.landing-login{border:1px solid #ffffff70;color:#fff;background:transparent}
+.landing-start{border:1px solid #4b8fe5;background:#3984df;color:#fff}
+.landing-hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 45%,#234e83 0%,#142f58 38%,#0b2142 78%);color:#fff;padding:72px clamp(22px,7vw,100px) 78px;min-height:530px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px}
+.landing-hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid #ffffff12;border-radius:50%;right:8%;top:2%;box-shadow:0 0 0 45px #ffffff08,0 0 0 95px #ffffff05}
+.landing-copy,.landing-art{position:relative;z-index:1}
+.landing-kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid #8db7eb55;background:#ffffff0d;color:#c9e1ff;border-radius:30px;padding:8px 13px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.landing-kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:#69d9c0;box-shadow:0 0 12px #69d9c0}
+.landing-copy h1{font-size:clamp(37px,4.5vw,61px);line-height:1.06;letter-spacing:-2px;margin:23px 0 19px;max-width:680px}
+.landing-copy h1 span{color:#8fc4ff}
+.landing-copy>p{font-size:17px;line-height:1.7;color:#c4d5eb;max-width:590px;margin:0 0 27px}
+.landing-hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.landing-hero-buttons button{padding:15px 21px;border-radius:11px;font-weight:800;font-size:14px;cursor:pointer}
+.landing-primary{background:linear-gradient(100deg,#398ce8,#6952c8);color:#fff;border:0;box-shadow:0 10px 25px #07172e66}
+.landing-secondary{background:#ffffff0b;border:1px solid #ffffff55;color:#fff}
+.landing-trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:29px;color:#a9c1df;font-size:12px}
+.landing-trust span:before{content:"✓";color:#70ddc2;font-weight:900;margin-right:7px}
+.landing-art{display:flex;justify-content:center;align-items:center;min-height:350px}
+.landing-art svg{width:min(100%,440px);height:auto;filter:drop-shadow(0 25px 45px #020d1c88)}
+.landing-section{padding:75px clamp(20px,7vw,100px)}
+.landing-section-heading{text-align:center;max-width:730px;margin:0 auto 37px}
+.landing-section-heading .eyebrow{color:#527fbd;font-size:11px;font-weight:850;letter-spacing:1.8px;text-transform:uppercase}
+.landing-section-heading h2{font-size:clamp(28px,3vw,39px);letter-spacing:-1px;color:#102e59;margin:12px 0}
+.landing-section-heading p{color:#667995;line-height:1.7;margin:0}
+.landing-feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1180px;margin:auto}
+.landing-feature{background:#fff;border:1px solid #e1e9f4;border-radius:18px;padding:25px;box-shadow:0 8px 25px #16345c08}
+.landing-feature-icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:#eaf2ff;font-size:24px;margin-bottom:18px}
+.landing-feature:nth-child(2) .landing-feature-icon{background:#f0eaff}
+.landing-feature:nth-child(3) .landing-feature-icon{background:#e6f8f4}
+.landing-feature h3{font-size:19px;color:#153864;margin:0 0 9px}
+.landing-feature p{font-size:14px;color:#687b96;line-height:1.65;margin:0}
+.landing-benefits{background:#edf3fb}
+.landing-benefit-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.landing-benefit{padding:19px;background:#fff;border:1px solid #e0e9f5;border-radius:14px}
+.landing-benefit strong{display:block;color:#173e70;font-size:14px;margin-bottom:6px}
+.landing-benefit span{color:#71819a;font-size:12px;line-height:1.5}
+.landing-cta{margin:0 clamp(20px,7vw,100px) 70px;padding:43px 35px;border-radius:22px;text-align:center;color:#fff;background:linear-gradient(110deg,#102e59,#254f85 60%,#493184)}
+.landing-cta h2{font-size:clamp(25px,3vw,35px);margin:0 0 10px}
+.landing-cta p{color:#d0def0;margin:0 0 22px}
+.landing-cta button{border:0;border-radius:10px;background:#fff;color:#153864;padding:14px 22px;font-weight:850;cursor:pointer}
+.landing-footer{background:#091d39;color:#a9bbd4;padding:25px clamp(20px,7vw,100px);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:12px}
+
+.landing-feature-grid-four{grid-template-columns:repeat(4,minmax(0,1fr));max-width:1320px}
+.landing-feature{position:relative;transition:transform .2s ease,box-shadow .2s ease}
+.landing-feature:hover{transform:translateY(-4px);box-shadow:0 16px 34px #16345c12}
+.landing-feature-label{display:block;color:#6384ad;font-size:9px;font-weight:850;letter-spacing:1.35px;margin:-5px 0 10px}
+.landing-feature:nth-child(4) .landing-feature-icon{background:#f1edff}
+.landing-progress-section{padding:78px clamp(20px,7vw,100px);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px;background:#fff}
+.landing-progress-copy{max-width:570px}
+.landing-progress-copy .eyebrow{color:#527fbd;font-size:11px;font-weight:850;letter-spacing:1.8px}
+.landing-progress-copy h2{font-size:clamp(29px,3.2vw,42px);line-height:1.12;letter-spacing:-1.2px;color:#102e59;margin:14px 0}
+.landing-progress-copy>p{color:#667995;line-height:1.75;font-size:15px}
+.landing-progress-copy ul{list-style:none;padding:0;margin:22px 0 27px;display:grid;gap:13px}
+.landing-progress-copy li{color:#385779;font-size:14px;line-height:1.5}
+.landing-progress-copy li:before{content:"✓";display:inline-grid;place-items:center;width:22px;height:22px;margin-right:10px;border-radius:50%;background:#e5f7f2;color:#159879;font-weight:900}
+.landing-progress-copy button{border:0;border-radius:10px;padding:14px 19px;color:#fff;background:linear-gradient(100deg,#398ce8,#6952c8);font-weight:800;cursor:pointer}
+.landing-progress-visual{min-width:0;padding:25px;border-radius:25px;background:radial-gradient(circle at 85% 15%,#dceaff,#edf2fc 52%,#e9e7f8)}
+.progress-window{max-width:560px;margin:auto;padding:22px;border:1px solid #e0e8f4;border-radius:17px;background:#fff;box-shadow:0 20px 55px #16345c16}
+.progress-window-top{display:flex;align-items:center;gap:5px;padding-bottom:18px;border-bottom:1px solid #edf1f7}
+.progress-window-top>span{width:7px;height:7px;border-radius:50%;background:#d5dfec}
+.progress-window-top b{margin-left:auto;color:#8293aa;font-size:9px;letter-spacing:1.3px}
+.progress-window-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:20px 0 14px}
+.progress-window-title strong{color:#173e70;font-size:16px}
+.progress-window-title small{color:#8494aa;font-size:10px}
+.progress-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.progress-stat-grid>div{padding:13px 10px;border:1px solid #e7edf6;border-radius:11px;background:#fbfcff}
+.progress-stat-grid small,.progress-stat-grid span{display:block;color:#8796aa;font-size:9px;letter-spacing:.5px}
+.progress-stat-grid strong{display:block;color:#173e70;font-size:23px;margin:8px 0 3px}
+.progress-chart-heading{display:flex;justify-content:space-between;gap:10px;margin:23px 0 16px;color:#254b78;font-size:12px}
+.progress-chart-heading span{color:#8a99ad;font-size:10px}
+.progress-bars{display:grid;gap:14px}
+.progress-bars>div{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center}
+.progress-bars span{font-size:10px;color:#687d98}
+.progress-bars i{height:8px;border-radius:20px;background:#edf1f7;overflow:hidden}
+.progress-bars i b{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#398ce8,#7258c8)}
+.progress-disclaimer{font-size:9px;color:#9aa7b8;line-height:1.5;margin:19px 0 0}
+@media(max-width:1050px){.landing-feature-grid-four{grid-template-columns:repeat(2,minmax(0,1fr))}.landing-progress-section{gap:28px}}
+@media(max-width:850px){.landing-progress-section{grid-template-columns:1fr;padding:58px 22px}.landing-progress-copy{max-width:720px}.landing-progress-visual{width:100%}}
+@media(max-width:520px){.landing-feature-grid-four{grid-template-columns:1fr}.landing-progress-section{padding:52px 20px}.landing-progress-visual{padding:12px}.progress-window{padding:15px}.progress-bars>div{grid-template-columns:105px 1fr}.progress-stat-grid>div{padding:10px 7px}.progress-stat-grid strong{font-size:19px}}
+
+@media(max-width:850px){.landing-hero{grid-template-columns:1fr;padding-top:58px;text-align:center}.landing-copy>p{margin-left:auto;margin-right:auto}.landing-hero-buttons,.landing-trust{justify-content:center}.landing-art{min-height:260px}.landing-art svg{max-width:330px}.landing-feature-grid{grid-template-columns:1fr}.landing-benefit-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.landing-nav{height:auto;min-height:72px;padding:13px 16px}.landing-brand{font-size:13px}.landing-brand-mark{width:36px;height:36px}.landing-nav-actions{gap:6px}.landing-login,.landing-start{padding:9px 10px;font-size:12px}.landing-language{padding:8px 5px;font-size:11px}.landing-hero{padding:48px 20px}.landing-copy h1{letter-spacing:-1.2px}.landing-copy>p{font-size:15px}.landing-art{min-height:220px}.landing-section{padding:55px 20px}.landing-benefit-grid{grid-template-columns:1fr}.landing-cta{margin:0 16px 45px;padding:32px 20px}}
+
+</style>
+
+
+<style>
+/* Student home refresh — v5 */
+.student-home{max-width:1450px;margin:0 auto}
+.student-welcome-banner{min-height:235px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;padding:34px 42px;border-radius:22px;background:linear-gradient(112deg,#102e59 0%,#174b82 62%,#493184 100%);color:#fff;box-shadow:0 14px 32px #102e591c}
+.student-welcome-copy{position:relative;z-index:2;max-width:660px}
+.student-kicker{display:block;color:#7298c7;font-size:9px;font-weight:900;letter-spacing:1.65px;margin-bottom:8px}
+.student-welcome-banner .student-kicker{color:#b9d6fa}
+.student-welcome-banner h3{font-size:clamp(25px,3vw,35px);line-height:1.13;letter-spacing:-.8px;margin:0 0 10px;color:#fff;max-width:650px}
+.student-welcome-banner p{font-size:14px;line-height:1.65;color:#d7e6f8;max-width:590px;margin:0}
+.student-banner-action{margin-top:20px;padding:12px 17px;border:0;border-radius:10px;background:#fff;color:#173e70;font-weight:800}
+.student-banner-art{width:48%;height:100%;position:absolute;right:0;top:0;transform:none;display:block;overflow:hidden;opacity:.98;z-index:1}
+.banner-medical-symbol{width:190px;height:210px;display:grid;place-items:center;background:transparent;filter:drop-shadow(0 8px 14px #081d3b55)}.banner-medical-symbol img{display:block;width:100%;height:100%;object-fit:contain}
+.banner-orbit{position:absolute;border:1px solid #ffffff35;border-radius:50%;transform:rotate(-25deg)}
+.orbit-one{width:220px;height:92px}.orbit-two{width:250px;height:130px;transform:rotate(42deg)}
+.banner-spark{position:absolute;color:#d9e9ff;font-size:24px}.spark-one{top:20px;right:35px}.spark-two{bottom:20px;left:20px}
+.student-section-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:30px 2px 13px}
+.student-section-heading h3{margin:0;color:#102e59;font-size:22px;letter-spacing:-.4px}
+.student-section-note{color:#8a9ab0;font-size:11px}
+.continue-learning-card{display:flex;align-items:center;gap:18px;padding:19px 21px;border:1px solid #dce7f5;border-radius:16px;background:linear-gradient(105deg,#fff,#f7faff);box-shadow:0 5px 18px #16345c08}
+.continue-icon{width:52px;height:52px;flex-shrink:0;display:grid;place-items:center;border-radius:14px;background:#e8f1ff;font-size:25px}
+.continue-content{flex:1;min-width:0}
+.continue-tag{font-size:9px;letter-spacing:1.2px;font-weight:900;color:#397ac2}
+.continue-content h4{font-size:17px;color:#153b6b;margin:5px 0}
+.continue-content p{font-size:12px;line-height:1.5;color:#71839d;margin:0}
+.continue-button{border:0;border-radius:10px;padding:12px 17px;background:#2675d8;color:#fff;font-weight:800;white-space:nowrap}
+.student-learning-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.learning-tile{min-height:230px;display:flex;flex-direction:column;align-items:flex-start;padding:18px;border:1px solid #e0e8f3;border-radius:16px;background:#fff;box-shadow:0 4px 15px #17365c08;transition:transform .18s ease,box-shadow .18s ease}
+.learning-tile:hover{transform:translateY(-3px);box-shadow:0 12px 25px #17365c12}
+.learning-tile-top{width:100%;display:flex;align-items:center;justify-content:space-between;gap:7px}
+.learning-tile-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:#edf4ff;font-size:22px}
+.learning-status{font-size:8px;font-weight:900;letter-spacing:.8px;color:#7d91ac;text-align:right}
+.learning-tile h4{margin:16px 0 7px;color:#163b6b;font-size:17px}
+.learning-tile p{font-size:12px;line-height:1.6;color:#6d809b;margin:0 0 17px;flex:1}
+.learning-tile button{border:0;background:transparent;color:#2675d8;padding:0;font-size:12px;font-weight:850}
+.learning-npte{border-top:3px solid #2675d8}.learning-laws{border-top:3px solid #7755b5}.learning-center{border-top:3px solid #20a58b}.learning-ai{border-top:3px solid #8a69d0}
+.learning-laws .learning-tile-icon{background:#f1edfb}.learning-center .learning-tile-icon{background:#e9f7f3}.learning-ai .learning-tile-icon{background:#f2edff}
+.learning-coming{display:inline-flex;padding:7px 10px;border-radius:20px;background:#f1f4f8;color:#75869e;font-size:10px;font-weight:750}
+.student-insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}
+.student-insight-panel{padding:20px}
+.student-panel-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.student-panel-heading h3{margin:0;font-size:17px}
+.insight-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#edf4ff;color:#397ac2;font-size:18px}
+.student-insight-panel .recent-row{font-size:12px}
+.student-insight-panel .topic{grid-template-columns:125px 1fr 30px;margin:11px 0}
+.student-insight-panel .topic b{font-size:10px;color:#8394aa;text-align:right}
+.student-data-note{font-size:10px;color:#93a1b4;margin:13px 0 0}
+.student-goal-strip{display:flex;align-items:center;gap:14px;margin-top:15px;padding:17px 20px;border:1px solid #d9e6f7;border-radius:15px;background:linear-gradient(100deg,#eaf2ff,#f4f1ff)}
+.goal-strip-icon{font-size:27px}
+.student-goal-strip>div{flex:1}
+.student-goal-strip strong{font-size:13px;color:#163b6b}
+.student-goal-strip p{font-size:11px;color:#71839d;margin:4px 0 0}
+.student-goal-strip button{border:0;background:transparent;color:#2675d8;font-size:12px;font-weight:850;white-space:nowrap}
+@media(max-width:1150px){.student-learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.student-banner-art{right:2%;opacity:.65}.student-welcome-copy{max-width:72%}}
+@media(max-width:760px){.student-welcome-banner{padding:26px 23px;min-height:225px}.student-banner-art{right:-60px;opacity:.24}.student-welcome-copy{max-width:100%}.student-section-heading{align-items:flex-start;flex-direction:column;gap:4px}.student-section-note{font-size:10px}.continue-learning-card{align-items:flex-start;flex-wrap:wrap}.continue-content{flex-basis:calc(100% - 75px)}.continue-button{margin-left:70px}.student-learning-grid,.student-insights-grid{grid-template-columns:1fr}.learning-tile{min-height:190px}.student-goal-strip{align-items:flex-start;flex-wrap:wrap}.student-goal-strip>div{flex:1 1 calc(100% - 55px)}.student-goal-strip button{margin-left:40px}}
+</style>
+
 </head>
 <body>
-<div class="app">
 
+
+<div id="publicLanding">
+  <header class="landing-nav">
+    <div class="landing-brand">
+      <div class="landing-brand-mark">⚕</div>
+      <div>PT EXAM PREP ACADEMY<small>PREPARE · PRACTICE · PROGRESS</small></div>
+    </div>
+    <div class="landing-nav-actions">
+      <select id="landingLanguage" class="landing-language" aria-label="Language">
+        <option value="en">EN</option><option value="pt">PT</option>
+      </select>
+      <button class="landing-login" type="button" onclick="openAuth('login')" data-en="Log in" data-pt="Entrar">Log in</button>
+      <button class="landing-start" type="button" onclick="openAuth('signup')" data-en="Get started" data-pt="Começar">Get started</button>
+    </div>
+  </header>
+
+  <section class="landing-hero">
+    <div class="landing-copy">
+      <div class="landing-kicker" data-en="PHYSICAL THERAPY LICENSURE · FLORIDA" data-pt="LICENCIAMENTO EM FISIOTERAPIA · FLÓRIDA">PHYSICAL THERAPY LICENSURE · FLORIDA</div>
+      <h1 data-en-html="Your journey to becoming a <span>licensed physical therapist</span> starts here." data-pt-html="Sua jornada para se tornar um <span>fisioterapeuta licenciado</span> começa aqui.">Your journey to becoming a <span>licensed physical therapist</span> starts here.</h1>
+      <p data-en="Prepare with confidence for the NPTE and Florida Laws & Rules through exam-style practice, clinical case questions, focused study resources, and performance tracking." data-pt="Prepare-se com confiança para o NPTE e Florida Laws & Rules com questões no estilo da prova, casos clínicos, materiais de estudo e acompanhamento do seu desempenho.">Prepare with confidence for the NPTE and Florida Laws & Rules through exam-style practice, clinical case questions, focused study resources, and performance tracking.</p>
+      <div class="landing-hero-buttons">
+        <button class="landing-primary" type="button" onclick="openAuth('signup')" data-en="Start preparing →" data-pt="Começar a estudar →">Start preparing →</button>
+        <button class="landing-secondary" type="button" onclick="document.getElementById('landingPrograms').scrollIntoView({behavior:'smooth'})" data-en="Explore the platform" data-pt="Conheça a plataforma">Explore the platform</button>
+      </div>
+      <div class="landing-trust">
+        <span data-en="NPTE-focused practice" data-pt="Prática focada no NPTE">NPTE-focused practice</span>
+        <span data-en="Florida licensure resources" data-pt="Recursos para licença na Flórida">Florida licensure resources</span>
+      </div>
+    </div>
+    <div class="landing-art" aria-label="Medical anatomy illustration">
+      <svg viewBox="0 0 430 480" role="img" aria-label="Stylized anatomical human figure">
+        <defs>
+          <linearGradient id="bodyGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9dcff"/><stop offset=".48" stop-color="#6ca9ed"/><stop offset="1" stop-color="#a78bea"/></linearGradient>
+          <linearGradient id="boneGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f7ff"/><stop offset="1" stop-color="#83b8ee"/></linearGradient>
+          <radialGradient id="halo"><stop stop-color="#7cbaff" stop-opacity=".35"/><stop offset="1" stop-color="#7cbaff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="218" cy="225" r="205" fill="url(#halo)"/>
+        <circle cx="218" cy="225" r="168" fill="none" stroke="#9ac9ff" stroke-opacity=".2" stroke-width="1.5"/>
+        <circle cx="218" cy="225" r="143" fill="none" stroke="#9ac9ff" stroke-opacity=".15" stroke-dasharray="4 9"/>
+        <g stroke="url(#bodyGlow)" stroke-width="3" fill="#5c9de0" fill-opacity=".18" stroke-linejoin="round">
+          <path d="M190 66 Q218 48 246 66 L255 96 Q249 117 239 127 L246 148 Q278 155 296 180 L280 263 Q272 290 258 306 L250 365 L267 447 L231 447 L215 345 L199 447 L163 447 L185 365 L178 306 Q158 290 150 263 L135 180 Q153 155 185 148 L197 127 Q187 115 181 96Z"/>
+          <path d="M185 151 Q216 169 251 151 L270 250 Q244 275 218 276 Q187 274 161 250Z" fill="#5c9de0" fill-opacity=".12"/>
+          <path d="M151 178 L116 258 L91 333 L105 339 L143 273 L174 210 M278 178 L315 258 L341 333 L327 339 L289 273 L258 210" fill="none" stroke-width="17" stroke-linecap="round"/>
+          <path d="M185 300 L175 367 L163 447 M251 300 L261 367 L273 447" fill="none" stroke-width="18" stroke-linecap="round"/>
+        </g>
+        <g stroke="url(#boneGlow)" stroke-width="5" fill="none" stroke-linecap="round">
+          <path d="M218 91 L218 148 L218 204 L218 262 L218 314"/>
+          <path d="M192 158 Q218 143 244 158 M183 171 Q218 150 253 171 M177 186 Q218 162 259 186 M174 202 Q218 177 262 202 M177 218 Q218 193 259 218 M184 234 Q218 210 252 234"/>
+          <path d="M218 146 L179 166 L151 204 L132 257 M218 146 L257 166 L285 204 L304 257"/>
+          <path d="M218 314 L185 354 L174 405 L163 447 M218 314 L251 354 L262 405 L273 447"/>
+          <path d="M179 166 L153 205 M257 166 L283 205" stroke-width="7"/>
+        </g>
+        <g fill="#9fd0ff" stroke="#d7ebff" stroke-width="2">
+          <circle cx="218" cy="78" r="27"/><path d="M197 78 Q218 55 239 78 Q235 104 218 106 Q201 103 197 78Z" fill="#8bbced"/>
+          <circle cx="218" cy="149" r="7"/><circle cx="218" cy="204" r="6"/><circle cx="218" cy="262" r="6"/>
+        </g>
+        <g fill="none" stroke="#9bcaff" stroke-width="1.5" opacity=".75">
+          <path d="M35 155 H105 L145 185"/><path d="M285 115 H355 L382 90"/><path d="M280 310 H360 L390 340"/>
+        </g>
+        <g fill="#cfe6ff" font-family="Arial,sans-serif" font-size="10" letter-spacing="1.4">
+          <text x="24" y="145">ANATOMY</text><text x="335" y="78">CLINICAL</text><text x="355" y="355">MOVEMENT</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="landing-section" id="landingPrograms">
+    <div class="landing-section-heading">
+      <div class="eyebrow" data-en="YOUR STUDY JOURNEY" data-pt="SUA JORNADA DE ESTUDOS">YOUR STUDY JOURNEY</div>
+      <h2 data-en="Everything you need to prepare with purpose" data-pt="Tudo o que você precisa para estudar com propósito">Everything you need to prepare with purpose</h2>
+      <p data-en="A focused learning environment designed around the key steps of the Florida physical therapy licensure journey." data-pt="Um ambiente de aprendizagem pensado para as principais etapas da jornada de licenciamento em fisioterapia na Flórida.">A focused learning environment designed around the key steps of the Florida physical therapy licensure journey.</p>
+    </div>
+    <div class="landing-feature-grid landing-feature-grid-four">
+      <article class="landing-feature"><div class="landing-feature-icon">🩺</div><span class="landing-feature-label" data-en="EXAM PRACTICE" data-pt="PRÁTICA PARA A PROVA">EXAM PRACTICE</span><h3 data-en="NPTE Preparation" data-pt="Preparação para o NPTE">NPTE Preparation</h3><p data-en="Mixed exam-style questions, clinical case scenarios, and explanations to strengthen clinical reasoning and evidence-based practice." data-pt="Questões variadas no estilo da prova, casos clínicos e explicações para fortalecer o raciocínio clínico e a prática baseada em evidências.">Mixed exam-style questions, clinical case scenarios, and explanations to strengthen clinical reasoning and evidence-based practice.</p></article>
+      <article class="landing-feature"><div class="landing-feature-icon">⚖️</div><span class="landing-feature-label" data-en="FLORIDA LICENSURE" data-pt="LICENCIAMENTO NA FLÓRIDA">FLORIDA LICENSURE</span><h3 data-en="Florida Laws & Rules" data-pt="Florida Laws & Rules">Florida Laws & Rules</h3><p data-en="Review the laws, regulations, and professional responsibilities relevant to physical therapy practice in Florida." data-pt="Revise leis, regulamentos e responsabilidades profissionais relacionados à atuação da fisioterapia na Flórida.">Review the laws, regulations, and professional responsibilities relevant to physical therapy practice in Florida.</p></article>
+      <article class="landing-feature"><div class="landing-feature-icon">📚</div><span class="landing-feature-label" data-en="STUDY RESOURCES" data-pt="MATERIAIS DE ESTUDO">STUDY RESOURCES</span><h3 data-en="Study Center" data-pt="Study Center">Study Center</h3><p data-en="Access your learning library and review study materials that support your preparation across key physical therapy subjects." data-pt="Acesse sua biblioteca de aprendizagem e revise materiais que apoiam sua preparação nas principais áreas da fisioterapia.">Access your learning library and review study materials that support your preparation across key physical therapy subjects.</p></article>
+      <article class="landing-feature"><div class="landing-feature-icon">✨</div><span class="landing-feature-label" data-en="VISUAL LEARNING" data-pt="APRENDIZAGEM VISUAL">VISUAL LEARNING</span><h3 data-en="AI Visual Tutor" data-pt="AI Visual Tutor">AI Visual Tutor</h3><p data-en="Explore visual explanations designed to make complex anatomy, movement, and clinical concepts easier to understand." data-pt="Explore explicações visuais pensadas para facilitar a compreensão de anatomia, movimento e conceitos clínicos complexos.">Explore visual explanations designed to make complex anatomy, movement, and clinical concepts easier to understand.</p></article>
+    </div>
+  </section>
+
+  <section class="landing-section landing-benefits">
+    <div class="landing-section-heading">
+      <div class="eyebrow" data-en="BUILT FOR ACTIVE LEARNING" data-pt="FEITO PARA APRENDIZAGEM ATIVA">BUILT FOR ACTIVE LEARNING</div>
+      <h2 data-en="Practice. Understand. Improve." data-pt="Pratique. Compreenda. Evolua.">Practice. Understand. Improve.</h2>
+    </div>
+    <div class="landing-benefit-grid">
+      <div class="landing-benefit"><strong data-en="Clinical case questions" data-pt="Questões com casos clínicos">Clinical case questions</strong><span data-en="Apply knowledge to realistic patient scenarios." data-pt="Aplique conhecimentos a situações realistas de pacientes.">Apply knowledge to realistic patient scenarios.</span></div>
+      <div class="landing-benefit"><strong data-en="Detailed explanations" data-pt="Explicações detalhadas">Detailed explanations</strong><span data-en="Understand the reasoning behind the answers." data-pt="Entenda o raciocínio por trás das respostas.">Understand the reasoning behind the answers.</span></div>
+      <div class="landing-benefit"><strong data-en="Progress tracking" data-pt="Acompanhamento de desempenho">Progress tracking</strong><span data-en="Review your results and identify study priorities." data-pt="Acompanhe resultados e identifique prioridades de estudo.">Review your results and identify study priorities.</span></div>
+      <div class="landing-benefit"><strong data-en="Bilingual experience" data-pt="Experiência bilíngue">Bilingual experience</strong><span data-en="Use the platform in English or Brazilian Portuguese." data-pt="Utilize a plataforma em inglês ou português do Brasil.">Use the platform in English or Brazilian Portuguese.</span></div>
+    </div>
+  </section>
+
+  <section class="landing-progress-section">
+    <div class="landing-progress-copy">
+      <div class="eyebrow" data-en="YOUR PROGRESS, AT A GLANCE" data-pt="SUA EVOLUÇÃO EM UM SÓ LUGAR">YOUR PROGRESS, AT A GLANCE</div>
+      <h2 data-en="Make every study session count." data-pt="Faça cada sessão de estudo valer a pena.">Make every study session count.</h2>
+      <p data-en="Build a consistent study routine and use your learning history to understand what is improving and what deserves more attention." data-pt="Construa uma rotina de estudos consistente e use seu histórico para entender o que está evoluindo e o que merece mais atenção.">Build a consistent study routine and use your learning history to understand what is improving and what deserves more attention.</p>
+      <ul>
+        <li data-en="Review practice history and completed exams." data-pt="Revise o histórico de práticas e simulados concluídos.">Review practice history and completed exams.</li>
+        <li data-en="Follow your accuracy and performance by subject." data-pt="Acompanhe seus acertos e desempenho por disciplina.">Follow your accuracy and performance by subject.</li>
+        <li data-en="Identify topics that may need another review." data-pt="Identifique conteúdos que podem precisar de uma nova revisão.">Identify topics that may need another review.</li>
+      </ul>
+      <button type="button" onclick="openAuth('signup')" data-en="Start your study journey →" data-pt="Comece sua jornada de estudos →">Start your study journey →</button>
+    </div>
+    <div class="landing-progress-visual" aria-label="Illustrative student progress dashboard">
+      <div class="progress-window">
+        <div class="progress-window-top"><span></span><span></span><span></span><b data-en="MY PERFORMANCE" data-pt="MEU DESEMPENHO">MY PERFORMANCE</b></div>
+        <div class="progress-window-title"><strong data-en="Study overview" data-pt="Visão geral dos estudos">Study overview</strong><small data-en="Illustrative preview" data-pt="Prévia ilustrativa">Illustrative preview</small></div>
+        <div class="progress-stat-grid">
+          <div><small data-en="QUESTIONS" data-pt="QUESTÕES">QUESTIONS</small><strong>—</strong><span data-en="Answered" data-pt="Respondidas">Answered</span></div>
+          <div><small data-en="ACCURACY" data-pt="ACERTOS">ACCURACY</small><strong>—%</strong><span data-en="Overall" data-pt="Geral">Overall</span></div>
+          <div><small data-en="PRACTICE" data-pt="PRÁTICAS">PRACTICE</small><strong>—</strong><span data-en="Sessions" data-pt="Sessões">Sessions</span></div>
+        </div>
+        <div class="progress-chart-heading"><strong data-en="Performance by subject" data-pt="Desempenho por disciplina">Performance by subject</strong><span data-en="Your results" data-pt="Seus resultados">Your results</span></div>
+        <div class="progress-bars">
+          <div><span data-en="Musculoskeletal" data-pt="Musculoesquelético">Musculoskeletal</span><i><b style="width:72%"></b></i></div>
+          <div><span data-en="Neuromuscular" data-pt="Neuromuscular">Neuromuscular</span><i><b style="width:54%"></b></i></div>
+          <div><span data-en="Cardiopulmonary" data-pt="Cardiopulmonar">Cardiopulmonary</span><i><b style="width:64%"></b></i></div>
+        </div>
+        <p class="progress-disclaimer" data-en="Illustrative interface preview — actual results depend on your study activity." data-pt="Prévia ilustrativa da interface — os resultados reais dependem das suas atividades de estudo.">Illustrative interface preview — actual results depend on your study activity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="landing-cta">
+    <h2 data-en="Take the next step toward your Florida PT license." data-pt="Dê o próximo passo rumo à sua licença de fisioterapia na Flórida.">Take the next step toward your Florida PT license.</h2>
+    <p data-en="Build your knowledge, practice with intention, and keep moving forward." data-pt="Amplie seus conhecimentos, pratique com intenção e continue avançando.">Build your knowledge, practice with intention, and keep moving forward.</p>
+    <button type="button" onclick="openAuth('signup')" data-en="Create your account" data-pt="Criar minha conta">Create your account</button>
+  </section>
+  <footer class="landing-footer"><strong>PT Exam Prep Academy</strong><span data-en="Independent educational platform · Content for study purposes" data-pt="Plataforma educacional independente · Conteúdo para fins de estudo">Independent educational platform · Content for study purposes</span></footer>
+</div>
+
+
+<div id="authGate" hidden>
+  <section class="auth-card" aria-labelledby="authHeading">
+    <div class="auth-brand">
+      <div class="mark">⚕</div>
+      <h1 id="authHeading">PT Exam Prep</h1>
+      <p id="authSubtitle">Prepare. Practice. Pass.</p>
+    </div>
+    <div class="auth-tabs">
+      <button type="button" id="loginTab" class="active">Entrar</button>
+      <button type="button" id="signupTab">Criar conta</button>
+    </div>
+    <form id="authForm">
+      <div id="nameField" hidden>
+        <label class="auth-field" for="authName">Nome completo
+          <input id="authName" type="text" autocomplete="name" placeholder="Seu nome completo">
+        </label>
+      </div>
+      <label class="auth-field" for="authEmail">E-mail
+        <input id="authEmail" type="email" autocomplete="email" required placeholder="seuemail@exemplo.com">
+      </label>
+      <label class="auth-field" for="authPassword">Senha
+        <input id="authPassword" type="password" autocomplete="current-password" minlength="8" required placeholder="Mínimo de 8 caracteres">
+      </label>
+      <button type="button" id="forgotPassword" class="forgot-password">
+  Esqueci minha senha
+</button>
+      <div id="confirmField" hidden>
+        <label class="auth-field" for="authConfirm">Confirmar senha
+          <input id="authConfirm" type="password" autocomplete="new-password" minlength="8" placeholder="Digite a senha novamente">
+        </label>
+      </div>
+      <button class="auth-submit" id="authSubmit" type="submit">Entrar</button>
+    </form>
+    <div id="authMessage" role="status" aria-live="polite">Entre com sua conta para acessar seus estudos.</div>
+    <p class="auth-note" id="authNote">Seu acesso e seu histórico de estudos são individuais.</p>
+  </section>
+</div>
+
+<div class="app" id="mainApp" style="display:none">
 <aside class="sidebar">
-  <div class="brand">
-    <div class="brand-mark">⚕️</div>
-    <h1>PT Exam Prep</h1>
-    <br><small>Florida</small>
-  </div>
-
+  <div class="brand"><div class="brand-mark">⚕️</div><h1>PT Exam Prep</h1><p id="brandTagline">Prepare. Practice. Pass.</p></div>
   <nav class="nav">
-    <button class="active" onclick="showDashboard(this)"><span class="ico">⌂</span>Dashboard</button>
-    <button onclick="start('npte',this)"><span class="ico">▤</span>NPTE</button>
-    <button onclick="start('laws',this)"><span class="ico">⚖</span>Florida Laws & Rules</button>
-    <button onclick="start('ebp',this)"><span class="ico">⌕</span>Evidence-Based Practice</button>
-    <button onclick="start('all',this)"><span class="ico">☑</span>Simulados completos</button>
-    <button onclick="showReview(this)"><span class="ico">⟳</span>Revisão de questões</button>
+    <button class="active" onclick="showDashboard(this)"><span class="ico">⌂</span>Início</button>
+    <button onclick="showStudentDashboard(this)"><span class="ico">▦</span>Dashboard</button>
+    <button onclick="start('npte',this)"><span class="ico">▤</span>Praticar por tópico</button>
+    <button onclick="start('all',this)"><span class="ico">◷</span>Simulados completos</button>
+    <button onclick="showReview(this)"><span class="ico">⟳</span>Revisar questões</button>
     <button onclick="showPerformance(this)"><span class="ico">▥</span>Meu desempenho</button>
+    <button onclick="showStudyPlan(this)"><span class="ico">▦</span>Plano de estudos</button>
+    <button onclick="showGlossary(this)"><span class="ico">▤</span>Glossário</button>
   </nav>
-
-  <div class="sidebar-bottom">
-    <p>You can do it!</p>
-    <small>Your Florida PT journey</small>
+  <div class="side-language">
+    <label for="globalLanguage" id="languageLabel">IDIOMA DO SITE E DAS QUESTÕES</label>
+    <select id="globalLanguage" onchange="changeLanguages()"><option value="pt">🇧🇷 Português (Brasil)</option><option value="en">🇺🇸 English (United States)</option></select>
   </div>
+  <div class="sidebar-bottom"><strong id="sidebarMotivation">Você consegue!</strong><small id="sidebarJourney">Sua jornada rumo à licença na Flórida</small></div>
 </aside>
-
-<main class="content">
+<main>
   <div class="topbar">
-    <div>
-      <h2 id="welcome">Bem-vinda, Vanessa! 👋</h2>
-      <p id="subtitle">Prepare-se, pratique e conquiste sua licença na Flórida.</p>
+    <div><div class="eyebrow" id="eyebrow">PHYSICAL THERAPY LICENSURE • FLORIDA</div><h2 id="welcome">Bem-vinda, Vanessa! 👋</h2><p id="subtitle">Sua preparação para a licença de fisioterapia começa aqui.</p></div>
+    <div class="profile-wrap">
+  <div class="profile" id="profileButton">
+    <span class="avatar">👩🏻‍⚕️</span>
+    <span id="profileName">Vanessa</span>
+    <span>⌄</span>
+  </div>
+  <div class="profile-menu" id="profileMenu" hidden>
+    <strong id="profileMenuName">Vanessa</strong>
+    <small id="profileEmail"></small>
+    <button id="logoutButton" type="button">Sair</button>
+  </div>
+</div>
+  </div>
+  <section id="dashboard" class="student-home">
+    <div class="student-welcome-banner">
+      <div class="student-welcome-copy">
+        <span class="student-kicker" data-en="YOUR FLORIDA PT JOURNEY" data-pt="SUA JORNADA NA FISIOTERAPIA DA FLÓRIDA">YOUR FLORIDA PT JOURNEY</span>
+        <h3 id="heroTitle" data-en="Welcome back. Your next step starts here." data-pt="Bem-vinda de volta. Seu próximo passo começa aqui.">Welcome back. Your next step starts here.</h3>
+        <p id="heroText" data-en="Build your confidence with focused practice, clinical reasoning, and a study plan that moves you forward." data-pt="Desenvolva sua confiança com práticas direcionadas, raciocínio clínico e um plano de estudos que ajuda você a avançar.">Build your confidence with focused practice, clinical reasoning, and a study plan that moves you forward.</p>
+        <button class="student-banner-action" onclick="start('npte')" data-en="Continue NPTE practice →" data-pt="Continuar prática NPTE →">Continue NPTE practice →</button>
+      </div>
+      <div class="student-banner-art" aria-hidden="true"><img src="data:image/webp;base64,UklGRnZhAABXRUJQVlA4IGphAACwZwGdASqKAikBPjEWiUOiISEiJdP7QEAGCUUDdNHeIT4SlFe1z2U8b/AP5n5U/kp813F/cH7l/Bf5j/Z/4r9uPud/h/SB7JfA/8PzXedP+H/gP8r+0vzD/33/d9nH6j/7/5//QP+tH+8/sf+j+FP/D/b73z/3j/k/kz8Ff6b/mf2j93r/efs37s/7h/pP2k/3PyDf0f/V/+X1v/ZB/dj//+4V/Qv9D/+/Xd/cr4Wf6x/vP2x/7HyQfsv//fYA//Pth/wD/48YR/6vQ10e8Q/yD6p/Jf3f9rv8D7pGs/sk/0/Qn+S/h/9L/e/3Q9x/C38w/lf+N6h347/Nf8v+aP+G/bv63pEnYT8n0FPcX7Z/tv8d/lf/F/kfT91sPFX/V+3T7Af6D/Yf+D/fvPC8RD1n2B/6X/o/+//qvdj/uv/j/tf9D64/zr/Rf+L/U/Ap/Nv7b/yf8Hw3pULDXpXtytC4Uvt/9J8DYDP6ayirQ4DP6rFPjQJa+TIzYgeS5zpYzvRhPSfA2Az+qxT4r5v+uuOwycRt9lpTwUYH0Uqm7U/z7CSaHHKlJ3hB86qyzDkNoCPvL0iPbk6XQ8wV8jmMWF6ZHf3ryHxMa0f3IU0B2ZBjYEor3VoU/nR2lLLK9M/wjwcReHLEfjO+PRf7RfSBGWzj+L7dVyJ0lhx7fgxE62m5mNGkgytMeZn66Sn6clt0KcksEBW+1pannktLI17zQU/QlG/9yM/p4WmTMHoKuAA5/Lr9Xa5Bm/Uo7yQ4dDmfMSabYIgzKfxGdc3sgvb6d0qDm4c8LZ25N9UMF17kGH6EEJg7wgcOgOYd8IVoBK6iTiXc9LH46iCTNr07tJXD4Jn+LWt3GUZdG7PuQYgf8/NPvzCBQzKkhs6nQucT+8Qp7+yUnngcLuywvik83+bKTMOj52S1Rxw6YyYoVrIXz9BeoUBUEJF0ViLumMnl1xr7yxygEygZ8ibkAnq7KG/KrfQOTz5O4wz83gGAxcWI+CbWy7dpIjqj4ezKLbaMkpVpRHf0UCmOS4d3gEDIG7EQwTL+B6FZKaUvvTHF82JZVX83VKTVvuuX9CE1ypS9KvTpo0mBkUwnXfyxSp70U8zCsFxXokHcxlWxrd6YSEDkMxUD3CtYEl5fbjuwnKwiyINMUAxPvShDJu3425ImNMjsPb/6LLHc9s9OB1sviafbgRN9K0dUz34UFR2P3NjgCF+hab92MWIl/BG1fGPlCKf5Mw0bBgYmcoD8bwejTxkbhtvqEa8wuXej9RiBXonlvhYPhXauYoFn4v63O/VP6/3V9nmielEsBMFqYZ3TI9DUdk1wZ2J6oyJzQITivjRXh17j766ob3EiG3pC4ChNlJZRMw2kK5eSOyYEgJm5H+ojyjDZ5G7DG/3Op95BH6lc/M4SELchRQiB/fpR/fhveQ0QDtwavVvGiamg+UJQVLKpR3aoDultkp/Rqv0StaAo7IV+M7hO+9YW57TV6NK6v8gIlqnvgxNrZVIBuAygDMGmvlXTdA9qCvkoQpQy5OjXvpFVv+NyuL/bSoK9T9jaLf/fNkwU29hvhZKMNhP6unjRXmXWA8wGZh5L3NkKpDQtLS3I6XTHkRpa+VzywEIpqedoa20PoTw5t/92Er7DOr6ioDHy4F/nHYb5YHweW0jhPqENYyhvVscmYMV3ipu7SuWscKqrkoY5oeLc9/MGjF75OgGnXTop7cm4Q42efB3PciR7zElosz/X0LzZXvBJcupNev1vj/UfYI1pdkYrqdk5Wy/TxX94xzRw8QIGxVkYt1WMfIQYpbsFw0zpL+U1ozVoohx54P5RvC1wKMJGE/3VzXJmXaPMJTRFw/7OcxHcHZpxU7aDgE6Vj5A9G9Z3wKU5Xc4v4bjh2awAXBc5JDjU3lVDQ2TxG9XEogh8useSBlGJemphSsec48trbcBLC4RPtgjAt5zCwiFXLmVNpgc0HwQ25/8ClahbUdfQQU0/KKp0C7eJPjQBWzPkHjQxgU6diT1u8vEnAlVsyiP3/UNJcUkF2Qz/1nBoM0/lUon7CLLGRNQvT8mu7JAoioiDUORfcmT9JqMlUf+ehODNczszhg/fPfcNVk/9zXrKV84dJ0wPSVyl4v3h7lcEBzKeo0HPCrmYkbL1bRIrX1WFjuSIrtkKdDFSneJMlOj7U4v/A0kXq4N6fd4Px/dG9ivFu8TDAp+ze7oTzT28qTDiJy10SLte4c7U5bcvLnU3XCabfikzzj5zzuwm3bqNAq81kaEHgRSAn9O4RZgAyE/e1Q9c6u+iXGrHHwxsAjCii9R0e+fVZVkf5ATla96PrXo2gWPblu4mDlgKAllikt2FHKIeHf4h9cZJ+59ynnEzYMMk3YNb+Pz///79RvSAWe1UO+OtPW/T+8ddGrL7h9gwJ+81RpDkMUBORKG9VFzax1GY28NHJC7JsyJSfafCmYuMqUWtnQMnCfx4bUzPMsg+hq7Uj9MKwUWEr6MSam+29Xbj67pAzwd5LKl42rGz2jX27w3NPNziu/DozexJ6YEdOvXd3EMjkeZKajQV5pix3uwZ5ll5mNxT/xOp6dv+oqYsfdgiB/kdBHdqj+NucQq4xYBeD///9RFFzec5Y++LI+1Z1Yc5KHu3zrciQE2P/dodf+h9kesrYKmA2Q7rjND8LJQixbgk/twEzGvOzZfs12PzQDjTzhsthMv8ZhkOVWdzHCKQWeC4+zm0rNx7Zy0uTEceuHTVyY42hdB6JeQsWkifpKNb8aWqye9egRGgZZQpvcpvPNIRnpmOCUgWuOqZX2CY/gombtgbCGNTB0gjPtH+fv65ySA9vu2TbVDG9vkiadgnFbxE+1D5HtDFd+SQ2DS3cZmrPczOdaOTVAthJuj3uh/jq3RZMZWgFjex0qmHXALFbWo80p1gH4PFy0O+GiHQHiO0bTbypor6VKjP6O3JeSn1FYd1bVM4DM/cL6yKWEXxDjC7G8C9tlFZM9zXCMjm6Y/+6yQWELQW+qDm8nXWVO5/R6J1PQO+DZUuvc/ihecpYb4ftYCxvAszIZ3d/XcQZwpSxtt1WCXc5oiv5FrIdso9yU2xELrFJrN1loHXyl1pMv2kP0qjA5Ca7Pd+RmSf5lY9FRYFbgqp1jkARZYUFLsV7zh33dH+6VXHOm5YO7DANf1S6CIMjN+5ucPOv81rIpe2VXcowMLFYqZll3mb2jQKIKPL6hSLNEiEF9tuxkkQIDa7fCTBt/Qunwv/fYmVLb09jQYLTls8WtPqnIhBdM9//8gyvc48Jw6o8BjORXDVR0CSn3HuTU7ih5pNFTlp5LhSgi21HxN3hQVWNk6YmDrYfXn3hYe5QdGFLecy4Bv7Qnyp4qbUeLTFBUa+ogy+zLSuhMQZiQURuGBKpre4Kq8HNtmb5Rbb3mh47xpcqvbb+KnMoRZdcaxf0K4szlW2EQq3l40QEPXCBmxVbbWKvCFe7sU2hKkIxz+zsYV8vFBzx2ICJLKmknNfb6pavg3yCi8hvSz5pYsEyhZkvvAZVinYZjnzaysavuonQPDBhzla3Db2VDSym90BIFIMljBHPceiT/ox3knuqx7XrpsfOSEE3xXRrMlKz1MUh52t/sB/SpYsQgLBzHv87ax7l68wrSM4Ow1EHe+5DboM0zO8TjE19gjdtJafbzt+mfUUbHZjp99FM/2al4oyvQoEN2bRLSZIXAkyZdfQXRt1OFLWGOofEIrydzLo8cDzMZYiim2Kd7znstxE6BYWhLHAXCzj1YYKB/oTbUzTMkLmGdsCr6aa4n8HX95pV+OiDazJDDFUiP/zblhaUh9Od3lrmL0+jAnbvGNdVLdOVdFFHpgMZKB7t4kDR2GmcAAA/v1n//+NWXZbj89GW5P6t//UAtfFXtm5gUAN1O7Uf/y/sHxl4DYPjL3hoKJBlM/lYW49CwgcMZQtLguN+GMAQjNjbrHPrb/ZAsl7O90XNjdrMpVUifQab5li6btZxfN1y3Rs62eSWTcKZ8QmnDsAzU7d0sJcYYEND8ygFZAabxKojTWmKio3DU2DVsR9lYy9MzjLKnRTnD8Dvd48g47PprlQVwhCCDMDcJTll13hIB9dmTNCqhBL0j1ap7y3zB32AvEjkquEoTN3/bKwwp2sZ7cydrkMlSV3/D4bbWim1IQnTzq/t6OBy/p8wK3505mMB94du3CcJo4XFqfwmsR4qHUXzMTMUzGlMOtEvZE2wHEa+VHwpMHsDknXQoYH/mV3YGjnmLtUyvOxZTKHchtbX6f+ORCTPGfqYZWi1CtgX4IvQS7WB0YGEAlyw/n6MyyAHKIOBcbhpX8mFsSaciKxV7LHnJoHskv7owhJpNKyMKfF4keBJx6WRMdNuyAe6aRHVLxKygF1Etzz2t5tW4M/4YjxLWc5Yyngr4pADkh2ZSqtnn+1rO/warE10q2gDojDbml56h85pRxyjZT7FZJSyIfPecJ+GSFf8/TnGDjZXIHEDKB3W/C6oQKz6bVuN2bT5DTLIpou64yXcsaogwd4HhTpYgJ9VyiVVyymDQs0RU+o6vhe5ccLRby1n6DaHrEmJF/ehRusJql4rAAtEm/mHIofTyX91SxFpLj8GIZYfhaFHwsKoeEgcpOdk5iFAoSq4QACpGrJSMmf8RvTUb99zOwlaeSkbzKncMqgd6IYSXqUnHVCndKg7mmf0UIeAyIDfAdy7gFECJT6UuJFCYZoSgNCVBky7lFXqzhIRUWTaaR9sWvODIyv3w+lEyBYbFWd07LPc2g2LN9Lt2UGmA9ApgxFTTrTmkNO80X+ks54rSDoBCp31mPz7pnpSpPmNVchG8b7JmBfo4VKXHE9L769qR+iqst6lvk2RgQzKjivdHvSjyxUtWVuTlG9eFyaDdhD8DaW96lIn6L5c3+kNgSAFj2JBd+KlkCoudduEnsSWeM0s40o/Gu8hoyOOBw4KUhtwGThx/iqAoWhBNeMrT+Zus1QloT7hMTnULkANLifAyrqD4WjLpVR9otJpRFyS5SPRCQb/jQq5B8Vt7O7xYYM9XF/avG5Hji4dRXWZSvKhelWQdMBdl5QEMzHz0wf6oJCbsZH6Jh0u+4fl7silyMvs4UUZTuDM+2dKZosqZugpcAjNk2lKFY6RcraLkkOLnoVAAA9ZYntMY7UdPZlYbzuBemOUTdJ4hNq1TSQdy41xQLBnW8af2KKEMnOzxqRckOziNg8Z/0jQU6yMmnpXaWETKxsdIHF2Ogf2+4j5hz1owTfNKK3M0nTXO6bFOSlZAVvJ8u4NJ4hIzrSFlnUUWe/ygJDEezI+0Dm1t1DB46jpp/gR+tBWbcsyqwJaNpwdF/7r2BhXQN7v9kBFlKpkLdHaFYcHcItP58UESG+voXdgoRA/jnc5Tj02DOUF6dC8joQPfxbosgrgLH0w3UvvTB9JZlAF3+y4h41Ox4lXsw3R0/ZGRdkcM32mxVngAkqKRScTBa+tvrAAh/NsgAbgTKVii2vz7FKAoKmqN+cdjDh0PEO/rMyrwoBwKt+lkHxUr2uCO4XMq0LTYsCoyTVz4hbvhjyU3DOdy39stOaRI4pLuGfljShfS/JTRdAsNFEg3Bt1vnX+aM79D73pP9qjOjJ2ivHUX+8Isgi0uvsAwfzDUBP4tczMuP+WiIGkxumUBwt1BBp+ni+F30qs9K8RRpEIE11dJJ3KpdzVYanWzP4Csei9no3Yx07tY/xrg/SSIro1Qd3PhMOdXCuqRlrIzzKAhT44jwi6ZSg98FV5UYtJAZXwNxpExiAn1iMGM0KKPebAENhUI32DBTDT/tYrbTA0ALsMSdrMK/dMNx1HcCzr6erqOy/OWK3UJEKEyMNpGKNLKFVCD8bxYs9YlnAshYrF/l8MclVGxKqQFFwuDdgIA+w6Y2ucNCDWEfpD7QqHtMrdrC3LKSVEvtPvTApVoTStpNKbAd3Byky5huhaWIMfXctNU5OX/tEf+vXsqosPJWq0DCs/Mg4yz9YOpwcN9cyuJ9XTl7g1mclHb/N0BKyxRSgL0rUFceCRHEgM5BW3k7D6vlzpwVd8+cuENXmI9k6g+Yc+8/pQ53C1FAO8br6lg52lqnwdR06VUK/R0EEkHU7xEmSUa7Em9G4GcIvnh2HnPvkM7O4Ow6Hq6OWrB3llh0DUTSah3OF8yWsjEMaWBAh/7fUCOmf3rVTRh5wj0iDiqY9zQtl65FQVZVeG8Ohx/vAKtSszdfhR7G8NVbcQa9tC5WqOVfO8fvnaAW5pCm4iYd7tIWt+VHC5Cr6c8R/Ie8o9+mR+v3VtxSmJFDLBqQ7vIbUAVCliwPJq2bxCJQurep97eLAPjO2/AU08DydLCRmEWpwy7g3s2Pnqw+ERAnBFQRHdKpfeYF+Ave5AAzDwA3q45B8GW3HvgR+hHosOYE/Ovlb4kiY4u7lxHTcbPgj/X+ghiH62/OAGzK40cmt7NFFSilJSunemHtjHHKzdngAw7QkPsFBzTWajwA8sV/zed4NqHraS22dbLmPvl25WFUHKK/WnYIA+VcAyOdPjyk2SwrYD7hLT8WgwbiJOga8ZUuk6D16MemgVSt1HcsPwc1qsVswE1J2gk0llILUFch4iIMS71UVQPN/B6oX308YVZI/4Tu4GWicntvKVdpxwFIj07eDYqbeSt7NcEuRmGBNUj+g8Qa0sKjF7zkEafPvC9bV8wcRZbVJSMPwpycrr13Ty8n9rau3sNBjSztH/SoGO0a4hqRtKQDKsxVrDZ+GvRrowd1O37HsjxR/n5Rbk/G4nzTww4S+TwjrkvowLPoYUV8xKa45CmoofJmWaxCIGnrn6qve8wxlqZD+aDtu+YymJiYIUrXABjX5hwlkvr7r55kXUaOncZFXQvq+3f/lOxymJpuG3CabR4IbXJ/eekcBx67a24joUeGMuSSQyuxYwYp3n/y6ZV9NCZzqr9yF7VWMlZVRsTmssXHBzE8D6rXxjWNhIJFGTEKVbx7h32NHVjGQwYzCeNH2tFl23oIBIk9z8XsYrgKfGwGA2jrN5CWQB8AFhzb/YpkUAOfeO9mdxxmzhafvgtKMjUTKE4zusZcqiSC5Tq5uskANBcmrNot0urjernLJcU4T9OmKpJwvZVIpRsxQPHegoJ4d5Vk0aj2SDTsstasGmq4iyNkNZhB8a1SFZfOeeswW629rd6DoRETuINDXFAON0BpAbiJ18o30q9TtzxDGHg83NsUaLSlIYkb/LupBFGiV8KSDGgtzg2XaS0wu55pDtf/EiR+zWfpbJ/f+fPQmo9rfgHaBdQm0fl8DfLCTdIIX1VeMrKGvpokSJmy7SKkID9u4Yv1XmAGzZ1arHksVWf7P2TVvxjePSs9vi+1jty2LClev8FN/gFgF7vSpdGvZTjVNy6s5IFxw6RpBbJsn2CDCLN+ZQlaURDDqWE1SD5XJcdhuvRWYSIhla8FVLJkBr94QY+vPbYir7KZTIhx9sbH//qK5uD6icZPo8RO3HWWZ2udgujWC4gDGodj/yqNeiY/c3hqhzYnqd+sAmi0rWJW1UyRVV3TENtgb9/iybqyH7lGX8rf3qS1Rh+IiHW9rYMukkILeBYUILsH0sonbtwzwEfXJ2nC54H+0t9bqw08Tsr4v9mw5wdtasseyvI6fdphqzL0nf8EZKN8DnQnObjqiI7lgtB0aP4VkXdsV36Tz46+qWiapktEdzw7eJ7wq6t8qGkDi1xtCelSVV9s+6BXE51XXb5seMEe2vTicRjs83ns/QCLELz9O2FCvWryTuO6I4kYp7ar/E+E5ydMHd3Ug2MEGJ7vtd4eytsC0ApMbUi3iNJIy29ttKPmjyCsOHgmRMM6xVS+cQO2i8qm4kEixNLqg6wMuOHd5fpTXOMBbXOMz9ypRQxXwUSF1dz6HAFh0NfRQl+BJJLmPiWA30+xfE0XRDN93POPes9jgS6HS15SeUe567cetj9fTIEgZ3gOMk1fB9u0RYzW+LTBgfTuVjAHVutipwarcHYoBRVjO1LyEAiWLRx2SFhLOmWSb34Apdacus68aTnaXXf/xsiRbthUklaiP3wtpnot38Uw/7aKLpHbZoia8VmkrqGSOujpK7dWVwQaWh1UqzBNthJKn841/VIxpHZzcKK2yX8+hIZDTW1QSi26olI3Gi9+PxUznkiwQfiqUihf6Ej8lI4ZVhsXwchurvNXCmCt3NShvQwu1l4L1KcTF5PyALewzml0kA//qiVejH02OqNoBSt0dwnUanOzjRZwo/iG8UAk43LM1yf8HapXaGNsKzedo3fDTXKZFIrjwkDtLGjSAa+ZecPuDoVsTabpwNQHnDWXtJnhdCr4oNxYP1tTGrqT1KXGcX13AGNuqQkxYi7wQ8n7qNOg04tuh6lEzf0OYg6Ex+Duec1OfxAqoahXXEKCGr6BGsxOUffNI56iLw1k6a0urKcETJJr60eOL6Eukz0y8yXPYAd/uIlvhPjw/6fsEWVQ2HumQejsHw5k3Jk4q9FR6+lGOh3DhWJeIF3jqoW6zp03/NYlcHRYm1htZk1drD6OuKrg4yz0l8Byplku6Z48kFh3nCtwuJqWN7YOFF4pOY1rHVhKkj1o5dJD0TfrlFO2Palq7zVHTr+KP+F+dFN+ZzMb+4iHv4AL3Sc11uRXWg7gV3ZeiI4DPfHUVEEsjWd+hUAgI3ep7AAArAF3sThViXJ4s+HGK7T9o6fn+dqgbgcigfoxoV4gFVdtORkQ5dJvDGXZ5SEi+SUYa3DnIK8D/DWtRP73ExB7Ur0pgE8J6MXKpsm98ovyeBU5hiWmlE6T1TiiWIaWc/i/WQEr8Q4Aj6tq2AcAo7TuHQe+TpxrIPoECrQf+mtqU9uOdzJeGWyPsmqreQ2xOgwgwtzjwAuzStdGXtlZv6eSdLWa8xdcawTnYihGGRfqciPY4Dx60oqeY+IksKak8XkAVZWKdtkNcru16VQdSPLjegFUIeO7ViP5UOY/4TWA0f1eSZYlL7J5X5VKHAwcNr/LK6qHXAjAWp4YH1jCKgf+UcG3EYsL1T0H8Ey8jenr3qFWkkmzK5G2h4n5JJOb8Zh+TSGKTyB5/VSzbmdawKfa6FbvO72sSAJiNSqckpUBc1HRviEt50RIp1D/rpUgHMlka/K/999F8OwsgeQCfCV+6k4R1voRxLkxg8mH4l19Q66XVwe+OwnAs/qi+EiPsGhJz8d0yPsDMJ/cgW0qqsoFubXMy/5xne5GDit6AfuNT6jx5ORgQ0TjiLMSPLLmRNjqoJ0Wnk8oOpLK9LrgpmRilA7+sS9yaHQzNIcdkfiR1LHfSK70jvUWVE5P1dyi3742rhRyo6UIDDzvpO7CTAP/NTd2YYu2M1U6ysfx2pHWde4zNmuPFWDY48sZNPH5VZUkYKDk2XL+imvvcurWrcp8F6RYkga2O3C/oVYZy2nSg+RfuVmYInenjF6UdAeiVCYhBSce5EdLVM8BJOYyShJOiUOxp/7PrNAS4XlssBRjAfBbG5cP7rCql1k1YqdKRDpM+SlNAfnqywNTsQVg4v8ho9dW1CdPOahooJl5+xohBGvEGZzsrs6E63h+FfTDXOUMa4U5sxoCTaFt7hgJ4JkAIOZAKBZZ5Bzpo6r2Pe2BblZCKOXtLIKdZCeogGmbwfYV5Cau2QmhGu6Y3Its/ONoOUaEOHpFD5tN/EKuBeNl8I/aNY3Fje5yYPHC3WxQ7vl4DLE+B0yi2F61D2MC0pHGKSq1z8tU7p6gkIu24PEFGA1b4G2zOTzWe5libSO7nAlWS57qNDtdd3qNAt5s/O3+81fjzA0wOM/kt+Aks5dEdJEnyYKNKM13sh7ZOtSjQNHuvq6/ysWjGhUg+2CyfiKH6TBozdrGj5kdJLpC4VNnIepi3qGgS+/nmT3GpA72iYVTO0foQK7YFrnHbGdrdf2AXhSHA2QYFAu3Gnv0N/qbH5100SPoa9lCit4IPZEfKBrknx9ohEkSqMt/eu+lG40jnoeqaPIWHTSZFvxnxrlgl5tzjhrA33gjhiIDsYD/ITn7pgfwaYhat7uqJyrSyjzAAHYJDi1vlhEywxn9AzhDO3ojs81suiHZQQY9+xDHWQYOVc8g+dhrheLP0DvEdIERSno1GW4sFKPk/OqhBm2V1e6u3MXBTd95KqvFOXhTMMnvUxSE9gvU8nmQfc7Kok1HOdDF8XqJ5l9SbB9nG/I6M1903eEQIFDCkZ26cnOwjK0CDlnBkBoeNygDOAIYLzVdytEvzgoleH0F9t/nFgAD5vnewylXopsJXgWnQjL44ABuWDfLTbuxCRkLaQhYPJUxqzhiFO8WWUGiHVFt/yrTrRecU1wE/ttr4kb8vkjQvjurESNYXy6GO0iuXYoh7vQOF9z+CEaU95i/06kK7wWR/HhPKp71Mllf5dLPmUlfVK/jej3Mj/cSBqR0t01X9m8U6zo4kcCux6W6VLodCp7Q7o6pZ4ceT3l+Wsm6R6fdR8FmPcDdG6GNBZc156fXU26ehdBVFDWMHpN3QpciWO4EFEir1lz6GfZyGKZr02WN7c4uRXbJMl0i5cgLml8B2/uhuFrsaMWjt26DjtTL10mbWWxE4yvxE8nxpqfInhLUZv677ua4vjpHUKfyKiTSePnWZ9Ggiwcv5Ef6sTmNR/GvUr0Y07RItj4QBOSNJepsWlXhPcadoZwp84aF37PcJFdxmvLI+LC65SH0oICrNACXse1Dh2o947gmdj+5NMnc7Lg6kMWZAOk2lcd8eLlKA13phkmm63aFBvKjfC7n+aNwd2XUMo4Rb9mCqS0NQGFcX+w2dFaI2vHenUrm4wMX5xIjNg5/np7wW4L88nvjLqBzmHxAm6ug7u/au7oCZCgfV+HWzIyEjb6Y3Odf79GSoQmpyZSa+LqZlG0T7+rlbfBJg4j/lXQ7tFYygDblzHvJ89TOhyhi9mWmhZKI5RCnZ2eoHfnALNK3lLuqex18HgzyRGlbhopuFBIcPZTFBz3ZS1i/CcN3+cpKh7puEGhmaXCJC+T8yXUYWRuPAbMcj8ePO6ajPsVuBEaPAXgnwCVowlYGJpUoiJ1A19PUu26LS7bya0yCaza4dP8THxsIhcTWokSl8QED6bhQc0D0ZSpIIkkFpcwKjgS71J+rh1/hfvSC91NyOPq7Vd0Bmqsr8Y1wDxmhVu/5RuW/uqWIW4/xqKRV0sf6703Dam83xBWtab9OOaQon69W08Rp9J7oRp0kM1Tq/7R7omiQM8yil4IuDB8MsSaAdAZev6TghKc6hWW4crWluxn55C2gAhTvCu0gjnT9WRmgnUWxPyPAjAK34oXWs3k4iqdua8PY9JXWQTA1hpW1HfMsGsmn6LdFj0om7hijBxn//yIjO3DnFgZQw1/m4ixgdDERP7iznJ5wyvxJj5ffWN65q+srIjgAHXvv5SQ361RuHCfq7Aj88GMuX5WlLxf5RL67g7aSjLuGJLxkT18DMkTCEVV+BpvNytYPnf8G9ChWt8pzQ6N0uHyx2FMuHzn1V0XkjzFqrKF/l+aG6re5Rkzvyxd6GqqUt0gRzoqbztrRj4Ffk3pWJGf9CCoo7ux4lLu53HYcftNtBxUCFjFHMAAtuNbK78IACq3rM5o7xhtBrPLVgX1rzxUB3Fo5xbuFPzm9Go2vSW4Sco5QAgDscg1/psZmpkvAuFsjIAFp1Z70IdlciUzZvT24cueyitv+TNbSQUWENnQov6hkXGrSWbC+LLPhB0pqlxcXp4bTDY/ImjpfvzcWKyNWIDFGFhQxzyGWGpSfFjXfD/p6XezD+lBJwIARJzXX7sWKI16PvhdHcYB58DJz0Wok5AFvq4gr9QRA2CxkduUFPoGl+DxNxMrHF5uDQXHLshs3nV0XNM5fUjTwNq76Meo5NRQx5tKie5R2UYDQ/u1p9KKmSZ9khw83XNmklAT8ME4zKy/7HmrfpxXDc8bqdGQtPLwdpHk0kyftvCR9cM9p/ekomNfkG44kWdxmHvt3HDTJlx0++zYwB6SARG088zpQa5zlei77l6vrBWBYisr5Oq4oN2iPwFWm5xHBTaSlP3nJRLgAHmFBP+B6AhfVxZ4rvkUtTZuR+U5H79AG939clhmKSl6DLQeFpGRQ0UDh++m2RrFG1LATr5pQuvsoTwya7+JqWfUHxbfb9KqsomwZk9NSHV3rsDdwugXnngQ18sOlivl8LVAsAPLBjlq6pC86Thy83RBXtMEcldd/vDOXo8MscH77wX14YMgAF/TwRXZdJnC0pL4eXTeDSgqQc2yiUogq+bsLTiaSs/MEPbd6ekz/H2AxRZH7s3iqL4wzEdMxL+3a/+OnXr70R/ushqzB95LXnV1bnWW29lFGAH1cswJ91yX4vG0qbLys1yKEk8TUuBJ9aqH5akCi+3BAkLz05iyLcMc2hm9FDnlhwzM9/3lC+2Tn/4CNlHFAlx+dWx6WIx0ta6DOVXkRVkBUTHD4ULr+ldy6Etnm19x7d2X1LWiF7j8FUMPNiJmKDEidnyY+CDVn+FZqOY0rDywuJczbUUJiHoXeLo4HxK30JRZiO6dXIq/0a3N2XFlPgbbDWI3C8qagcoTv3P5b6o7lW68+Fdrw078ckHuWfRUZgzKHBaYnGEv+Bw/xLqtDpf63bDgth3JFsCvAqWGtlG4SmayliZ0uKuo8lPRUqLIFwQjOuyK9US4dPg5MUVCn1WGEc/GEILt7F5cmqNK3+bkMHXLAyoJXzfyCjx1JzSAb2eRR/Ym8Bk0YaY0ueRS9PVmBSAxBY7FvnUFatltAzlGjv9d0jdWD9UnWb5nQzcK6sNsw7FKzOthitX+fBPiPYxG5TA6UPMVlOD4A4ArrTJBf4H87UzB5X3jL1vu+Y4NtMRbpNSuDa2qeKPPqrwxisAM7wC5CduPJvPI55mW+jdPI7qWPf42vIF7u5xg3wk9GntJfwJLoaoCe7PU5Gs7RHbAA1yd4xpN6b2xnwqKrq4s7axyJTLP4TOXr2k4A66KxyXitcZiH+cD+8+ETTUhowv8gbR0zlQMubI7WF6MjRVgVIaDDWuirmhPI7W1wuk1Chw35VMhBRZB7COsohYXwv8Y50Y7uN2AO76pR6GuTe7duAvF8Rytyx/O37L/INKhBocPm+7zYzF37QhvX1rO1SucCTqrvsil4OPwH3QOs6nI5Hi6DPdMNuJUuyKEBEfkIrnQZqU0I7z6Cz8GnhOl4RCKG5/jcZXSCjwj+8o1Y1REt7Am/wRWcd/Y+dUlaXMZnXzid9xROM7ABQ8ECzK57yu7oLHCYvYGV220FQwSxREbLzRDvWLX8OCAnkuoYNKd4PZxWXBoNTTTpYm7CnV8QPFDUrK35aMGMOeflGBEtq0nIl84sx/DUrFtT4bDZ1hhFc96AUY328IFOWktpNOQPUHzHoQAMHHzi/t3P9/7yVt4cYMdlxl9fe9LkT/w2mIy+14y1ir92KBJ4tKHAY7YWVMQvonk3Gn+F/kI8nicqPRfir7uQ43WMzuA2TN48Yght3iGWl2oPZq35qQiyOYnwGdDjoMS/svRkY5ceZvvYeaZzsMkSUaQr+eELFDKr8dTrYwlz2cTez7hMZdmW2rVuIWSvlv/9v1AVkcXwTyLf5lJ+n5AEgPZSzA7jHtBguPOMy3SfWVifDOaMrVK9QWJhhNQ1lws3+qBBhCs4hE8MKU77xQPuubwVHUzEJZDCA/WFjp4P2Sb2wuhL7aYGAUc477/6FV1YszJ8WSm74SeQdMDbH3oMIUT2PHbdnLVxn0gSv4VRDyN+1BMR510DD3krerMsHFFWUe2d65dOFmGDqR8KUbQ1NcmRT/EoIBISrymHCBgvo8fXP6cQ95TUBHi95IBmygNB14cHAPbCifVlwD8Y4+ObdwdQY63vd+y9nQ6eijEyyeiXXPe5SCudgiaqjEC4l0iogufuiAdXGeAbiEjmffVxkMbKkcIk/5vOT8V1tkgsp4gFxpkAN7ZujoExDEL4NH1xjY0+WhuJZvhjZx1NhXCFCQbdQPoWUWayMF5tYd7y1Cj1lO8+qDTeIiA03m7tk3CkHKyuy1yjlNhxjQVKGgDqPoSSuEsfVxZGbMsMElRfhRmRX4i0tEvKnGSZRrWXsNe+5BdNs8Cfj15aTrYhHf9/uHGn/PN3UFe6U777iLLZjUubCxa5HZuHOyrGIfBgmR3XdwPi3t8ABHXCx89Wjw/xrwlOVoT+eqQ1O4qDp/Ehsxmp8ktvKHoLnwkfRshI7PK/XG4Bivz3rLbhuH31qab4H/XxknAJc7S3QjB4966oU+a0415PhhZSB0CTrHP36fUIFM2gqDxjQpkTz86qc+mBIQTFe+M48TIry3AJs10zOgjxh3EtCX6MgGkHSqvdwLXhtL9Vzbk3rEmXixZ0nDGQloJGsReGRSKo93etvx6U331NopqS6ZA/PGYX9pLcxxCVbmN6dZAAY7n8huF/ea0F08W0WEdaFUFKdhQHTfWqOsObC3BO2M/G/XE3jHUMR2/iu07ST4/eeNMIHYI3eIp31DodYVQFkwX3oeNq0vtusVfclq7x57dC4pkA2uFFK8f9OaFop5nqFfUKgluSsbqSHaXu7I0LZZJ8WGfvVe1/tdkOdgQhCPFjfe7dunUVh/nfMJRhDHKyiGAeC712BKLqew62q6fvu+HN759eHqKewH2B8zKvHAXSwGuJ6iVOWQujrbGtBdh14kuAhVqfsNPmtnqifIiIRWAFf2+g54gRZat34wZ0ES+flGfYyjQntQ7wljIQxx7XIyDIlZbV2gTftrTj4pzJsYwQFSNMvILYa8sA+oh4M/ZJgwuS4bna+VxeCv4vjvOBCppp0//NqKcOGl9tMAHfTCTvLZHRTbbkISEmGHnbovzQ/Mlw+puigwsZPErDA8VTOxyHOb6wbAimYfr3v18eb6kZsxOoI01yVOQjzPtg2V9T5u0K+DwNf6M5P18ZA9k/yBh6GSbOvR4iRqub+B7CoJker4uanZPSpTrhN6LptEnc9fTqZFgRITEXgrvFOgehSm1kWYF7cYdbn7wpchT/5KYFYSuwoGCkdEjXl5h7A+rMDT+OpyoNh4kb8h9nL6/mKpG0dyW9gcunWPVkHYLIZieDErI3uH40IToTN/JFcfYpCPn6cSwZav1LlNG5yfHnwh3tLlAGmmyd0GjPjXDCMLEx7sHnVXEq+lgFS3EqCq6UEAUXtfn2ZzEmJTKc0Al0sWRcyMFu1PQIwRySeZlMiE8+dQ3A6bT2mexQwG6PxR1jEWmeX48pmJ9hpsNAsTWGosdCqRaOSpuDu+N4L+EpVssxz99nBn02GL3jAfiR3k7aq0Fz27ezlrg7mEcvkJYjg6XUd+RTkFcfwEkHlJfJkkuyhzTOdNO+QsteCoUisMNrMfIQ8GE5FswcebmVwHL9gL0Jua7guX1gUZYU871gcaa+OLRvQgLmZamRgAQAYHDL6Oju6h1uVdrFiKV/x1VaxrECTuM5bL1NPKrovblrkXOWtRPl6v1Ut0/CU87ZndcMpVixDj5pncnUIfpjVlEcXnYzEATeYzDGdO95zo/BkwgH1oeTDwgdgZR7AU44sWweLhJT2yEFWnDPlVognz2LZb2q1YnC9zU7vbbbKjB7HYDOmmCsAdlIGS0PJCHdxfj4SI0UYeDNGtdcV6j2D4f/ckGYnKoSf3lH8MFJ4USxwh2C/k9wcI36DdVt6iO4Xn2JoeBaPTS+Sh1vIfKXKtv3n3Lh+KjWB1hMHmWNi0yu/TlDcAXBHXag8Crp3+Wp01Ve3hGMbIIQQRFzI+voFX8YxvYU8BqYYJ7cBnggHMl+/ka7X4UwexnWcB9Vw4ECADrnfpwX4yjufeKXyAucYQ0sy5DXNi9oWjMM8hsqfqCEdZn0LAplnxe4+pB9PSFtV8tyeJUcZFtlguPeo6fTGz8ni25l5tptMBVaS+m/260cZBXlTLXdPPWkWALp95j4DuFLtuAsPlcAhuvIUyTlddM9GHvuVnyuLAU/NzSHWXP7USFl2eHOPvoaRXtBrBDXELQCpTxfJUqqYAgkQDeY0dSOM33UaAhp28CSwLMy/JoEtmMfrcR/d/NCM87eykJW5xA4zGtgNy/IvwqUuxdyAkPNLvtP3dU4moRH6aMEqM6TrZBJhYVkyiOzmgwMRRmXnwwXEVSsR0+7xiWG8PirxrYVOkesV4c8cS388oU8SPyAdIQJQqZQPlHJNlVI9sYW8E4mRuh4iV5x6WziSboTiBiy44AllZv8gZqhpb36CnHxbifeMndAIn7RyOgf4zFn8ttf3mfC9XvqFj53QCUBsl15bjmpfdAiKQRDOw9yJegrnjrNalMujP2aiUsgEFZaoZtWSpXR7eFjz2uCZWW6XwAExk4UK3pMYBHpxTT7/uVicT0WrDCh7nsLz0tkcX429QcX/vildq4jYDLCo8GW0+CddZNuib70hZVmXOj+kwa3dM7hQ6duuxVcZlLkZ8QltdiThVUo1BjAh1xAR/gJdjC6WTyHsbmv0Or+MHLBmvGg3rm2ZVZ7HqTvjDObyVDb2cmptDXGulKv2qUbsmnXkmh91p6WVr6Xs31JTM1ljwIkxQrbT72kYqtK91aE+B4sP88xsi15vtPdGTjjP74x8GOQCsF3B8KsuzxnfLV4UkOQVzUERD19DngILdKyMGd9pv8g8wonNrV9Bc1IbgkWHpiYjkm2icClJRtDhKlQLkr+tsR9mefwAjgJdh3b7Jmbk/QBPgH3keHHQ+sw0Ffoa6XUydvcQBMRn0nsYCMpQNYKm69FWpMiO1xIUdlXyrOsk8T7KN/rdh9OA+xi1Su4Cxhiziw2lAUIWnT5dZsxh6Rt8CFaKP4Q0suNDWKKTLq5/MIN7jFw4D31cLNIlCkvDOsfeI+hgJMDFR8ExongNrHz7yAMxosfmBKVlbu1GlK8o3b5ele0KDCFeNEtE3jxOG+qwcw4FZ/KKEGwES3JKo4YA7seZpZizQYGGw56TZq8RVXMwrc7lNj73Ef4y8xPOrVYW4GlDcOXnVmhQWrxYJE64Sd1KXih4FANeBVNFh6/rex0RLPaTjj86ETif6OdRqcdNVLw6/Pen+tIR83SXHflXp8IpbQQaUFV7sQm6SdzE3km7BITrQtRmZzJD0w9gh6LBFBED1dqSgxSssOlsJdLOBG4qnsRxqUZ+QQ4aAppGceuc9zw6r1kzE9CUbF6VxWKBW27Lk+XBEwW8u4aMS+ToZNdQuFIfZIGiVKw5oEB+WQ452YB5GmGnb7KaFaESO15t1MjRAMaSiv4tgNy1NMpdvpuqh1Yv248gQnZY+PUjiWJ+lIzWFtWmJ1IW4ECJGIMMKq9UmugHEbVEWjUCaW7DTajHF+gngQ8Co7CiWmlPwIL/KIqJ857bhlWGtsACaNt1r29puq/OW+P5FKb3iZWUvPtC5OJlme0xgFhwEXPyCvt4PeEXIpiW56hbNbEZs7XOWQRaynZLQ+1WbGWbsSfIkzj3TUhrpeA1JEvzZVlxEKfATl1smx5Lq7pmD9+lPMNMNmbXbUh69rjyUORPzs8Tlaz+aQ0i00yvWRz+OvWrPD+4Fi1vp3w7YGgCEO7zYLaUuzM17Y7arvBQGowcjmy1uguSDeeDWVLE3gZWI5f9b2uqjr04TgTbLAiySris3Kb8C8/ABoiyWnb4ZN8Wb8ZtXs0JEaJFNCg2Vz3dFc9c2tJMnukk5mWxQNxNC67D2s0zutSuwsdXLnsrk4z+2ij4E/v6XGKFIO+d/OreDqinEphXoy09KI2tL+gW8ybV7B2duvjLz3udR15FF5t75dLErC8bzBayPi/VO8j5Oz5/ikCBSG6/DEWqRKPNC4I2wp0/pyJPJKhQ4629erfwr0ygnCo0UlwEtlDadz18W2+JMAJIFtgmTAAAv3tAYMhDt5ZPaBHWkngdxA1V9hZl4Gnk0otL/kLsdwMV0KqCuPT3/zQ0VbAd9GdJS+lSJeTfCv5j+qoHzxx5Q2kKvLfAia3wHtLhwGNle9janVB69Lj/g+gsvGq+NAEXCAXaRfYLJZOf6P9IEqIwXvVsQNb0XvJcW9Hk6QnoQFzD39UglssDcqLKv1SENJztB+ZYHM+KH4XV2BKKvVEfhdzuDmTJ4zJWfnONK4xjb730u5vk51V76xknW+k+t6FoB+WUGsR66egku7exfBcxu3jXYVTl93aTASQSiXacUC1JTtmU7WMla1rYgbaWHXfn3q1xuPo/VhwZgE21PYLI1O25cndBS/6d7nozjWPcjNaUinMmTybixkE5qP2MaakmzMRmurjZxZ04sE4Ar6BMlyXeV6DxTZSS6j32mP4o4XMGoFegvmEKivZMTZ1N1a2VHj9S4jGSqFPNrgbBOhypuoEjDDIRrxjITrn/dB9d0YLK+By0L1RAaBbANOs8BUYLMIzGcksafFJf8FpSHfONgwaSG0d/nW86jFM8BuY+yrpojFv8n+dCX0G6llV3PlhD2KYif8aGst3pYmVSTe6JdPCFdqUW1BBwcXjlphNgZ+o0c9FhMCEEyDujhZ3JpQ569yMiWujIg05l4NAIQUGyjOUqCSM9c08o0+vKCvdrbB6OiFR2fbbizo/hpdZFVS5j3GkU+Y4WvJOQVr/baidJtrR4Jim2ZqBmzO0CsaMtoxATKzG2o7yHj1pMcQeZ+ToDIFmYB1nO2OprEul/ulMKM0xVds6sdIZl7KSIGMX2+PIMEng5GQg66Usru+LUPZfqtrrwR/yHgM4Bg8T2+xMGNaUG/FNQbdKC/cEP7xO7lgOIrn6Kto1cr6AO888DG/ddSeKNf9aBPM7H15+0pvTaDsX7Oid1oM9nlugmgVoZWocYorvXELMzCnJvtcnzRi2/7aXaSyOThPoPWqcuN9YTJM4VbMyPacLN86bPvrAu/otSQwTGy7lSctMj2ixUVDMeJJWkwD8qBZj+FHSb4YkvQNFj6uP3x+47DuGe0ODyr6q0WNr/TM6F6rsE+7hQ+kgeqRzh435OVi4KmiHjTmXVwsBSGbaQ2Wr0S7dwpxdQBDYNcMXnk0H+UNuH9Dqyo9QogF4JHBFNz+NUVSmiwF33OBtpH+ddNUx75AJizj95oenGJ9w+8GWulGFayrkHcE+dysrsR9asJ66MLq3jY9qwV28nhuGuTecVb1wzK/MPeoLKuhN0C5GNaAOV3yhZBzSKjUqKPoSoSmDcngj49jHLH4Ro/W1Erl3rD+6S8ay9s5GAmzWA1980tkbZDLSHo/4fPjCx8AN8Ej9GEvAR2+ZLwWbRVvKlwGpEKuE/4EizzHGybPVAie5hnzVJpHjGZNMPLurHtgenXbCueDpiI5QKNuY34zHnIUj6RaLMOyB60hsHwQj0Mz07wSfZpKX+YF87/7PcJ2AVTwol0pIG4sl91co5AZMEvc0ijDMBPgTEfuS/GubMQXVrmOYhTGf1tzZusSyCrl+c20cMu1TusGQ5A7QIQ12wuz5bBv+FWHT5wt7rfJwbozUAZlKjdVLDkojUcuPDK0tFC7t0gTq4dOMB0JbqwAvp0hGkmCdiZ87zcvwZXJYi1vRKhcKAvOwv5/ZQqkGO0EmIXtYZHuW5sPGCiEBzAKm9j60ylpM6pGl/xsD6LesbdxM0dGhG9GZpix4l2aWavPjAqiPCRmn9wvsPMTQ2DozZuhVBMNRIxx9dUL3ubF6/VcQpTTaYj2xqEpGzjEP6A8egqV5RUaInj18MuKXFG/g68BEpaGJmB+QAmWx0NJThyT8wQmQ87fFWjTR7BnacrpG6RdWCeel3lzRl68UV77YmIbmMz7BHiGTDPS9EmqPz178gcVIsdD/mGxIbeyhmAkZ14z5+aavWOFP6g1PuHyqqt6caDD3ebwxt0Ou+H/iUQIXgg35nuuXFlFp0HjucS/3dfVGXM7LUklOyGFzQqJEuE38BL5IojSUzVzs7YamJQf01feg9b5XgSSmcd4SxWvyFGZTV/269btMcXvxrxM6SBAHA5wcJIhQFONjp3cYFZ+2cJzF3tEOJZ13yp/naU1xEhgVeMtkFw/i8OunkTLq9SiGWu6dvvHMY5cdH0LQRm3nC7hHQZ3FjdgLp9VriYMprAOhQE9WhAzvoBYT095KcIYdTdqJcfkDHTzx9wqdLLDeksOqSKgB/aBomWW9bDgipRN2pjG0NVkovS1U+ZZ6zwO5aNyzp6SC44vlxCs6jVx4mL1svu2cviYlESK4zsdlFRsI1nGQR3diwu7carPLEYuU9E/9UVJ8GA0NlbpURfy2a67fdnPlBb+UVe/HCw1L7utkn6Fv2+WDaJp0YhYTMplveOsoVeVSOj2sd+eI8fVcziDNuSG+RPFFzkW0QkgN1m7l4GhFvh+ntLj+DLxi11MIS/+DNsRpz8vNKi7OPgbox5EZ0X65vCMoRnTMTMSLsnb5iwcXoU4c1V3Rqg9RqGTOBxIVyGhJXCLq6PCxYn6hANAYgelBL9brXfyB4QbSQi8lYbKdTknByEHfp9OCLrtJSwET7aQLPk4GD/92sCn1TbnUpqJ1UX2fCrsuSoTJeNfaMVdKsciBN8tIVWuvaIFVLPFFJZv7gkU/U1Srn4BRjfAjRi8K/15hGslsDzTDyoz4S0B2Sd4B9m+Ggl2ItoQ4zjGQ1De/+Hm1kRBxzhuqMZ2fTQW+aMJdImamv0ZVKa8MAqwYFT2wxC+MFNrx5060OlS5rTmdZeOxJ5L189NLQJKPJ/E7NRK4Cd8chaamSb519w63AmbHR2BzwaXj2j4qfCKFLPRrInyKzo7Q4Y5MHXwIEmKz3QDGvSijbq0dFBauqk9KbXvoX8DB2V4N63OaA9rVfeyRd0DI2nG5eIaKUQoVr3q6x8hmHbUoawDC17CsFo6uUBqUs1c2yec2g+ktkr+zY2OJWj90i6/NQNRUPuhr4lpSu1ih71Kci/r3qZwCcd8p9eg7FBRex3ikY8Dtdd7XziN4KcPDtxku76sYylC8YkCnoX71vIxTU20L1BzkvuboBRNPt7+kJ1NWiojllAcpX2qGKhMS1GRGe2m8iOUaYh+Kr287B5VqdaSfAbFudM3zWAttSlJo4yfr2okWzPWSsKZGAtrJ0pMNSdvUE2lnCu8SvTEWqUAfGBhUlM5adJRxiI58vK76hO8qSxqwFdIthoQoTX6kJjwbnpTNqaSEVcY0+02+zYoezPbv9ktplsvd+Xvvmod3iZgrTd+9IwyFWmkAz8yeKXC1aDIzY2IZ4+fQZaEUEat82V8tJwH4W/ehaYTUVi20/Cs9Ez4wjJ99SNJgNaHSA3Ew7FTGDVtaS+G/5Ot3m8kgny8SLR+zUpIr6PHic2G3KN3tV09pAN9cCwZzYpjwcV/Zd3YXnr3+cpKVsj1nQIi2Aw0ttbsxaVocgFYRuuOodbZ845iARvYhBktAE5ZV2rLZphNk8QkiC7wtAjWGnXbZssfCYhUKNaOpNvvmzvuwF+s+sj1MIRRPUqDn8mGs10l7RFzxrb0TKp3cqMRkmIUF4hi0JxJG8BmOlN32Cmsys0/1ZqrXQ5tw9JxxWllbU19jjmlzmptlTXsATm5UccUXJS1yMtZtYQ3r+Lhq0hhxWsQf+DB3WZzTr9A8x5/Ys1C+EVZkLaLOMo5H7fHS26jlq58dxiTtGNU8lI6NDtw5ox9+tRn8c3TwQ8etrJD2332IzibPEaJK3OaOjw7Gri7NcI8wTZfGSfer8pnbjoQ8x3uNwn3F3H5nJ6Plzc7G/dglpSuBzNSsyi0lUSfcff3h91XisyoXI6WG6SJOPOWPeMwgiyI64xt/QYuzQdZs4mB10qhjCg1yqLxjxkJouOlk1gKHq2yZqdSPKbSdbOnLocch6aB6RZkqpJLmtJANbmCyvSeNWXqoeC/1kucT2aIYlUZ7I1bz4lQrtbOED2Ian8uDV2kQlhM1AWBKTmitqmCiJ8L7uYTo4CF2xVmcOzT9E5sFuMrp0RfoRvTKWzobO1LHr/PBaUjSmeBu6M4Ztri9IhB1QBEysxj7hWzUC6Utfmx81lwzUYmYnjFWFkfV68kgQH2cJWgFi/Oa43dtrZYCzwxC4K4wk+2/1t1ZAd7xqpXUd5Dt3cFMVErTVWdxUhXmTrPcnekDCjOMThKkmLb26qK6J79WqrWm5VFmJOWxCVuvl7GgTj3bdxF4lOPtskxWutO5o8QRA2I2k4whPPB2J6ZfoMYa3D/Hu39O7SaC0uLZunojxStiBa2gF0qY0hH7xhyvQ7mIkgejqewyjgNSoEYsPGuDhykYgWr7sltp7ZZzumZxh9h2CGPDsus0IiwrEqKVhgQfjyl6zGlNEdXsOmOn23JEZv2X/JnLxNrAxMB2G227XOno1G9CDAK8iVPkLNkZp37loNdrB+RR7T/0ERe1arRUMMZHr6Vl16GiT0Mf0+T+pk7Uaccg8Q7isQVjkV7A0ZW89bUE1nwYMqILgSCdJJWwTb7laDPWgawxammhkpL2iiZ6QyN+ZH3QBCopk1OKLfg3YE+vMPvJ8iNb9tkqkp2dXeFsh0XzQQiD369+Alsk3RIuCAFmaieum/4gJANX8xdWWIJVgH7NfAh3F20Bl6UjAUP31PZ2uhkLRayl+Gzq3afiPHgAW2cMxZvyt2MMEs/ZYACemxm0OQKX279RcJKKq2LMqRFUYrT7PrEgnIQHyixmLrXkn4T407dEsxlM+FsznUh0obA45hDN90SlZ4IW9U4diwqNMqT+0LdF1pxesSzTngqNA2uYGYSVr/hpJXEWxYoGp/uqO8WvS4PKdFrpmVsCZUrrb3RXUcXH1GHFZjFhGOXuyBH1itm0r+rOLWHL9opU5nPf06NZTHvExsJwaQ9YFwYB+c+tlcSnuFImhA34v1OdNODsVrPuFMztvuUj85GpwU9pOt5GhY5MEixgGKA4C8tcwvEtNeXkKwB3mcVHJdiQlvSr/qzVkHT66/kBMKLCTXBqttvVch8Nefb5zphYXiYjMe23oba5daLpz06Xhgd1yd7RlTjfBa1JmduwzWvyyLr6dUywMsGQqu4R+JXOh2cnUpKdCC4+8+LMzOEkD+rlLCabM3h6viApW9dKIijalXscMsdxrbmLbzrlaMTjLiIA8yE0BnOhP56Gb3Tocf95zervk78lqf02NvH7f99ZWUu+ySO7Q3h95lAgWQBZxU0tPs9lUIWHmHGmbHqo4MWJGt6L5o5cQriQHLi1me4nlPhx6PL9VuGqP081gQaPbskRRkBC1BJWu99HN07Svi93vHlIlEsfEF50Q9m3VskIyaYZoX3yQPI3c+TjPkH09GjOkYFGs0i8eLSEKaQd8HBOgWli/lj65rCCt+X1RV2ScsRkiRKB//jyAUgX3Q9vtFKKATiY6pEPwCB+eI/3PCe173eMIcY7fgY/l9RUsM7Xv3e5GT+cqT7fMkP4BN72L9pvo0Cyc+L1mvDQ1fqWETwPwhbkOWoSLIjJbQw3nSpmvdYIhos+1GFp1eCRsUSrubOUqfNL7DiAHWnk+XbqXglsiJp9afHe6KNyrglDM98+BDcDiUHzldQSrTC5w5buUlzkox8aIRQPFOM8VO92sC3hZwmuVZhZjEsL+gnSYRGRHoNTPHDIYmv11ctPz6G5odcSOc045pHNsJXqry/rFJn+UAb6zF/Zppah7MC5u+tyYGPvyP9FliJtbJMO14IHIiOAGNAXKHXH47yFyevpoL9KEtAyfvhac0DjyRNSmiFrcpuaVN4jjGYbIkgcxnNTXzX8XPuOKiKiD8HQz3gKdbr1CnRPphbH3O37OhtlNIxI2PU2+5P3XJ0ct7PNNbW+tL+T9UXZtKDXmhH7uSccmUQ3jJ3+nqeip+NA3nAbjxfGvSvecSVY7o7CeF2n1lboWAVL+Hd0tEJ+p2orekY0be+q7815UjNwWwoSDxcvI9dg8f+mji+KMtSLNOWxyOSgqurs65S2lgtXOsWUSei4tU3uwMXwUMztFqELY8bhyGvZRtlHvvPpWz1H7zb0EcxOhwVFjo7/GR3ecdayYGe0+a/5gaq36MKZJYEzz98XMv9qywde6+RSdZNtcD9085uX4WoF/4CY1/FpGyfmcudzrL4/3Y/lBmDDYIE7KwvV25H/1gGc+hu8wieNoF2n6193H5+7fvbk4/noRgPXxdBTkTE9oZtYfbJOfvMWjwpG2nRdj4pCu/LtgJKImWTQX6JnI4O73/ZrBZ5cbAcbo2IaKjuOfcr98IlgfdSjcI5KFdTMMAtdugLtkQwh/xKXsO4b+Agjj3HD4RkfY5y+4eg3dvUxrXep4caFoxK4Nm3hSaSv/IdjZzghJfEnvSzWEyR6TmCLKpPlPRTv65tSbrpoh7edqzcTZO0ljYmfPhdAceZVGi9k4POAdPN5APT+KYUugA5PhGUO9aH5p8bT1Weud9J/0mGK6SZUBG2U+58tbjCHN8HHBg4iYnAF+L9bVGE2ztDytffRofwMA8R1f0xmtg+cGM3eEjBHlTdKAZcsGcNk6ohpatG9Gd+09yhfweYmgYict9kVO9bgJ1gxGRcg/ieEv18AAWDzvIhmMUijBLqEt5w8S8FRrzf/TrASi1u3dMKVt3TZQ7Mrn91tyNcNEp6dyDOjGQKtuIHSd3W1W41NBsuoOfmdDuNBnhnCyl7YjH+HIqMY0bFu53IaWaerwae4lwL+8z85L14n/oUONoeUeiJyE8hQmjwrCh3AgbNzEmWBpj/8IsMjx2xpJgUVL1c62q6AxPp88bJCw95P6lqz8VeSFc8zBXwuT7fjVqSEpjpLemKw92bURoqVDECuYu4Z4ThN0p6WlIIBffqDVbzn7Vz/Sj123ftEFeu0a7GTI6zB5ZzN0/tc3QI2hj9KiiA3LPg0XMWJLk0Nrncyz3zAUu/EI0p9N6ldskUeXZZSccQew3bFswHru5HDdmWcKbijx3mkHMyQvdgrfmVJadqMlQJzEjUII1iX8BfjzKqHf32J7alLVB178udWamD9Z6z3tjxp4cQWZPMqoYJIgESEdtbHeYFIQBf+TXNgYZ8/ChEG91b2GKE7wXhadoKC3XnmDyqpnn4NBV687BvHiqspjUGEQxFxVDnPxDac2IJ7ci5B+yAaKGmROdYlme8/0IVeV21rPJBPUCLU0ds0OfsFeIHqIOMf0ZJV6ksmxq/DWgJ4CEGHmGnzX6hG2WavZNg4suyMLRqk9cJg7XrxyT1EMFMLXMPhl5uFRY/9aa12fuu++HeczAMCj6Rzlffn6QUO35W6mAGG6kDbwyAPw9dGMe+ND1BObTWFKhDcl/VrRmpaA5j9x79hbl/cXHJWAllt+wYIR9wwQyXrn9mMWJVsVJYm7fbaiEbqnUPVXZNTfCfItfiGkA99LLgSVK31tWoCsCB1TA5x6K54IXBEMdIrPFW7PxVxCc/z+eIiKy6dgLVHerY5Nhf4iKmRRKK5gFfUoAz2XDeqfGghMLehXf2Ww8Ak8CreqOj6To3/4ykdUgUUgpMIcatQbh+SxXjb0NggTRl2JIE7mYm8P17jma5WFI1Cuqvtjn4UqIBKIfx02Lqw3tn4NP9nI/va0X7nklYxoMGvJMwcazHIwFkG3CRYHSHA89pKcAPkJrbzKz4m72tZ7mnIExITO2CM/4+YCK+S2HauNtVuBanS33bkF27hZL3CgH3B7v9PN4PfOqxKOlog60AcW+R1HlRkONvdqwfk1H0MzMx7DBoJjZ9mu4oRpLESvAayYH/0zJp2guDtxlocuQsCetRcethEIRn2PBI36tcbOLZlNSl6Mw7/B7Lw1phnf8x3qP5dEX+GflvqbZwIkFNSoCwR4UiXNBpCKHkvbxGtRxWMONqlpHZwq/Se3NPH5rbWliRFKbcpdOr5WkXDjuJkHhhkwQbZzCAMOUjC2tajzq58c+I56w5kiQqjbWBA2puwMW/JNGBcnxFaFIU/VoSIr2vDxx66I+EYapHWM0itHObS1wq5Qda8SqHzKstLkFEwZ0F4h51KtQ7EK7hy2z2koX+c2ypKVBpYyNxBj7Ux0yUtorLn61um8h6a/i+7AK/g0hiQ3HP3DVa5zK8Zaak570XxyUIXi3Ad80A0SWQWMWesZlShP9P1D8grp9LXYnYz/MT+X4sKudUWLzhHngwnrVWWKJ6aKxmGybrnIZoJkIDwCw95vxnJNS5Ri5iaIecFpRHsJtjvXpqoFC8UhhZQWJUSroxib3d6ScQfi9ki9icFT/zMmPIbsU0Py3p91J9JoDC7h/8b7c0XOxAHRoMgzbXrS+P9bLkzOmxIuTDjOCRRp+fyTZ1L0qFrPScerfy7BydX2XBWdRedz//+DTgFIbLGQuHefEN05FIM9b3+EACYfmcJSx3rKaCnBnQYpUeUvwnsimd8+rkUYaGN7yeEx9UfS5tngsqQdliXu45pxBVlG2XAivMfTQFxL1KBUfgbByL7PRJLBdBtnWbHmpzTNLpJfXaKslSCLrm1ta7Lf0L5YMa21BOysfXMa6kHtSDjJgFCVTiLEIh5m/7pnjVG0b8hmIfda4NV10xdqqEbTeAjG0xsHRFWsKralSvDnuA1PXQdoFTyri+o/zNc77vpfUTKj3ABEiyDk1WeNm8WC9juQVxKP8Vk11BVdEw88+KN9bIWK5WCz4hODo4nnnz0yFOqzmEwwWvaUN+IWUPPGOW0uEa3BWPL7aiLVKOBRLbSDjM3rTUb4wetSxEBW7/yZ7qWGdrTbQbwO/+ImKZenTHPUCJUGT8YzT8ROa8yMvli8v+9EimOTYrbI/OlFPTS4/zOkV1q6j5XUtzgpJETVx0YDSiRtqRzySkVbkQVhIbw967Aew2RNRpVw9671lI9Pb8UCbyxuUV5miAPV6Xkx4WYZ9caKykeoWBGb4o6P3uzy9iB4IsJbuBHUH6gJdUX2lHs3QggfZMCx7n/rgO/e+rF2X71GrWWpgFPQFHCv5zej61+ZMJGjRnFq72x6eB4d7aIqSvxSG55KfVH3qjCRRn0svG0Gu8dz01kOhB8HPf1DBPl7g9AQueQ16WnzyiMgUXASzoV8ay2H/6o4JWusnjSBALM3Dv+fuV2b1t2hDQdWL5rbbepp0GNN0+PahxHUuIBn/IXvPoKHu1rxUuZa8UNNbPsekp5flEQuNhsNxqCq9SC+ybs1Zl+px1UNIoEnfqG3/eeHkz7WRDTE3z9TX7oItb2HYFKVxuk1egHiL3z1yxv44W33Xx1fMBXNXj0KT8EUSZ9THJeD6kXPXJFM0OFFikX7OX5SjJaI6cGE3dwFsGULE+sjMZmMNEmNUTHpJXqvey1u8eohOxGW2JvD2i5d1IjehW3kA9n1MB66PNF2iynqByVmLaQqgkQkAW9vEZ6MUrZn3WhAz+DfFxAgCa4Due5/aQD/ZGUIlYAHWCdrCiXX4x72fi++O4akBLLvg05QJA8/5eXhF5C/WB/7zRY3dYfb3/PfvmgyboHPnNpM8ioUacMwrDBJpkYTP5sXzT/udTgxNLuM1TAndCbKrr3EfGF6FdbSTyth3b3vq9Z8sgCUX+26c3NRQ8/fTBQSLrVSFeaXk/HWj6V47y916L+P6MVmZxZpGNonliqyDSds7yrp+ydNx/TGRHpd+Htq15i8o8HLdP/VcQCZbwB2eGwlkTMROzlDOeprPBMo8sTCIU+8vvAWzwKL8hPZmq3Ixx2hy7YyYi9rAwsT7dlufXDZf7eHkNXIhuYd+bfxjzxn3Jg7rU78imc3Tre4mgGmt8Z1ZIh63IOt2nV7II3dNeTHxS/iHhARnPDuEvMxovMj61pIWfFr1AxuNjAJuE+oDQTKjWtwBx2nuaZL3wkc9lZiKsgXXJED/e68mFmYbC2nxVvsso0pUCwEjyy1lZLKrHvcdqL7Bu8t19R76mSXgyLQ86eUZjtNRZ346SpyKhliUWIabRGKjac5PD77ArHohUN5G+PlczPqY02TMWZ55g8skUQcLuI8Fha11X3yXcEg8OsP09zokefY6IaZih7RFUCINeW5FEUZrVTypmN20slnGztTip1dod+4X/jfekk7F4hZTt38whu7EUEzF85pLnkDydxnf3NwxnKUTl1+CcJnkhSO1/msQWO8a0LokDzQOWKb65CgjuhakAS8ivEg+7EOIwYoW8AX8mlfOv4utNBrccA8LXDGO3wJTOfR8gWEgYDM59KoOeJm4QVlafHOF7yd6SMRTB105qA1dZdNVHZPZSiQGaPydJ1l7jZYJSBcaJy7WPKjYnjrVujRmT9TpHsxzP6cx9a6qT0bLER7pIkVZLSy/dCN3V3EcnJ78QoxV6oUssn6JMcZB+ZBGDKOSyBWfeWXlaSGWP6QzslnauDVXxOvBH3yqcKFsMYuGiS4gSjuGhpujhNDtscW/AhqZUPZa0lscGOWMVihmDcBXa2KwJcx91exRHZ4Jx2mbBVuE6wHfyJcEdFgl0Zv3BQIjkr5aNPrrf6fZ3mDAz+Qzz2TLpgtFAT+T/eOuU8xFwMXn4pFTrvrv2idpIahEH3DxJYGDuQm/XyJJmYWO+BfGMvFL+ewfcdPIKGQow248XYbtYYyQXFiT8rqo4C7Dx9DRikqPZgUSvwIAp4grwRvz6mnyU6z2hWoGvbVn30AqfYz5f9cQU4n55ONOtE+KD3OmM2G4fRy8OXOzZuCMpHBPRW4uwEV2nK7+sGT/woLBfZyIUNW/53P0WSA0UaKFBJcvqLrL/YpHZjKGvfF4PP/g4DH+tyTY2z9VlFUZ0oJmZL3FuGGGMXV4+Tqv2IGTxk4LhaHsfS+A3LyinVAwW8xA7NQ5a1c8EccodIHr2W/zm/zQxAvyJAwruqWNa+fLOqbuzKk2GaLLRW3UzKEKl755LGaFLk9f40WZ2Yyz07uXYLJm8NzOVJ9qJE92cWJ404NZ2XNVjBoxUcRNDSHXlq5u+oZaY4zGiMVrkvvua7mUXqdWQLnE28diMFEiWs+gVWRu79vDMV5Egxe8BMCQQXAojTbAlyBm1fAs6AzQuyby8Vl2hlJsu7MMV010Yo5Sr+LZuN46pT9Gkv/WQ+YGQG2ZpislOY6CcVUKmTEKAuin022Omq1n+aTLDDZdeswKNN8tWgmqZzPh2exMF8ChGx4YVKiugcb1mK8zVygY3784d89gs60gGsQzZr3RUavrXteZKUrpY7oST/SA3s/Kmmkqb6nad11uZbNTBi13xjFiqxicFnZaPm9k/4s0ILZB8q25KmSDPCmndZ7AJcYR+RPVYSuBpr0pFuYwXzcaqPiyzjdM+3cP7eox3jAJ6pQID94AiCgCy82l6Jt2yRqCqmyjj4kfyykISGYxHJs0vjN8nC5AV3CMAIMl4+L8YbI47S+lpCcldNk5AXXrzvkcxgtrwHam0Q71ZZL23ArCQdpO2+f9Y9aWDj1Cv46r24ck1SbrcUUp1Z40czv4yqo8r4Lhu0rn85Ol2CGH2JGWV9tHKXf7s+ctfxAjUlnioMBCOK/IJ5RvuRm7fKpydSXg0b93isiLgPEqg6ZBEotHfJIsg/zbi8fEx/QPEa7ExFQSN8mSwcENBYZeuxSek96NlXKeLeQTY8JKi1yF1ZFqF8Y0i9d296VeWP58LhNbpEvo6Q3I9VciUNdLBoE2ZySPgUJwDNW+Dc/VOhV+vstQbbapENrCqD9BfI0vLlSwoIFWDMIzPhW0f1gmMuTT2fX7puJYVJpnNRnd4fiYb9YlHNaRJEKH7wjKeiKyZu9ckwAiVPUpqkfMblrROno/m7kymYGvNeJqTgt94yCk/tlDy/Lrb4L7SBzfa2gvvJI4WKjQx20KJKL31iPuKoe4Z7PwQnobhcKeH1vNjcXvXpis26GtvqXC6ghBLY1Z8l1hhy5KCDAwjwSDIYu+rEz2DN66QKEoafZ+V/UFu1TBnchQFzXsKUenNMVpGiIpFX1y1uSLL4VpoSiACeTw0TSt3objulbRUeHzkVEp2hmMYtBKyS26MWy7W+O29x79zZpe0O8rjg0ebZKl3pV7DSUSnVoGuIoG7Ee96Jc2RDkfTZa1GTTE3aVpotv6OVPhCxm3Oy9WUpkjritw/Pj3IhsOFDcDSq6Ym/mHOO0sGapJ9uwjcM2DeIMFs1s0u5A8Ot2kWm6cGxVcsFvvl163ZZeGKXCOnIrqSQp2tCAfNBNQCTTgiKA3SocZkOgZLRxxDCVTBbg56wZf3HASXHb8VEjBTIQl9F5vYZHkirKVGMmlZaMvaazdruQ+8q/Q7tr9rWgXu0KMSSV5ZniAlbJJiEXODGMW6PwMioqZrANMOGd7nosaCx+5PlZIKChH5j3pu2x+6FVWzOQmCic3Kfk3+rFy++dWjS3oDwgTZoeUU69OG4WobTO75tcuhZs2AcG5zG/QNFW0QLlJn1oVTAAd1PzdO/l8EaXJa2tWtzMeJYpslNezWLlEUoeIt5V4iXb9d7wshAja6VTe0HEbeq7/wMIKlJ6aS0S+Z8JRFBtf1IL4Nzl8XFCPTqz8JNmt1n1VlOkjg3JLZts4cWKZ2AwK3v2+2ob20M0BViN2dgfHMbRsN3PEQVgXnqgtAXOr8MVKDelED1tZZxTSyVUwN1xrqSriXda/Wh/Fuv58xB7rh7Oue3/E5mD/kIElLanv8b9XUDLeJWsnW25+wMD4TcfM5Ei/eexHL38yuGYMt7NoQC/7Xan8S5zvB4TZd0uhLpwx+i4e5ur57JprgLSOwRWbWbO1VmxHpeUxbXLy/caabv8Oc6NXVmipPzMZtn8JWySZbBSx5dicZ5T/t7gdT2na0f58+E086EgU4ULp/mQtxJ9JJdEty+bBEKVBBoH7cogLVM3wIAhHHBrE6foYWsKnUnCDoWDDZnqK1pFX96jEd8YrHekXW9/vS0WQEAJkOym7bsMW9yeCXvM46mddz7YQ2YSEmIZWHgC20ByyMOH8v/26C89+/eFoE9VGGuDeKQF4V+qoGxpI3qj9hjvH4SvgZ721rOf6No6o9oipjR9lrRlsqEKOHk2WsS1WQSrUeUomQqUbp+bjEoSHUkb8gA8RD1Axd+IvkNHxJjDsVf7tIRfj5LnzBqxLcOf5JWW0nnMIK2z4itdoEHihZ3Hl4dAUiT1X2bydx5JyzrocGNJr0Y5JaLuaFlm7D/dWrmNzjoSiasTNvTgrGzeXX5G5jnl7aPWhZ4cVyJ2dSGnG0kalq2dQGZzfUr/QCur+vk4gdbFIovYMaUtXRzv0F9OeqoOY+u+twQaNOg8Y+3n35W+iB1B/dMbW0mZgHJ/FLEKzsnb/KKS3N7C+teD0PqOOUQLUrfg+Nf/4mtexkcsD14zCJxcPSfl5VQbI3S0EnFZhLEpZL1QDc2AMgPd04lrAqlyP0P4LePFXRRGh2rgJZWBQExU79SF5898nzy8QG+gmNh0z4LuZBuRnb5+aA3EmgBQj/4s+Vr/hecEOAV0o5kXhcq6WOuU4S3YGZKg4rYAqStv2Pk1QiWHx1C+ZIuBBAeTXJ+t17IQiTuWnlHy0bbFX/iYnD/DIwYRnrKGNYGVN+4/ytfUKB6N6ZuWIyH2cTpots5P9Q68/MtgAJrMKU0L0DutYNjt/PbahWHv5uE4UoXLoVioC0IOKEq2eZhZ7zR8R4udZxIev6oWse1ssAEZ8zhTB1mx1AhTo7NJpHdjAvrC/d5eXfyccAjPFbNDU6D0kN0fVJzGeiXVTUhjshZPGtLkBnuhWvTDXxJwBMzzpShyOhjWQ46UcH0Vh8s6v7peQPlSacL1eRBZltJUxRx+XbXgfLxRJIUZU88PGZKgBUOmzBthLJQj9eI0/g/pq0xtrUh8TKXeBws5v51deB8hEKnGD571BYnggt5SXDRhmlMBiZbD9fIrMr/hljFuCulUtkqwci/M5JQz08IVyTYT3tO9x7tLjL/6CZZgKOyxM3FWvgP8gEjrLo9YJ6Sq4WAhG941VfNTr+wHkN5cTNOCOImUGl3PHYC9XfpxlDhtISJU1S9mU4hMdZgRNlKPEcwYaf2EjH65NyewckR/z1Csq1hdw6jJ/g6+NQMdVYj/SRvi2KCkv2i6Va49yTULZ0fQEYZBY9zKSeKn8S4ChteNv+6XuoAc34K+x3VgXns44f03iewfGLPQuLkVFGq6MrW2S6PbtnnL5rXOV5SdfczIyg3+agAVQqhk8V2Qng+xBZ4aisPeQs99TW/QDNkStVi1XNl7fD/WLZgvtziQoW9z9HW4c3awWkgFqugW9YZVm0jRNEmtxniXmUeDniYav2jNO9yoHiCcmV3CqzNl06LM4QRUFJ/DTRHGjOzWbHxvBHKezC+gPUKoTJVix4SMlb8UxvfrNL27fSXDQKZmRuriZRF1xCtR3Zp0WhYagvrwFSg1WwmQU++JeMD8eN3UpcscbH/UAiOYZTuqPuzREIrZNn1+qF5FO9a4hWLteJRKCs0JBOLxpr7xB3kaPgUZrznE9hBgOJ1quwurZDoXiYzM2jGYNijA9Fqym1rVIJWE38Xlm4UWtSNWmXTlXSKlUQZ6KXQW6MTlQdsABGq6AsKPAt8ph5JoXow+TsLsIO/iQyP1CktJaugw7xxX6zQ7uraA1lxCuoOWfQ4Gh6qGfEGslRAm5dwJnwna2THSgYXBfePZt8lWndFkaDuEtAwl91w62HEzknqtjQaKuoX8bJpr3YRJY1l74OunJSIkyWn/XmlrwjmMobEq0gTZmk1L+hSPTFR+To/cTOHji0YaGzzbMVtcJDdYMgwR51kZPShBVYrzNt8MKWo22YZUBG19ZGcz0T06O8bZSsKljH5okax06+jUbmsr7wFpF9gMUcMLsM/Zg60GhpO51n4HVjQcedyC2Wgujm4/3QQB3MddpHRahk/3GNrwUsylUAQuhGVKDQGGXCrtoMV3IYnd1PqZFxhLm2javG16DS17s4SlnKbtolHhyr17mL79Fsi4+TuiZ34qsgMODGRwHyvGTTsJaRByQDisp+z7dvrDZ8BYtinMLNxk6syNTz72iZ/HqsKX/smenXjIbt5JCXiNEDoVmRbpwsOkcoJz2JR8BW7UuJa6PFp4c0O9zjS++nIRkOtEc7H/gxom4DnfhEft4jMe7LgMdelf21E60ejfL1zLw5CXKcPIe7DMT10rew4BSyh23PjxI4/RgLRNeU+iTbfjxSugO0de6Kcfb7wDvpTS8VSTLRDYc4rUbCBx1988DoRdUnwXt8lA71GkQxdLY9YE9sqzeyGkSpyt5OyuxxEqTvLgXuYLcesMa0gELAEIzbLg+CbrnWbaYVrUZ6iBaV+NdzbR+W8Mp5UN5aSF0WavlABjM7ppcB+xfVrhf0EJoZAFQm6CDgPryVBu2QKkOyEuCUqW3M9xD8WJlszHUiqz5+5rol9B2/T1F8AAAA==" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center right;display:block;mask-image:linear-gradient(90deg,transparent 0%,#000 22%)"></div>
     </div>
-    <select id="language" onchange="changeLanguage()">
-      <option value="pt">🇧🇷 Português</option>
-      <option value="en">🇺🇸 English</option>
-      <option value="es">🇪🇸 Español</option>
-    </select>
+
+    <div class="student-section-heading">
+      <div><span class="student-kicker" data-en="PICK UP WHERE YOU LEFT OFF" data-pt="RETOME DE ONDE PAROU">PICK UP WHERE YOU LEFT OFF</span><h3 data-en="Continue learning" data-pt="Continue aprendendo">Continue learning</h3></div>
+      <span class="student-section-note" data-en="Your study journey, one step at a time" data-pt="Sua jornada de estudos, um passo de cada vez">Your study journey, one step at a time</span>
+    </div>
+    <article class="continue-learning-card">
+      <div class="continue-icon">📘</div>
+      <div class="continue-content"><span class="continue-tag" data-en="RECOMMENDED NEXT STEP" data-pt="PRÓXIMO PASSO RECOMENDADO">RECOMMENDED NEXT STEP</span><h4 data-en="NPTE mixed practice" data-pt="Prática mista NPTE">NPTE mixed practice</h4><p data-en="Practice across physical therapy subjects with exam-style questions and clinical scenarios." data-pt="Pratique diferentes áreas da fisioterapia com questões no estilo da prova e cenários clínicos.">Practice across physical therapy subjects with exam-style questions and clinical scenarios.</p></div>
+      <button class="continue-button" onclick="start('npte')" data-en="Start studying" data-pt="Começar a estudar">Start studying</button>
+    </article>
+
+    <div class="student-section-heading">
+      <div><span class="student-kicker" data-en="YOUR PREPARATION" data-pt="SUA PREPARAÇÃO">YOUR PREPARATION</span><h3 data-en="Study areas" data-pt="Áreas de estudo">Study areas</h3></div>
+      <span class="student-section-note" data-en="Everything you need in one place" data-pt="Tudo o que você precisa em um só lugar">Everything you need in one place</span>
+    </div>
+    <section class="student-learning-grid">
+      <article class="learning-tile learning-npte"><div class="learning-tile-top"><span class="learning-tile-icon">🩺</span><span class="learning-status" data-en="CORE PREPARATION" data-pt="PREPARAÇÃO PRINCIPAL">CORE PREPARATION</span></div><h4>NPTE Practice</h4><p data-en="Mixed questions, clinical case studies, and Evidence-Based Practice to strengthen your clinical reasoning." data-pt="Questões variadas, estudos de caso clínicos e prática baseada em evidências para fortalecer seu raciocínio clínico.">Mixed questions, clinical case studies, and Evidence-Based Practice to strengthen your clinical reasoning.</p><button onclick="start('npte')" data-en="Explore NPTE →" data-pt="Acessar NPTE →">Explore NPTE →</button></article>
+      <article class="learning-tile learning-laws"><div class="learning-tile-top"><span class="learning-tile-icon">⚖️</span><span class="learning-status" data-en="FLORIDA LICENSURE" data-pt="LICENCIAMENTO NA FLÓRIDA">FLORIDA LICENSURE</span></div><h4 id="dashLawsTitle">Florida Laws & Rules</h4><p data-en="Prepare for Florida regulations, professional responsibilities, and the state jurisprudence requirement." data-pt="Prepare-se para as regulamentações da Flórida, responsabilidades profissionais e exigências legais estaduais.">Prepare for Florida regulations, professional responsibilities, and the state jurisprudence requirement.</p><button onclick="start('laws')" data-en="Explore Laws & Rules →" data-pt="Acessar Laws & Rules →">Explore Laws & Rules →</button></article>
+      <article class="learning-tile learning-center"><div class="learning-tile-top"><span class="learning-tile-icon">📚</span><span class="learning-status" data-en="LEARNING LIBRARY" data-pt="BIBLIOTECA DE ESTUDOS">LEARNING LIBRARY</span></div><h4>Study Center</h4><p data-en="Find your study resources, reference materials, and learning content organized to support your preparation." data-pt="Encontre materiais de referência e conteúdos organizados para apoiar sua preparação.">Find your study resources, reference materials, and learning content organized to support your preparation.</p><span class="learning-coming" data-en="Learning space" data-pt="Área de aprendizagem">Learning space</span></article>
+      <article class="learning-tile learning-ai"><div class="learning-tile-top"><span class="learning-tile-icon">✨</span><span class="learning-status" data-en="AI-POWERED LEARNING" data-pt="APRENDIZAGEM COM IA">AI-POWERED LEARNING</span></div><h4>AI Visual Tutor</h4><p data-en="Explore visual explanations to make anatomy, movement, and complex clinical concepts easier to understand." data-pt="Explore explicações visuais para compreender melhor anatomia, movimento e conceitos clínicos complexos.">Explore visual explanations to make anatomy, movement, and complex clinical concepts easier to understand.</p><span class="learning-coming" data-en="Learning assistant" data-pt="Assistente de aprendizagem">Learning assistant</span></article>
+    </section>
+
+    <div class="student-insights-grid">
+      <section class="panel student-insight-panel">
+        <div class="student-panel-heading"><div><span class="student-kicker" data-en="YOUR ACTIVITY" data-pt="SUA ATIVIDADE">YOUR ACTIVITY</span><h3 id="recentPanelTitle" data-en="Recent activity" data-pt="Atividades recentes">Recent activity</h3></div><span class="insight-icon">↗</span></div>
+        <div class="recent-row"><span data-en="No completed practice exams yet" data-pt="Nenhum simulado concluído ainda">No completed practice exams yet</span><strong>—</strong></div><div class="recent-row"><span data-en="Your study results will appear here" data-pt="Seus resultados aparecerão aqui">Your study results will appear here</span><strong>—</strong></div><div class="recent-row"><span data-en="Your history is linked to your account" data-pt="Seu histórico fica vinculado à sua conta">Your history is linked to your account</span><strong>✓</strong></div>
+      </section>
+      <section class="panel student-insight-panel">
+        <div class="student-panel-heading"><div><span class="student-kicker" data-en="STUDY OVERVIEW" data-pt="VISÃO DOS ESTUDOS">STUDY OVERVIEW</span><h3 data-en="Progress by subject" data-pt="Progresso por disciplina">Progress by subject</h3></div><span class="insight-icon">◷</span></div>
+        <div class="topic"><span id="topicMusculo">Musculoskeletal</span><div class="bar"><span></span></div><b>—</b></div>
+        <div class="topic"><span id="topicNeuro">Neuromuscular</span><div class="bar"><span></span></div><b>—</b></div>
+        <div class="topic"><span id="topicCardio">Cardiopulmonary</span><div class="bar"><span></span></div><b>—</b></div>
+        <div class="topic"><span id="topicEbp">EBP</span><div class="bar"><span></span></div><b>—</b></div>
+        <div class="topic"><span id="topicPeds">Pediatrics</span><div class="bar"><span></span></div><b>—</b></div>
+        <p class="student-data-note" data-en="Your subject insights will update as you complete activities." data-pt="Os indicadores por disciplina serão atualizados conforme você concluir atividades.">Your subject insights will update as you complete activities.</p>
+      </section>
+    </div>
+
+    <div class="student-goal-strip"><span class="goal-strip-icon">🎯</span><div><strong data-en="Your goal: become a licensed physical therapist in Florida." data-pt="Seu objetivo: conquistar a licença de fisioterapia na Flórida.">Your goal: become a licensed physical therapist in Florida.</strong><p data-en="Stay consistent. Every practice session is progress." data-pt="Mantenha a constância. Cada sessão de prática é um avanço.">Stay consistent. Every practice session is progress.</p></div><button onclick="showStudyPlan()" data-en="View study plan →" data-pt="Ver plano de estudos →">View study plan →</button></div>
+  </section>
+  <!-- DASHBOARD DO ALUNO -->
+
+<!-- DASHBOARD DO ALUNO -->
+<section id="studentDashboard" class="hidden">
+
+  <div class="panel">
+    <h2 id="studentDashTitle">Meu Dashboard</h2>
+    <p id="studentDashIntro">Acompanhe sua evolução na preparação para a licença de fisioterapia na Flórida.</p>
   </div>
 
-  <section class="banner">
-    <div class="banner-icon">🎯</div>
-    <div>
-      <h3>Seu objetivo está ao seu alcance!</h3>
-      <p>Estude com foco, acompanhe seu progresso<br>
-      e avance na preparação para o NPTE.</p>
+  <!-- INDICADORES GERAIS -->
+  <div class="dashboard-grid">
+
+    <div class="panel">
+      <h3 id="dashQuestionsTitle">Questões respondidas</h3>
+      <strong id="dashTotalQuestions">—</strong>
+      <p id="dashQuestionsHelp">Total de questões praticadas</p>
     </div>
-  </section>
 
-  <h3 class="section-title">Áreas de estudo</h3>
-  <section class="study-grid">
-    <article class="study-card npte">
-      <div>
-        <div class="symbol">🦴</div>
-        <h3>NPTE</h3>
-        <p>Conhecimento clínico, cuidado ao paciente e raciocínio fisioterapêutico.</p>
-      </div>
-      <button class="white-btn" onclick="start('npte')">Começar estudos →</button>
-    </article>
-
-    <article class="study-card laws">
-      <div>
-        <div class="symbol">⚖️</div>
-        <h3>Florida Laws & Rules</h3>
-        <p>Estatutos, regulamentações e conduta profissional na Flórida.</p>
-      </div>
-      <button class="white-btn" onclick="start('laws')">Começar estudos →</button>
-    </article>
-
-    <article class="study-card ebp">
-      <div>
-        <div class="symbol">📊</div>
-        <h3>Evidence-Based Practice</h3>
-        <p>Pesquisa científica, avaliação crítica e tomada de decisão clínica.</p>
-      </div>
-      <button class="white-btn" onclick="start('ebp')">Começar estudos →</button>
-    </article>
-  </section>
-
-  <section class="panel-grid">
-    <article class="panel">
-      <h3>📊 Seu progresso</h3>
-      <div class="progress-layout">
-        <div class="ring" id="progressRing">
-          <strong><span id="score">0%</span><small>Geral</small></strong>
-        </div>
-        <div class="legend">
-          <div><span class="dot blue"></span>NPTE <strong id="npteScore">0%</strong></div>
-          <div><span class="dot yellow"></span>Florida Laws <strong id="lawsScore">0%</strong></div>
-          <div><span class="dot green"></span>EBP <strong id="ebpScore">0%</strong></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="panel">
-      <h3>🏆 Estatísticas</h3>
-      <div class="stats">
-        <div class="stat"><span>Simulados realizados</span><strong id="sessions">0</strong></div>
-        <div class="stat"><span>Questões respondidas</span><strong id="answered">0</strong></div>
-        <div class="stat"><span>Acertos</span><strong class="green-text" id="accuracy">0%</strong></div>
-      </div>
-    </article>
-
-    <article class="panel activity">
-      <h3>🕒 Última atividade</h3>
-      <p id="lastActivity">Você ainda não concluiu nenhum simulado. Que tal começar agora?</p>
-      <button class="primary" onclick="showPerformance()">Ver desempenho</button>
-    </article>
-  </section>
-
-  <section class="lower-grid">
-    <article class="panel quick">
-      <h3>📘 Acesso rápido</h3>
-      <button onclick="showReview()">⟳ Revisar meus erros</button>
-      <button onclick="start('all')">☑ Iniciar simulado completo</button>
-      <button onclick="showPerformance()">▥ Analisar desempenho</button>
-    </article>
-
-    <article class="panel tip">
-      <div class="bulb">💡</div>
-      <h3>Dica do dia</h3>
-      <p>“A preparação consistente é o segredo do sucesso!”</p>
-    </article>
-
-    <article class="panel topics-panel">
-      <h3>Progresso por disciplina (NPTE)</h3>
-      <div class="topic-row"><span>Musculoskeletal</span><div class="bar"><span id="musculoBar" style="width:0%"></span></div><strong id="musculoPct">0%</strong></div>
-      <div class="topic-row"><span>Evidence-Based</span><div class="bar"><span id="ebpBar" style="width:0%"></span></div><strong id="ebpPct">0%</strong></div>
-      <div class="topic-row"><span>Florida Laws</span><div class="bar"><span id="lawsBar" style="width:0%"></span></div><strong id="lawsPct">0%</strong></div>
-    </article>
-  </section>
-
-  <section id="quiz" class="panel hidden">
-    <div class="quiz-head">
-      <h3 id="quizTitle">Simulado</h3>
-      <strong id="timer">Tempo: 00:00</strong>
+    <div class="panel">
+      <h3 id="dashAccuracyTitle">Taxa de acerto</h3>
+      <strong id="dashAccuracy">—</strong>
+      <p id="dashAccuracyHelp">Desempenho geral nas práticas</p>
     </div>
-    <p id="question"></p>
-    <div id="options"></div>
-    <button class="primary" onclick="nextQuestion()" id="next">Próxima questão</button>
-    <div id="feedback"></div>
-  </section>
 
-  <section id="review" class="panel hidden">
-    <h3>Revisão de questões</h3>
-    <div id="reviewContent">As questões respondidas incorretamente aparecerão aqui após os simulados.</div>
-  </section>
+    <div class="panel">
+      <h3 id="dashCompletedTitle">Atividades concluídas</h3>
+      <strong id="dashCompletedExams">—</strong>
+      <p id="dashCompletedHelp">Práticas e simulados finalizados</p>
+    </div>
 
-  <section id="performance" class="panel hidden">
-    <h3>Meu desempenho</h3>
-    <p id="performanceContent">Conclua simulados para acompanhar seu desempenho.</p>
-  </section>
+    <div class="panel">
+      <h3 id="dashAverageTitle">Média das atividades</h3>
+      <strong id="dashExamAverage">—</strong>
+      <p id="dashAverageHelp">Média das atividades concluídas</p>
+    </div>
 
+  </div>
+
+  <!-- PREPARAÇÃO POR ÁREA -->
+  <div class="panel">
+    <h3 id="dashAreaTitle">Preparação por área</h3>
+
+    <div class="dashboard-grid">
+
+      <div>
+        <h4 id="dashNpteTitle">NPTE</h4>
+        <p id="dashNpteSummary">Nenhuma atividade registrada ainda.</p>
+      </div>
+
+      <div>
+        <h4>Florida Laws & Rules</h4>
+        <p id="dashLawsSummary">Nenhuma atividade registrada ainda.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DESEMPENHO POR DISCIPLINA -->
+  <div class="panel">
+    <h3 id="dashSubjectTitle">Desempenho por disciplina</h3>
+    <div id="dashSubjectPerformance">
+      <p id="dashSubjectPlaceholder">Os resultados por disciplina aparecerão aqui após as primeiras atividades.</p>
+    </div>
+  </div>
+
+  <!-- HISTÓRICO DE SIMULADOS -->
+  <div class="panel">
+    <h3 id="dashHistoryTitle">Histórico de atividades concluídas</h3>
+    <div id="dashExamHistory">
+      <p id="dashHistoryPlaceholder">Você ainda não concluiu nenhum simulado completo.</p>
+    </div>
+  </div>
+
+</section>
+
+  <section id="quiz" class="hidden"><div class="quiz-panel"><div class="quiz-head"><h3 id="quizTitle">NPTE Practice</h3><strong id="timer">Tempo: 00:00</strong></div><p id="question"></p><div id="options"></div><button class="primary" id="nextBtn" onclick="nextQuestion()">Próxima questão</button><div id="feedback"></div></div></section>
+  <section id="otherView" class="hidden"><div class="panel"><h3 id="otherTitle">Área de estudos</h3><p id="otherText"></p><button class="primary" id="otherBack" onclick="showDashboard()">Voltar ao início</button></div></section>
   <footer>PT Exam Prep · Plataforma independente de estudos · Conteúdo educacional</footer>
 </main>
 </div>
-
 <script>
+const demoQuestions=[
+{category:{en:'Musculoskeletal',pt:'Musculoesquelético'},question:{en:'Which muscle group controls eccentric knee flexion when descending stairs?',pt:'Qual grupo muscular controla excentricamente a flexão do joelho ao descer escadas?'},options:{en:['Quadriceps','Hamstrings','Hip adductors','Calf muscles'],pt:['Quadríceps','Isquiotibiais','Adutores do quadril','Panturrilha']},answer:0,explanation:{en:'The quadriceps control knee flexion eccentrically during stair descent.',pt:'O quadríceps controla excentricamente a flexão do joelho durante a descida de escadas.'}},
+{category:{en:'Evidence-Based Practice',pt:'Prática Baseada em Evidências'},question:{en:'Which source generally provides a high level of evidence for the effectiveness of an intervention?',pt:'Qual fonte geralmente oferece alto nível de evidência sobre a eficácia de uma intervenção?'},options:{en:['Case report','Expert opinion','Systematic review of high-quality randomized controlled trials','Personal experience'],pt:['Relato de caso','Opinião de especialista','Revisão sistemática de ensaios randomizados de alta qualidade','Experiência pessoal']},answer:2,explanation:{en:'A rigorous systematic review synthesizes multiple studies and generally occupies a high position in evidence hierarchies.',pt:'Uma revisão sistemática rigorosa reúne vários estudos e geralmente ocupa posição elevada nas hierarquias de evidência.'}}
+];
+let questions=[],current=0,selected=null,answers=[],startedAt=0,timerInterval=null,questionLang='pt',attemptId=null;
+let currentAttemptId = null;
+let currentQuestionId = null;
+let isRealExam = false;
+async function callExamApi(action, payload = {}) {
+  const client = window.ptExamSupabase;
 
-const translations = {
-pt: {
-  welcome:"Bem-vinda, Vanessa! 👋",
-  subtitle:"Prepare-se, pratique e conquiste sua licença na Flórida.",
-  start:"Começar estudos",
-  next:"Próxima questão",
-  result:"Seu resultado: ",
-  time:"Tempo: ",
-  dashboard:"Dashboard",
-  npte:"NPTE",
-  laws:"Florida Laws & Rules",
-  ebp:"Evidence-Based Practice",
-  complete:"Simulados completos",
-  review:"Revisão de questões",
-  performance:"Meu desempenho",
-  bannerTitle:"Seu objetivo está ao seu alcance!",
-  bannerText:"Estude com foco, acompanhe seu progresso e avance na preparação para o NPTE.",
-  studyAreas:"Áreas de estudo",
-  npteDesc:"Conhecimento clínico, cuidado ao paciente e raciocínio fisioterapêutico.",
-  lawsDesc:"Estatutos, regulamentações e conduta profissional na Flórida.",
-  ebpDesc:"Pesquisa científica, avaliação crítica e tomada de decisão clínica.",
-  progress:"Seu progresso",
-  general:"Geral",
-  statistics:"Estatísticas",
-  sessions:"Simulados realizados",
-  answered:"Questões respondidas",
-  correct:"Acertos",
-  activity:"Última atividade",
-  noActivity:"Você ainda não concluiu nenhum simulado. Que tal começar agora?",
-  viewPerformance:"Ver desempenho",
-  quick:"Acesso rápido",
-  reviewErrors:"Revisar meus erros",
-  fullExam:"Iniciar simulado completo",
-  analyze:"Analisar desempenho",
-  tip:"Dica do dia",
-  tipText:"A preparação consistente é o segredo do sucesso!",
-  topics:"Progresso por disciplina (NPTE)",
-  musculo:"Musculoesquelético",
-  footer:"PT Exam Prep · Plataforma independente de estudos · Conteúdo educacional",
-  selectAnswer:"Selecione uma alternativa.",
-  noMistakes:"Ainda não há questões erradas para revisar. Conclua um simulado para começar sua revisão.",
-  completed:"Simulados concluídos",
-  questions:"Questões respondidas",
-  hits:"Acertos",
-  overall:"Aproveitamento geral",
-  last:"Último simulado",
-  accuracy:"de acertos"
+  if (!client) {
+    throw new Error('Conexão com Supabase não encontrada.');
+  }
+
+  const { data: { session }, error: sessionError } =
+    await client.auth.getSession();
+
+  if (sessionError || !session) {
+    throw new Error('Sua sessão expirou. Faça login novamente.');
+  }
+
+  const { data, error } = await client.functions.invoke(
+    'pt-exam-api',
+    {
+      body: {
+        action,
+        ...payload
+      }
+    }
+  );
+
+  if (error) {
+    throw new Error(error.message || 'Erro ao acessar o banco de questões.');
+  }
+
+   return data;
+}
+async function loadStudentDashboard() {
+  const setValue = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  };
+
+  const isEnglish = uiLang === 'en';
+  const locale = isEnglish ? 'en-US' : 'pt-BR';
+  const labels = isEnglish ? {
+    loading: 'Loading...',
+    preparing: 'In progress',
+    noNpte: 'No completed NPTE activities yet.',
+    noLaws: 'No completed Florida Laws & Rules activities yet.',
+    noSubjects: 'Subject results will appear here after your first activities.',
+    noHistory: 'You have not completed any activities yet.',
+    loadError: 'Unable to load results. Please try again.',
+    activity: 'Activity',
+    completed: 'completed',
+    questions: 'questions answered',
+    accuracy: 'accuracy',
+    average: 'average',
+    correct: 'correct',
+    correctShort: 'correct',
+    historyTitle: 'Completed activity',
+  } : {
+    loading: 'Carregando...',
+    preparing: 'Em preparação',
+    noNpte: 'Nenhuma atividade NPTE concluída ainda.',
+    noLaws: 'Nenhuma atividade de Florida Laws & Rules concluída ainda.',
+    noSubjects: 'Ainda não existem resultados por disciplina.',
+    noHistory: 'Você ainda não concluiu nenhuma atividade.',
+    loadError: 'Não foi possível carregar os resultados. Tente novamente.',
+    activity: 'Atividade',
+    completed: 'atividade(s) concluída(s)',
+    questions: 'questões respondidas',
+    accuracy: 'de acerto',
+    average: 'média',
+    correct: 'acerto',
+    correctShort: 'acerto',
+    historyTitle: 'Atividade concluída',
+  };
+
+  const formatPercent = (value) => {
+    const number = Number(value);
+    return Number.isFinite(number) ? `${Math.round(number)}%` : '—';
+  };
+
+  const formatModality = (stats, emptyMessage) => {
+    if (!stats || Number(stats.completed_attempts || 0) === 0) {
+      return emptyMessage;
+    }
+    const count = Number(stats.completed_attempts || 0);
+    return isEnglish
+      ? `${count} ${count === 1 ? 'activity' : 'activities'} completed · ${stats.total_answered || 0} ${labels.questions} · ${formatPercent(stats.accuracy)} ${labels.accuracy} · ${labels.average} ${formatPercent(stats.average_score)}`
+      : `${count} ${labels.completed} · ${stats.total_answered || 0} ${labels.questions} · ${formatPercent(stats.accuracy)} ${labels.accuracy} · ${labels.average} ${formatPercent(stats.average_score)}`;
+  };
+
+  setValue('dashTotalQuestions', labels.loading);
+  setValue('dashAccuracy', labels.loading);
+  setValue('dashCompletedExams', labels.loading);
+  setValue('dashExamAverage', labels.loading);
+
+  try {
+    const data = await callExamApi('get_dashboard');
+
+    setValue('dashTotalQuestions',
+      Number(data.total_answered || 0).toLocaleString(locale));
+    setValue('dashAccuracy', formatPercent(data.accuracy));
+    setValue('dashCompletedExams',
+      Number(data.completed_attempts ?? data.completed_activities ?? 0).toLocaleString(locale));
+    setValue('dashExamAverage',
+      Number(data.completed_attempts || 0) > 0
+        ? formatPercent(data.average_score)
+        : labels.preparing);
+
+    setValue('dashNpteSummary', formatModality(data.npte, labels.noNpte));
+    setValue('dashLawsSummary', formatModality(data.florida_laws, labels.noLaws));
+
+    const subjectContainer = document.getElementById('dashSubjectPerformance');
+    if (subjectContainer) {
+      subjectContainer.replaceChildren();
+      const subjects = Object.entries(data.subject_performance || {});
+      if (subjects.length === 0) {
+        subjectContainer.textContent = labels.noSubjects;
+      } else {
+        subjects.forEach(([name, stats]) => {
+          const accuracy = stats.total
+            ? Math.round((stats.correct / stats.total) * 100)
+            : 0;
+          const item = document.createElement('p');
+          item.textContent = isEnglish
+            ? `${name}: ${accuracy}% accuracy (${stats.correct}/${stats.total})`
+            : `${name}: ${accuracy}% de acerto (${stats.correct}/${stats.total})`;
+          subjectContainer.appendChild(item);
+        });
+      }
+    }
+
+    const historyContainer = document.getElementById('dashExamHistory');
+    if (historyContainer) {
+      historyContainer.replaceChildren();
+      const history = data.exam_history || [];
+      if (history.length === 0) {
+        historyContainer.textContent = labels.noHistory;
+      } else {
+        history.forEach((exam) => {
+          const item = document.createElement('p');
+          const dateValue = exam.finished_at || exam.started_at;
+          const date = dateValue
+            ? new Date(dateValue).toLocaleDateString(locale)
+            : '';
+          let examName = exam.exam_type || labels.activity;
+          if (isEnglish && examName === 'NPTE_PRACTICE') examName = 'NPTE Practice';
+          if (!isEnglish && examName === 'NPTE_PRACTICE') examName = 'Prática NPTE';
+          item.textContent = `${examName} · ${formatPercent(exam.score)} · ${date}`;
+          historyContainer.appendChild(item);
+        });
+      }
+    }
+  } catch (error) {
+    console.error('Erro ao carregar Dashboard:', error);
+    setValue('dashTotalQuestions', '—');
+    setValue('dashAccuracy', '—');
+    setValue('dashCompletedExams', '—');
+    setValue('dashExamAverage', '—');
+    setValue('dashNpteSummary', labels.loadError);
+    setValue('dashLawsSummary', labels.loadError);
+
+    const historyContainer = document.getElementById('dashExamHistory');
+    if (historyContainer) historyContainer.textContent = labels.loadError;
+  }
+}
+
+const translations={
+pt:{
+welcome:'Bem-vinda, Vanessa! 👋',brandTagline:'Prepare. Practice. Pass.',eyebrow:'LICENCIAMENTO EM FISIOTERAPIA • FLÓRIDA',languageLabel:'IDIOMA DO SITE E DAS QUESTÕES',overall:'Geral',correctMetric:'Corretas',incorrectMetric:'Incorretas',answeredMetric:'Respondidas',topicMusculo:'Musculoesquelético',topicNeuro:'Neuromuscular',topicCardio:'Cardiopulmonar',topicEbp:'EBP',topicPeds:'Pediatria',otherBack:'Voltar ao início',reviewTitle:'Revisão de questões',reviewText:'Suas questões respondidas incorretamente aparecerão aqui quando o histórico estiver conectado à sua conta.',performanceTitle:'Meu desempenho',performanceText:'Seu histórico, pontuação e progresso por disciplina serão exibidos aqui após a integração com o Supabase.',studyPlanTitle:'Plano de estudos',studyPlanText:'Aqui você poderá organizar metas semanais, disciplinas e sessões de preparação.',glossaryTitle:'Glossário',glossaryText:'Aqui ficará o glossário de termos clínicos em inglês e português.',sidebarMotivation:'Você consegue!',sidebarJourney:'Sua jornada rumo à licença na Flórida',npteTitle:'Prática NPTE',timerLabel:'Tempo',subtitle:'Sua preparação para a licença de fisioterapia começa aqui.',heroTitle:'Vamos conquistar esse objetivo!',heroText:'Estude com estratégia, pratique com confiança e acompanhe sua evolução rumo à licença de fisioterapia na Flórida.',progressTitle:'Seu progresso',
+nav:['Início','Dashboard','Praticar por tópico','Simulados completos','Revisar questões','Meu desempenho','Plano de estudos','Glossário'],
+areas:'Áreas de preparação',npte:'Conhecimento clínico, disciplinas e Evidence-Based Practice.',laws:'Estatutos, regulamentações e conduta profissional na Flórida.',start:'▶ Começar prática',recent:'🏆 Resultados recentes',noRecent:'Nenhum simulado concluído ainda',recentInfo:'Seus resultados aparecerão aqui',synced:'Histórico sincronizado após integração',topics:'📊 Estudo por disciplina',quick:'⚡ Acesso rápido',full:'◷ Fazer simulado completo',review:'⟳ Revisar questões erradas',plan:'▦ Ver plano de estudos',stats:'▥ Consultar estatísticas',language:'🌐 Idioma',languageHelp:'Use o seletor no menu lateral para alterar o idioma de toda a plataforma e das questões.',goal:'🎯 Seu objetivo: conquistar a licença de fisioterapia na Flórida!',goalText:'Estude com inteligência, acompanhe seu progresso e prepare-se para o sucesso.',createPlan:'Criar plano de estudos →',footer:'PT Exam Prep · Plataforma independente de estudos · Conteúdo educacional',correct:'Corretas',incorrect:'Incorretas',answered:'Respondidas',next:'Próxima questão',finish:'Concluir',choose:'Selecione uma alternativa antes de continuar.',right:'✓ Correto! ',wrong:'✗ Incorreto. ',result:'Seu resultado: ',back:'Voltar ao início',time:'Tempo'
 },
-en: {
-  welcome:"Welcome, Vanessa! 👋",
-  subtitle:"Prepare, practice and work toward your Florida PT license.",
-  start:"Start studying",
-  next:"Next question",
-  result:"Your result: ",
-  time:"Time: ",
-  dashboard:"Dashboard",
-  npte:"NPTE",
-  laws:"Florida Laws & Rules",
-  ebp:"Evidence-Based Practice",
-  complete:"Full mock exams",
-  review:"Question review",
-  performance:"My performance",
-  bannerTitle:"Your goal is within reach!",
-  bannerText:"Study with focus, track your progress and move forward with your NPTE preparation.",
-  studyAreas:"Study areas",
-  npteDesc:"Clinical knowledge, patient care and physical therapy reasoning.",
-  lawsDesc:"Florida statutes, regulations and professional conduct.",
-  ebpDesc:"Scientific research, critical appraisal and clinical decision-making.",
-  progress:"Your progress",
-  general:"Overall",
-  statistics:"Statistics",
-  sessions:"Mock exams completed",
-  answered:"Questions answered",
-  correct:"Correct answers",
-  activity:"Recent activity",
-  noActivity:"You have not completed a mock exam yet. Why not start now?",
-  viewPerformance:"View performance",
-  quick:"Quick access",
-  reviewErrors:"Review my mistakes",
-  fullExam:"Start full mock exam",
-  analyze:"Analyze performance",
-  tip:"Daily tip",
-  tipText:"Consistent preparation is the key to success!",
-  topics:"Progress by NPTE subject",
-  musculo:"Musculoskeletal",
-  footer:"PT Exam Prep · Independent study platform · Educational content",
-  selectAnswer:"Please select an answer.",
-  noMistakes:"There are no incorrect answers to review yet. Complete a mock exam to start your review.",
-  completed:"Mock exams completed",
-  questions:"Questions answered",
-  hits:"Correct answers",
-  overall:"Overall accuracy",
-  last:"Last mock exam",
-  accuracy:"accuracy"
-},
-es: {
-  welcome:"¡Bienvenida, Vanessa! 👋",
-  subtitle:"Prepárate, practica y avanza hacia tu licencia de fisioterapia en Florida.",
-  start:"Comenzar estudios",
-  next:"Siguiente pregunta",
-  result:"Tu resultado: ",
-  time:"Tiempo: ",
-  dashboard:"Panel principal",
-  npte:"NPTE",
-  laws:"Leyes y normas de Florida",
-  ebp:"Práctica basada en evidencia",
-  complete:"Simulacros completos",
-  review:"Revisión de preguntas",
-  performance:"Mi rendimiento",
-  bannerTitle:"¡Tu objetivo está a tu alcance!",
-  bannerText:"Estudia con enfoque, sigue tu progreso y avanza en tu preparación para el NPTE.",
-  studyAreas:"Áreas de estudio",
-  npteDesc:"Conocimiento clínico, atención al paciente y razonamiento fisioterapéutico.",
-  lawsDesc:"Estatutos, regulaciones y conducta profesional en Florida.",
-  ebpDesc:"Investigación científica, evaluación crítica y toma de decisiones clínicas.",
-  progress:"Tu progreso",
-  general:"General",
-  statistics:"Estadísticas",
-  sessions:"Simulacros realizados",
-  answered:"Preguntas respondidas",
-  correct:"Respuestas correctas",
-  activity:"Actividad reciente",
-  noActivity:"Todavía no has completado ningún simulacro. ¿Por qué no comenzar ahora?",
-  viewPerformance:"Ver rendimiento",
-  quick:"Acceso rápido",
-  reviewErrors:"Revisar mis errores",
-  fullExam:"Iniciar simulacro completo",
-  analyze:"Analizar rendimiento",
-  tip:"Consejo del día",
-  tipText:"¡La preparación constante es la clave del éxito!",
-  topics:"Progreso por materia (NPTE)",
-  musculo:"Musculoesquelético",
-  footer:"PT Exam Prep · Plataforma independiente de estudio · Contenido educativo",
-  selectAnswer:"Selecciona una respuesta.",
-  noMistakes:"Todavía no hay respuestas incorrectas para revisar. Completa un simulacro para comenzar.",
-  completed:"Simulacros completados",
-  questions:"Preguntas respondidas",
-  hits:"Respuestas correctas",
-  overall:"Precisión general",
-  last:"Último simulacro",
-  accuracy:"de precisión"
+en:{
+welcome:'Welcome, Vanessa! 👋',brandTagline:'Prepare. Practice. Pass.',eyebrow:'PHYSICAL THERAPY LICENSURE • FLORIDA',languageLabel:'WEBSITE AND QUESTION LANGUAGE',overall:'Overall',correctMetric:'Correct',incorrectMetric:'Incorrect',answeredMetric:'Answered',topicMusculo:'Musculoskeletal',topicNeuro:'Neuromuscular',topicCardio:'Cardiopulmonary',topicEbp:'EBP',topicPeds:'Pediatrics',otherBack:'Back to home',reviewTitle:'Review questions',reviewText:'Questions you answered incorrectly will appear here once your history is connected to your account.',performanceTitle:'My performance',performanceText:'Your history, scores, and subject progress will be displayed here after Supabase integration.',studyPlanTitle:'Study plan',studyPlanText:'Here you will be able to organize weekly goals, subjects, and study sessions.',glossaryTitle:'Glossary',glossaryText:'This section will contain a glossary of clinical terms in English and Portuguese.',sidebarMotivation:'You’ve got this!',sidebarJourney:'Your Florida PT journey',npteTitle:'NPTE Practice',timerLabel:'Time',subtitle:'Your preparation for physical therapy licensure starts here.',heroTitle:'Let’s achieve this goal together!',heroText:'Study strategically, practice with confidence, and track your progress toward your Florida physical therapy license.',progressTitle:'Your study progress',
+nav:['Home','Dashboard','Practice by topic','Full-length exams','Review questions','My results','Study plan','Glossary'],
+areas:'Study areas',npte:'Clinical knowledge, core subjects, and Evidence-Based Practice.',laws:'Florida statutes, regulations, and professional conduct.',start:'▶ Start practice',recent:'🏆 Recent results',noRecent:'No completed practice exams yet',recentInfo:'Your results will appear here',synced:'History will sync when your account is connected',topics:'📊 Study by subject',quick:'⚡ Quick links',full:'◷ Take a full-length practice exam',review:'⟳ Review incorrect questions',plan:'▦ View study plan',stats:'▥ View statistics',language:'🌐 Language',languageHelp:'Use the selector in the sidebar to change the language of the entire platform and its questions.',goal:'🎯 Your goal: earn your Florida physical therapy license!',goalText:'Study smart, track your progress, and get ready for success.',createPlan:'Create study plan →',footer:'PT Exam Prep · Independent study platform · Educational content',correct:'Correct',incorrect:'Incorrect',answered:'Answered',next:'Next question',finish:'Finish',choose:'Please select an answer before continuing.',right:'✓ Correct! ',wrong:'✗ Incorrect. ',result:'Your result: ',back:'Back to home',time:'Time'
 }
 };
-
-const questions=[
-{
-type:"npte",topic:"Musculoskeletal",
-q:{
-en:"Which muscle group controls knee flexion eccentrically when descending stairs?",
-pt:"Qual grupo muscular controla excentricamente a flexão do joelho ao descer escadas?",
-es:"¿Qué grupo muscular controla excéntricamente la flexión de rodilla al bajar escaleras?"
-},
-o:{
-en:["Quadriceps","Hamstrings","Hip adductors","Calf muscles"],
-pt:["Quadríceps","Isquiotibiais","Adutores do quadril","Panturrilha"],
-es:["Cuádriceps","Isquiotibiales","Aductores de cadera","Pantorrilla"]
-},
-a:0,
-why:{
-en:"The quadriceps control knee flexion eccentrically during stair descent.",
-pt:"O quadríceps controla excentricamente a flexão do joelho durante a descida de escadas.",
-es:"El cuádriceps controla excéntricamente la flexión de rodilla durante el descenso de escaleras."
-}
-},
-{
-type:"ebp",topic:"Evidence-Based Practice",
-q:{
-en:"Which source generally provides a high level of evidence about intervention effectiveness?",
-pt:"Qual fonte geralmente oferece alto nível de evidência sobre a eficácia de uma intervenção?",
-es:"¿Qué fuente suele proporcionar un alto nivel de evidencia sobre la eficacia de una intervención?"
-},
-o:{
-en:["Case report","Expert opinion","Systematic review of high-quality randomized trials","Personal experience"],
-pt:["Relato de caso","Opinião de especialista","Revisão sistemática de ensaios randomizados de alta qualidade","Experiência pessoal"],
-es:["Reporte de caso","Opinión de expertos","Revisión sistemática de ensayos aleatorizados de alta calidad","Experiencia personal"]
-},
-a:2,
-why:{
-en:"A rigorous systematic review synthesizes multiple studies and is generally high in evidence hierarchies.",
-pt:"Uma revisão sistemática rigorosa reúne vários estudos e geralmente ocupa posição elevada nas hierarquias de evidência.",
-es:"Una revisión sistemática rigurosa reúne varios estudios y suele ocupar una posición alta en las jerarquías de evidencia."
-}
-},
-{
-type:"laws",topic:"Florida Laws & Rules",
-q:{
-en:"Which Florida Statutes chapter primarily governs physical therapy practice?",
-pt:"Qual capítulo dos Estatutos da Flórida regulamenta principalmente a prática da fisioterapia?",
-es:"¿Qué capítulo de los Estatutos de Florida regula principalmente la práctica de fisioterapia?"
-},
-o:{
-en:["Chapter 486","Chapter 458","Chapter 400","Chapter 320"],
-pt:["Capítulo 486","Capítulo 458","Capítulo 400","Capítulo 320"],
-es:["Capítulo 486","Capítulo 458","Capítulo 400","Capítulo 320"]
-},
-a:0,
-why:{
-en:"Chapter 486 is the Florida Physical Therapy Practice Act. Always verify the current official text.",
-pt:"O Capítulo 486 corresponde à lei da prática de fisioterapia da Flórida. Verifique sempre o texto oficial atualizado.",
-es:"El Capítulo 486 corresponde a la ley de práctica de fisioterapia de Florida. Verifique siempre el texto oficial vigente."
-}
-}
-];
-
-let lang="pt",list=[],index=0,answers=[],startTime=0,timerInterval;
-let total=Number(localStorage.getItem("ptTotal")||0);
-let hits=Number(localStorage.getItem("ptHits")||0);
-let sessions=Number(localStorage.getItem("ptSessions")||0);
-let history=JSON.parse(localStorage.getItem("ptHistory")||"[]");
-let mistakes=JSON.parse(localStorage.getItem("ptMistakes")||"[]");
-let finished=false;
-
-function changeLanguage(){
- lang=document.getElementById("language").value;
- document.documentElement.lang=lang==="pt"?"pt-BR":lang;
- document.getElementById("welcome").textContent=translations[lang].welcome;
- document.getElementById("subtitle").textContent=translations[lang].subtitle;
- document.getElementById("next").textContent=translations[lang].next;
- updateStats();
- if(!document.getElementById("quiz").classList.contains("hidden")&&!finished)renderQuestion();
+let uiLang='pt';
+function showDashboard(btn) {
+  document.getElementById('dashboard').classList.remove('hidden');
+  document.getElementById('studentDashboard').classList.add('hidden');
+  document.getElementById('quiz').classList.add('hidden');
+  document.getElementById('otherView').classList.add('hidden');
+  setActive(btn);
 }
 
-function hidePanels(){
- ["quiz","review","performance"].forEach(id=>document.getElementById(id).classList.add("hidden"));
+function showStudentDashboard(btn) {
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('studentDashboard').classList.remove('hidden');
+  document.getElementById('quiz').classList.add('hidden');
+  document.getElementById('otherView').classList.add('hidden');
+  setActive(btn);
+
+  loadStudentDashboard();
 }
 
-function setActive(button){
- document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));
- if(button)button.classList.add("active");
+function setActive(btn){document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active')}
+async function start(type, btn) {
+  if (type === 'laws') {
+    alert('O banco de questões de Florida Laws & Rules ainda está em preparação.');
+    return;
+  }
+
+  try {
+    setActive(btn);
+
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('otherView').classList.add('hidden');
+    document.getElementById('quiz').classList.remove('hidden');
+
+    document.getElementById('feedback').textContent = 'Carregando questões...';
+
+    const result = await callExamApi('start_attempt', {
+      exam_type: 'NPTE_PRACTICE',
+      question_count: 25,
+      language: uiLang,
+      category: 'NPTE'
+    });
+
+    attemptId = result.attempt_id;
+window.currentExamTotal = Number(result.total_questions || 10);
+    if (!attemptId) {
+      throw new Error('A API não retornou o identificador da prova.');
+    }
+
+    questions = [];
+    current = 0;
+    selected = null;
+    answers = [];
+    startedAt = Date.now();
+
+    await loadCurrentQuestion();
+
+    clearInterval(timerInterval);
+    timerInterval = setInterval(updateTimer, 1000);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (error) {
+    console.error('Erro ao iniciar prova:', error);
+
+    clearInterval(timerInterval);
+
+    document.getElementById('feedback').textContent =
+      'Não foi possível iniciar a prova: ' + error.message;
+
+    alert('Erro ao iniciar a prova:\n' + error.message);
+  }
 }
-
-function showDashboard(button){
- hidePanels();
- setActive(button);
- document.querySelector(".banner").scrollIntoView({behavior:"smooth"});
-}
-
-function start(type,button){
- clearInterval(timerInterval);
- hidePanels();
- setActive(button);
- if(type==="all")list=[...questions];
- else if(type==="npte")list=questions.filter(q=>q.type==="npte"||q.type==="ebp");
- else list=questions.filter(q=>q.type===type);
-
- if(!list.length)return;
- index=0;answers=[];finished=false;startTime=Date.now();
- document.getElementById("quiz").classList.remove("hidden");
- document.getElementById("quizTitle").textContent=
- type==="laws"?"Florida Laws & Rules":
- type==="ebp"?"Evidence-Based Practice":
- type==="all"?"Simulado completo":"NPTE Practice";
- document.getElementById("feedback").textContent="";
- document.getElementById("next").textContent=translations[lang].next;
- document.getElementById("next").onclick=nextQuestion;
- timerInterval=setInterval(()=>{
-  let s=Math.floor((Date.now()-startTime)/1000);
-  document.getElementById("timer").textContent=translations[lang].time+
-  String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
- },1000);
- renderQuestion();
- document.getElementById("quiz").scrollIntoView({behavior:"smooth"});
-}
-
 function renderQuestion(){
- const q=list[index];
- document.getElementById("question").textContent=
- (index+1)+"/"+list.length+" · "+q.topic+" · "+q.q[lang];
- const box=document.getElementById("options");
- box.innerHTML="";
- q.o[lang].forEach((option,i)=>{
-  const b=document.createElement("button");
-  b.className="option"+(answers[index]===i?" selected":"");
-  b.textContent=String.fromCharCode(65+i)+". "+option;
-  b.onclick=()=>{answers[index]=i;renderQuestion()};
-  box.appendChild(b);
- });
- document.getElementById("feedback").textContent="";
+ const q=questions[current], t=translations[uiLang];selected=null;document.getElementById('quizTitle').textContent=q.category.en==='Florida Laws & Rules'?'Florida Laws & Rules':translations[uiLang].npteTitle;
+ 
+document.getElementById('question').textContent=(current+1)+'/'+(window.currentExamTotal || questions.length)+' · '+q.question[uiLang];
+
+ const box=document.getElementById('options');box.innerHTML='';q.options[uiLang].forEach((o,i)=>{const b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+o;b.onclick=()=>{selected=i;document.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')};box.appendChild(b)});
+ document.getElementById('feedback').textContent='';document.getElementById('nextBtn').textContent=current===questions.length-1?translations[uiLang].finish:translations[uiLang].next;
 }
+async function loadCurrentQuestion() {
+  try {
+    selected = null;
 
-function nextQuestion(){
- if(finished){
-  hidePanels();
-  document.getElementById("next").onclick=nextQuestion;
-  document.getElementById("next").textContent=translations[lang].next;
-  return;
- }
- if(answers[index]===undefined){
-  alert(lang==="pt"?"Selecione uma alternativa.":"Please select an answer.");
-  return;
- }
- if(index<list.length-1){index++;renderQuestion();return;}
- finishQuiz();
+    document.getElementById('feedback').textContent =
+      'Carregando questão...';
+
+    const result = await callExamApi('get_question', {
+      attempt_id: attemptId,
+      question_order: current + 1
+    });
+
+    if (!result || !result.question) {
+      throw new Error('Não foi possível localizar a questão.');
+    }
+
+    const q = result.question;
+
+    const optionKeys = ['A', 'B', 'C', 'D'];
+
+    questions[current] = {
+      id: q.id,
+      category: {
+        en: q.subject || q.category || 'NPTE',
+        pt: q.subject || q.category || 'NPTE'
+      },
+      question: {
+        en: q.question_text,
+        pt: q.question_text
+      },
+      options: {
+        en: optionKeys.map(key => q.options[key]),
+        pt: optionKeys.map(key => q.options[key])
+      }
+    };
+
+    currentQuestionId = q.id;
+
+    renderQuestion();
+
+  } catch (error) {
+    console.error('Erro ao carregar questão:', error);
+    document.getElementById('feedback').textContent =
+      'Erro ao carregar questão: ' + error.message;
+    throw error;
+  }
 }
+async function nextQuestion() {
+  if (selected === null) {
+    document.getElementById('feedback').textContent =
+      translations[uiLang].choose;
+    return;
+  }
 
-function finishQuiz(){
- clearInterval(timerInterval);
- finished=true;
- let right=0;
- list.forEach((q,i)=>{
-  if(answers[i]===q.a)right++;
-  else mistakes.push({question:q,selected:answers[i]});
- });
- total+=list.length;hits+=right;sessions++;
- const percent=Math.round(right/list.length*100);
- const elapsed=Math.floor((Date.now()-startTime)/1000);
- history.unshift({date:new Date().toLocaleDateString(),right,total:list.length,percent});
- history=history.slice(0,20);
- mistakes=mistakes.slice(-100);
- localStorage.setItem("ptTotal",total);
- localStorage.setItem("ptHits",hits);
- localStorage.setItem("ptSessions",sessions);
- localStorage.setItem("ptHistory",JSON.stringify(history));
- localStorage.setItem("ptMistakes",JSON.stringify(mistakes));
- updateStats();
+  const btn = document.getElementById('nextBtn');
+  btn.disabled = true;
 
- document.getElementById("question").textContent=
- translations[lang].result+right+"/"+list.length+" ("+percent+"%)";
- document.getElementById("options").innerHTML="";
- document.getElementById("feedback").textContent=list.map((q,i)=>
- (i+1)+". "+(answers[i]===q.a?"✓ ":"✗ ")+q.o[lang][q.a]+"\n"+q.why[lang]
- ).join("\n\n");
- document.getElementById("next").textContent="Concluir";
- document.getElementById("next").onclick=()=>{
-  hidePanels();
-  document.getElementById("next").onclick=nextQuestion;
-  document.getElementById("next").textContent=translations[lang].next;
+  try {
+    const q = questions[current];
+    const selectedLetter = String.fromCharCode(65 + selected);
+
+    document.getElementById('feedback').textContent =
+      'Registrando sua resposta...';
+
+    await callExamApi('submit_answer', {
+      attempt_id: attemptId,
+      question_id: currentQuestionId,
+      answer: selectedLetter
+    });
+
+    answers.push({
+      selected: selected,
+      question: q
+    });
+
+    if (current < window.currentExamTotal - 1) {
+      current++;
+      await loadCurrentQuestion();
+    } else {
+      clearInterval(timerInterval);
+
+      window.lastExamResult = await callExamApi('finish_attempt', {
+        attempt_id: attemptId
+      });
+
+      showResults();
+    }
+
+  } catch (error) {
+    console.error('Erro ao registrar resposta:', error);
+
+    document.getElementById('feedback').textContent =
+      'Não foi possível registrar a resposta: ' + error.message;
+
+  } finally {
+    btn.disabled = false;
+  }
+}
+function showResults() {
+  const result = window.lastExamResult;
+
+  if (!result) {
+    document.getElementById('feedback').textContent =
+      'Não foi possível carregar o resultado da prova.';
+    return;
+  }
+
+  const review = result.review || [];
+  const good = review.filter(item => item.is_correct).length;
+  const total = Number(result.total_questions ?? 10);
+  const score = Number(result.score ?? (good / total * 100));
+
+  document.getElementById('question').textContent =
+    translations[uiLang].result + good + '/' + total +
+    ' (' + Math.round(score) + '%)';
+
+  document.getElementById('options').innerHTML = '';
+
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.textContent = translations[uiLang].back;
+  nextBtn.onclick = () => {
+    nextBtn.onclick = nextQuestion;
+    showDashboard();
+  };
+
+  document.getElementById('feedback').textContent =
+    review.map((item, i) => {
+      const question = questions.find(
+        q => q.id === item.question_id
+      );
+
+      const correctIndex = ['A', 'B', 'C', 'D'].indexOf(
+        String(item.correct_answer).toUpperCase()
+      );
+
+      const selectedIndex = ['A', 'B', 'C', 'D'].indexOf(
+        String(item.selected_answer).toUpperCase()
+      );
+
+      const selectedText = question?.options[uiLang][selectedIndex] || '';
+      const correctText = question?.options[uiLang][correctIndex] || '';
+
+      return (
+        (i + 1) + '. ' +
+        (item.is_correct ? '✓ CORRETA' : '✗ INCORRETA') +
+        '\nSua resposta: ' + item.selected_answer + '. ' + selectedText +
+        '\nResposta correta: ' + item.correct_answer + '. ' + correctText +
+        '\n' + (item.explanation || '')
+      );
+    }).join('\n\n');
+}
+function updateTimer(){const s=Math.floor((Date.now()-startedAt)/1000);document.getElementById('timer').textContent=translations[uiLang].timerLabel+': '+String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function changeLanguages(){
+ uiLang=document.getElementById('globalLanguage').value;
+ const t=translations[uiLang];
+ const dashText = uiLang === 'en' ? {
+   studentDashTitle:'My Dashboard',
+   studentDashIntro:'Track your progress as you prepare for physical therapy licensure in Florida.',
+   dashQuestionsTitle:'Questions Answered',
+   dashQuestionsHelp:'Total questions practiced',
+   dashAccuracyTitle:'Accuracy Rate',
+   dashAccuracyHelp:'Overall practice performance',
+   dashCompletedTitle:'Completed Activities',
+   dashCompletedHelp:'Completed practice sessions and exams',
+   dashAverageTitle:'Average Activity Score',
+   dashAverageHelp:'Average score across completed activities',
+   dashAreaTitle:'Preparation by Area',
+   dashNpteTitle:'NPTE',
+   dashLawsTitle:'Florida Laws & Rules',
+   dashSubjectTitle:'Performance by Subject',
+   dashSubjectPlaceholder:'Subject results will appear here after your first activities.',
+   dashHistoryTitle:'Completed Activity History',
+   dashHistoryPlaceholder:'You have not completed any activities yet.'
+ } : {
+   studentDashTitle:'Meu Dashboard',
+   studentDashIntro:'Acompanhe sua evolução na preparação para a licença de fisioterapia na Flórida.',
+   dashQuestionsTitle:'Questões respondidas',
+   dashQuestionsHelp:'Total de questões praticadas',
+   dashAccuracyTitle:'Taxa de acerto',
+   dashAccuracyHelp:'Desempenho geral nas práticas',
+   dashCompletedTitle:'Atividades concluídas',
+   dashCompletedHelp:'Práticas e simulados finalizados',
+   dashAverageTitle:'Média das atividades',
+   dashAverageHelp:'Média das atividades concluídas',
+   dashAreaTitle:'Preparação por área',
+   dashNpteTitle:'NPTE',
+   dashLawsTitle:'Florida Laws & Rules',
+   dashSubjectTitle:'Desempenho por disciplina',
+   dashSubjectPlaceholder:'Os resultados por disciplina aparecerão aqui após as primeiras atividades.',
+   dashHistoryTitle:'Histórico de atividades concluídas',
+   dashHistoryPlaceholder:'Você ainda não concluiu nenhuma atividade.'
  };
-}
-
-function updateStats(){
- const pct=total?Math.round(hits/total*100):0;
- document.getElementById("score").textContent=pct+"%";
- document.getElementById("accuracy").textContent=pct+"%";
- document.getElementById("answered").textContent=total;
- document.getElementById("sessions").textContent=sessions;
- document.getElementById("progressRing").style.background=
- "conic-gradient(var(--green) "+(pct*3.6)+"deg,#dce5ef 0deg)";
-
- const types=["npte","laws","ebp"];
- types.forEach(type=>{
-  const qs=questions.filter(q=>q.type===type);
-  const answered=history.length?0:0;
-  const score=total?Math.round(hits/total*100):0;
-  document.getElementById(type+"Score").textContent=score+"%";
+ Object.entries(dashText).forEach(([id, value]) => {
+   const element = document.getElementById(id);
+   if (element) element.textContent = value;
  });
-
- const topicData={
-  musculo:questions.filter(q=>q.topic==="Musculoskeletal"),
-  ebp:questions.filter(q=>q.type==="ebp"),
-  laws:questions.filter(q=>q.type==="laws")
- };
- Object.keys(topicData).forEach(key=>{
-  const has=topicData[key].length>0;
-  const pctTopic=has&&total?Math.min(pct,100):0;
-  document.getElementById(key+"Bar").style.width=pctTopic+"%";
-  document.getElementById(key+"Pct").textContent=pctTopic+"%";
- });
-
- document.getElementById("lastActivity").textContent=history.length?
- "Último simulado: "+history[0].date+" · "+history[0].percent+"% de acertos.":
- "Você ainda não concluiu nenhum simulado. Que tal começar agora?";
-}
-
-
-function showReview(button){
- hidePanels();
- setActive(button);
- const box=document.getElementById("reviewContent");
-
- if(!mistakes.length){
-  box.textContent=translations[lang].noMistakes;
- }else{
-  box.innerHTML=mistakes.slice().reverse().map((m,i)=>
-   "<p><strong>"+(i+1)+". "+m.question.q[lang]+"</strong><br>"+
-   (lang==="pt"?"Resposta correta: ":lang==="es"?"Respuesta correcta: ":"Correct answer: ")+
-   m.question.o[lang][m.question.a]+"</p><p>"+
-   m.question.why[lang]+"</p><hr>"
-  ).join("");
+ if (!document.getElementById('studentDashboard').classList.contains('hidden')) {
+   loadStudentDashboard();
  }
-
- document.getElementById("review").classList.remove("hidden");
- document.getElementById("review").scrollIntoView({behavior:"smooth"});
+ document.querySelectorAll('#dashboard [data-en][data-pt]').forEach((element) => {
+   element.textContent = element.getAttribute(uiLang === 'en' ? 'data-en' : 'data-pt');
+ });
+ document.documentElement.lang=uiLang==='pt'?'pt-BR':'en-US';
+ document.getElementById('welcome').textContent=t.welcome;
+ document.getElementById('brandTagline').textContent=t.brandTagline;
+ document.getElementById('eyebrow').textContent=t.eyebrow;
+ document.getElementById('languageLabel').textContent=t.languageLabel;
+ // Translate the sidebar and top subtitle before the legacy page translations run.
+ const navButtons=document.querySelectorAll('.nav button');
+ navButtons.forEach((button,index)=>{
+   const icon=button.querySelector('.ico');
+   button.textContent='';
+   if(icon) button.appendChild(icon);
+   button.append(' '+t.nav[index]);
+ });
+ const subtitleElement=document.getElementById('subtitle');
+ if(subtitleElement) subtitleElement.textContent=t.subtitle;
+ const motivationElement=document.getElementById('sidebarMotivation');
+ if(motivationElement) motivationElement.textContent=t.sidebarMotivation;
+ const journeyElement=document.getElementById('sidebarJourney');
+ if(journeyElement) journeyElement.textContent=t.sidebarJourney;
+ document.getElementById('overallLabel').textContent=t.overall;
+ document.getElementById('correctMetric').textContent=t.correctMetric;
+ document.getElementById('incorrectMetric').textContent=t.incorrectMetric;
+ document.getElementById('answeredMetric').textContent=t.answeredMetric;
+ ['topicMusculo','topicNeuro','topicCardio','topicEbp','topicPeds'].forEach(id=>document.getElementById(id).textContent=t[id]);
+ document.getElementById('otherBack').textContent=t.otherBack;
+ document.getElementById('sidebarMotivation').textContent=t.sidebarMotivation;
+ document.getElementById('sidebarJourney').textContent=t.sidebarJourney;
+ document.getElementById('subtitle').textContent=t.subtitle;
+ document.getElementById('heroTitle').textContent=t.heroTitle;
+ document.getElementById('heroText').textContent=t.heroText;
+ document.getElementById('progressTitle').textContent=t.progressTitle;
+ const nav=document.querySelectorAll('.nav button');nav.forEach((b,i)=>{const icon=b.querySelector('.ico');b.textContent='';if(icon)b.appendChild(icon);b.append(' '+t.nav[i])});
+ document.querySelector('.section-title').textContent=t.areas;
+ document.querySelector('.study-card.npte p').textContent=t.npte;
+ document.querySelector('.study-card.laws p').textContent=t.laws;
+ document.querySelectorAll('.study-card .pill').forEach(b=>b.textContent=t.start);
+ const panels=document.querySelectorAll('.lower .panel');
+ panels[0].querySelector('h3').textContent=t.recent;
+ const rows=panels[0].querySelectorAll('.recent-row span');rows[0].textContent=t.noRecent;rows[1].textContent=t.recentInfo;rows[2].textContent=t.synced;
+ panels[1].querySelector('h3').textContent=t.topics;
+ panels[2].querySelector('h3').textContent=t.quick;
+ const quickBtns=panels[2].querySelectorAll('button');quickBtns[0].textContent=t.full;quickBtns[1].textContent=t.review;quickBtns[2].textContent=t.plan;quickBtns[3].textContent=t.stats;
+ panels[2].querySelector('.translation h3').textContent=t.language;
+ panels[2].querySelector('.translation p').textContent=t.languageHelp;
+ document.querySelector('.goal strong').textContent=t.goal;
+ document.querySelector('.goal p').textContent=t.goalText;
+ document.querySelector('.goal button').textContent=t.createPlan;
+ document.querySelector('footer').textContent=t.footer;
+ if(!document.getElementById('quiz').classList.contains('hidden') && current<questions.length)renderQuestion();
+ if(!document.getElementById('otherView').classList.contains('hidden')){const title=document.getElementById('otherTitle').textContent;const map={ 'Revisão de questões':'review','Review questions':'review','Meu desempenho':'performance','My performance':'performance','Plano de estudos':'studyPlan','Study plan':'studyPlan','Glossário':'glossary','Glossary':'glossary'};const key=map[title];if(key){const fn={review:showReview,performance:showPerformance,studyPlan:showStudyPlan,glossary:showGlossary}[key];fn();}}
 }
+function showOther(title,text,btn){document.getElementById('dashboard').classList.add('hidden');document.getElementById('quiz').classList.add('hidden');document.getElementById('otherView').classList.remove('hidden');document.getElementById('otherTitle').textContent=title;document.getElementById('otherText').textContent=text;setActive(btn)}
+function showReview(btn){const t=translations[uiLang];showOther(t.reviewTitle,t.reviewText,btn)}
+function showPerformance(btn){const t=translations[uiLang];showOther(t.performanceTitle,t.performanceText,btn)}
+function showStudyPlan(btn){const t=translations[uiLang];showOther(t.studyPlanTitle,t.studyPlanText,btn)}
+function showGlossary(btn){const t=translations[uiLang];showOther(t.glossaryTitle,t.glossaryText,btn)}
+changeLanguages();
+window.showDashboard=showDashboard;window.start=start;window.showReview=showReview;window.showPerformance=showPerformance;window.showStudyPlan=showStudyPlan;window.showGlossary=showGlossary;window.nextQuestion=nextQuestion;window.changeLanguages=changeLanguages;
+</script>
 
-function showPerformance(button){
- hidePanels();
- setActive(button);
- const t=translations[lang];
+<!-- Supabase: inicialização do cliente no navegador. A chave Publishable é pública. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const PT_EXAM_SUPABASE_URL = "https://flvvhsvsiwfdgpvpcspp.supabase.co";
+  const PT_EXAM_SUPABASE_PUBLISHABLE_KEY = "sb_publishable_4kl7iMhqWCEWLShcTpsObg_ViLCabAU";
 
- document.getElementById("performanceContent").textContent=
- t.completed+": "+sessions+
- " | "+t.questions+": "+total+
- " | "+t.hits+": "+hits+
- " | "+t.overall+": "+(total?Math.round(hits/total*100):0)+"%.";
+  if (window.supabase && window.supabase.createClient) {
+    window.ptExamSupabase = window.supabase.createClient(
+      PT_EXAM_SUPABASE_URL,
+      PT_EXAM_SUPABASE_PUBLISHABLE_KEY
+    );
+    console.info("PT Exam Prep: cliente Supabase inicializado.");
+  } else {
+    console.error("PT Exam Prep: biblioteca Supabase não foi carregada.");
+  }
+</script>
 
- document.getElementById("performance").classList.remove("hidden");
- document.getElementById("performance").scrollIntoView({behavior:"smooth"});
+
+
+<script>
+function openAuth(mode='login') {
+  const landing = document.getElementById('publicLanding');
+  const gate = document.getElementById('authGate');
+  landing.hidden = true;
+  gate.hidden = false;
+  if (mode === 'signup') document.getElementById('signupTab').click();
+  else document.getElementById('loginTab').click();
+  window.scrollTo({top:0,behavior:'instant'});
 }
+(function setupLandingLanguage(){
+  const selector = document.getElementById('landingLanguage');
+  if (!selector) return;
+  selector.addEventListener('change', () => {
+    const lang = selector.value;
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en-US';
+    document.querySelectorAll('#publicLanding [data-en], #publicLanding [data-pt]').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+    document.querySelectorAll('#publicLanding [data-en-html], #publicLanding [data-pt-html]').forEach(el => {
+      el.innerHTML = el.dataset[lang + 'Html'];
+    });
+  });
+})();
+</script>
 
-updateStats();
+<script>
+(() => {
+  const client = window.ptExamSupabase;
+  const gate = document.getElementById('authGate');
+  const app = document.getElementById('mainApp');
+  const form = document.getElementById('authForm');
+  const loginTab = document.getElementById('loginTab');
+  const signupTab = document.getElementById('signupTab');
+  const nameField = document.getElementById('nameField');
+  const confirmField = document.getElementById('confirmField');
+  const nameInput = document.getElementById('authName');
+  const emailInput = document.getElementById('authEmail');
+  const passwordInput = document.getElementById('authPassword');
+  const confirmInput = document.getElementById('authConfirm');
+  const submit = document.getElementById('authSubmit');
+  const message = document.getElementById('authMessage');
+  let mode = 'login';
+
+  function setMessage(text, type='') {
+    message.textContent = text;
+    message.className = type;
+  }
+  function setMode(next) {
+    mode = next;
+    const signup = mode === 'signup';
+    loginTab.classList.toggle('active', !signup);
+    signupTab.classList.toggle('active', signup);
+    nameField.hidden = !signup;
+    confirmField.hidden = !signup;
+    nameInput.required = signup;
+    confirmInput.required = signup;
+    passwordInput.autocomplete = signup ? 'new-password' : 'current-password';
+    submit.textContent = signup ? 'Criar minha conta' : 'Entrar';
+    setMessage(signup
+      ? 'Preencha seus dados para criar uma conta individual.'
+      : 'Entre com sua conta para acessar seus estudos.');
+  }
+  function showApp(session) {
+    document.getElementById('publicLanding').hidden = true;
+    gate.hidden = true;
+    app.style.display = '';
+    const profileName = session.user.user_metadata?.full_name || session.user.email || 'Aluno';
+    const profile = document.querySelector('.profile');
+    if (profile) profile.title = profileName;
+  const profileNameElement = document.getElementById('profileName');
+const profileMenuName = document.getElementById('profileMenuName');
+const profileEmail = document.getElementById('profileEmail');
+
+if (profileNameElement) profileNameElement.textContent = profileName;
+if (profileMenuName) profileMenuName.textContent = profileName;
+if (profileEmail) profileEmail.textContent = session.user.email || '';  
+  }
+
+  loginTab.addEventListener('click', () => setMode('login'));
+  signupTab.addEventListener('click', () => setMode('signup'));
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!client) {
+      setMessage('Não foi possível inicializar o serviço de autenticação. Atualize a página e tente novamente.', 'error');
+      return;
+    }
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    submit.disabled = true;
+    setMessage(mode === 'signup' ? 'Criando sua conta...' : 'Verificando seu acesso...');
+    try {
+      if (mode === 'signup') {
+        const fullName = nameInput.value.trim();
+        if (password !== confirmInput.value) {
+          setMessage('As senhas não coincidem.', 'error');
+          return;
+        }
+        if (password.length < 8) {
+          setMessage('A senha precisa ter pelo menos 8 caracteres.', 'error');
+          return;
+        }
+        const { data, error } = await client.auth.signUp({
+          email,
+          password,
+          options: { data: { full_name: fullName } }
+        });
+        if (error) throw error;
+        if (data.session) {
+          showApp(data.session);
+        } else {
+          setMessage('Cadastro enviado! Verifique seu e-mail e confirme o endereço antes de entrar.', 'success');
+          setMode('login');
+        }
+      } else {
+        const { data, error } = await client.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        showApp(data.session);
+      }
+    } catch (error) {
+      setMessage(error.message || 'Não foi possível concluir a operação.', 'error');
+    } finally {
+      submit.disabled = false;
+    }
+  });
+
+const profileButton = document.getElementById('profileButton');
+const profileMenu = document.getElementById('profileMenu');
+const logoutButton = document.getElementById('logoutButton');
+const forgotPasswordButton = document.getElementById('forgotPassword');
+
+profileButton?.addEventListener('click', () => {
+  profileMenu.hidden = !profileMenu.hidden;
+});
+
+document.addEventListener('click', (event) => {
+  if (
+    !profileButton.contains(event.target) &&
+    !profileMenu.contains(event.target)
+  ) {
+    profileMenu.hidden = true;
+  }
+});
+
+logoutButton?.addEventListener('click', async () => {
+  const { error } = await client.auth.signOut();
+
+  if (error) {
+    setMessage('Não foi possível sair da conta.', 'error');
+  } else {
+    profileMenu.hidden = true;
+  }
+});  
+forgotPasswordButton?.addEventListener('click', async () => {
+  const email = emailInput.value.trim();
+
+  if (!email) {
+    setMessage('Digite seu e-mail para redefinir a senha.', 'error');
+    emailInput.focus();
+    return;
+  }
+
+  const { error } = await client.auth.resetPasswordForEmail(email, {
+    redirectTo: window.location.origin + window.location.pathname
+  });
+
+  if (error) {
+    setMessage(error.message, 'error');
+  } else {
+    setMessage('Enviamos um link de recuperação para seu e-mail.', 'success');
+  }
+});
+client?.auth.getSession().then(({ data, error }) => {
+    if (error) {
+      setMessage('Não foi possível verificar a sessão. Tente entrar novamente.', 'error');
+      return;
+    }
+    if (data.session) showApp(data.session);
+  });
+
+  client?.auth.onAuthStateChange((event, session) => {
+    // INITIAL_SESSION sem usuário é o estado normal de um visitante.
+    // Nesse caso, mantemos a página pública visível e não abrimos o login.
+    if (session) {
+      showApp(session);
+      return;
+    }
+
+    if (event === 'SIGNED_OUT') {
+      app.style.display = 'none';
+      gate.hidden = true;
+      document.getElementById('publicLanding').hidden = false;
+      setMode('login');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  });
+})();
+</script>
+
+</body></html>
